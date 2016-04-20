@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ii="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
+             xmlns:v="clr-namespace:Example.FormsApp.Views.Wizard"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type={x:Type v:Input1ViewModel}}"
+             x:Class="Example.FormsApp.Views.Wizard.Input1View">
+  <Button Text="Back">
+    <Button.Behaviors>
+      <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateToMenu"/>
+    </Button.Behaviors>
+  </Button>
+</ContentView>

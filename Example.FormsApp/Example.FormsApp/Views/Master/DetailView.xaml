@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Example.FormsApp.Views.Master"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type={x:Type vm:DetailViewModel}}"
+             x:Class="Example.FormsApp.Views.Master.DetailView">
+</ContentView>
