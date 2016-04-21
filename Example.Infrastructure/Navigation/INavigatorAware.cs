@@ -5,6 +5,6 @@
     /// </summary>
     public interface INavigatorAware
     {
-        Navigator Navigator { get; set; }
+        INavigator Navigator { get; set; }
     }
 }

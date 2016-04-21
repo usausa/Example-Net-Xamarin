@@ -3,14 +3,21 @@
     using System;
     using System.Collections.Generic;
 
+    using Example.Navigation.Plugins;
+    using Example.Navigation.Plugins.Context;
+    using Example.Navigation.Plugins.Parameter;
+
     /// <summary>
     ///
     /// </summary>
-    public class Navigator
+    public class Navigator : INavigator
     {
         public event EventHandler<NavigatingEventArgs> Navigating;
 
         private readonly Dictionary<object, Type> idToViewType = new Dictionary<object, Type>();
+
+        public ICollection<INavigatorPlugin> Plugins { get; } =
+            new List<INavigatorPlugin> { new ViewParameterPlugin(), new ViewContextPlugin() };
 
         public INavigatorFactory Factory { get; set; }
 
@@ -44,52 +51,76 @@
                 return;
             }
 
-            var context = new NavigatingContext
+            var navigationContext = new NavigatingContext
             {
                 PreviousViewId = CurrentViewId,
                 PreviousView = CurrentView,
+                PreviousTarget = CurrentTarget,
                 ViewId = id
             };
 
+            var pluginContext = new NavigatorPluginContext(Factory);
+
             // From
-            if (context.PreviousView != null)
+            if (navigationContext.PreviousView != null)
             {
-                (Provider.ResolveEventTarget(context.PreviousView) as IViewEventSupport)?.OnViewNavigateFrom(context);
+                (Provider.ResolveEventTarget(navigationContext.PreviousView) as IViewEventSupport)?.OnViewNavigateFrom(navigationContext);
+            }
+
+            foreach (var plugin in Plugins)
+            {
+                plugin.OnNavigateFrom(pluginContext, CurrentView, CurrentTarget);
             }
 
             // Create
             var view = Factory.Create(type);
             var target = Provider.ResolveEventTarget(view);
 
-            context.View = view;
-            context.Target = target;
+            foreach (var plugin in Plugins)
+            {
+                plugin.OnCreate(pluginContext, view, target);
+            }
+
+            // Update
+            navigationContext.View = view;
+            navigationContext.Target = target;
 
             CurrentViewId = id;
             CurrentView = view;
             CurrentTarget = target;
 
             // Injection
-            var aware = context.Target as INavigatorAware;
+            var aware = navigationContext.Target as INavigatorAware;
             if (aware != null)
             {
                 aware.Navigator = this;
             }
 
             // Event
-            Navigating?.Invoke(this, new NavigatingEventArgs { Context = context });
+            Navigating?.Invoke(this, new NavigatingEventArgs { Context = navigationContext });
 
             // Switch
             Provider.ViewSwitch(view);
 
             // To
-            (context.Target as IViewEventSupport)?.OnViewNavigateTo(context);
+            foreach (var plugin in Plugins)
+            {
+                plugin.OnNavigateTo(pluginContext, CurrentView, CurrentTarget);
+            }
+
+            (navigationContext.Target as IViewEventSupport)?.OnViewNavigateTo(navigationContext);
 
             // Dispose Old
-            if (context.PreviousView != null)
+            if (navigationContext.PreviousView != null)
             {
-                Provider.ViewDispose(context.PreviousView);
-                (context.PreviousView as IDisposable)?.Dispose();
-                (context.Target as IDisposable)?.Dispose();
+                foreach (var plugin in Plugins)
+                {
+                    plugin.OnDispose(pluginContext, navigationContext.PreviousView, navigationContext.PreviousTarget);
+                }
+
+                Provider.ViewDispose(navigationContext.PreviousView);
+                (navigationContext.PreviousView as IDisposable)?.Dispose();
+                (navigationContext.PreviousTarget as IDisposable)?.Dispose();
             }
         }
     }

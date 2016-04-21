@@ -9,7 +9,8 @@
         Calculator,
 
         Master,
-        Detail,
+        DetailNew,
+        DetailEdit,
 
         Input1,
         Input2,

@@ -16,6 +16,6 @@
         /// <summary>
         ///
         /// </summary>
-        public Navigator Navigator { get; set; }
+        public INavigator Navigator { get; set; }
     }
 }

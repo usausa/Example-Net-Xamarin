@@ -120,7 +120,7 @@
         /// <param name="e"></param>
         private void MessengerOnRecieved(object sender, MessengerEventArgs e)
         {
-            if ((Message == null) || (e.Message == null) || Message.Equals(e.Message))
+            if ((Message == null) || Message.Equals(e.Message))
             {
                 foreach (var action in Actions)
                 {

@@ -1,5 +1,7 @@
 ﻿namespace Example.FormsApp
 {
+    using System.Reflection;
+
     using Example.FormsApp.Device;
     using Example.FormsApp.Infrastructure;
     using Example.FormsApp.Models;
@@ -34,23 +36,15 @@
             kernel.Bind<Calculator>().ToConstant(new Calculator(5));
             kernel.Bind<ApplicationState>().ToSelf().InSingletonScope();
 
-            kernel.Bind<Navigator>().ToSelf().InSingletonScope();
+            var navigator = new Navigator { Factory = new NinjectNavigatorFactory(kernel) };
+            navigator.AutoRegister(GetType().GetTypeInfo().Assembly);   // slow?
+            kernel.Bind<INavigator>().ToConstant(navigator);
+
             kernel.Bind<IMessenger>().To<Messenger>().InSingletonScope();
 
             var masterPage = kernel.Get<MasterPage>();
 
-            var navigator = kernel.Get<Navigator>();
-            navigator.Factory = new NinjectNavigatorFactory(kernel);
             navigator.Provider = new ContentViewProvider { Container = masterPage.ContentRegion };
-
-            navigator.AddView(ViewId.Menu, typeof(MenuView));
-            navigator.AddView(ViewId.Debug, typeof(DebugView));
-            navigator.AddView(ViewId.Calculator, typeof(CalculatorView));
-            navigator.AddView(ViewId.Master, typeof(MasterView));
-            navigator.AddView(ViewId.Detail, typeof(DetailView));
-            navigator.AddView(ViewId.Input1, typeof(Input1View));
-            navigator.AddView(ViewId.Input2, typeof(Input2View));
-            navigator.AddView(ViewId.Result, typeof(ResultView));
 
             MainPage = masterPage;
 

@@ -39,7 +39,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ComponentModel\NotificationObject.cs" />
+    <Compile Include="Navigation\Plugins\AttributeMemberCache.cs" />
+    <Compile Include="Navigation\Plugins\AttributeMemberFactory.cs" />
     <Compile Include="Navigation\Forms\ContentViewProvider.cs" />
+    <Compile Include="Navigation\INavigator.cs" />
     <Compile Include="Navigation\IViewEventSupport.cs" />
     <Compile Include="Navigation\IViewProvider.cs" />
     <Compile Include="Navigation\NavigatingContext.cs" />
@@ -49,7 +52,16 @@
     <Compile Include="Navigation\DefaultNavigatorFactory.cs" />
     <Compile Include="Navigation\INavigatorFactory.cs" />
     <Compile Include="Navigation\INavigatorAware.cs" />
-    <Compile Include="Navigation\IViewFactory.cs" />
+    <Compile Include="Navigation\NavigatorExtensions.cs" />
+    <Compile Include="Navigation\Plugins\AttributeMember.cs" />
+    <Compile Include="Navigation\Plugins\Context\IViewContextSupport.cs" />
+    <Compile Include="Navigation\Plugins\Context\ViewContextAttribute.cs" />
+    <Compile Include="Navigation\Plugins\Context\ViewContextPlugin.cs" />
+    <Compile Include="Navigation\Plugins\INavigatorPlugin.cs" />
+    <Compile Include="Navigation\Plugins\NavigatorPluginBase.cs" />
+    <Compile Include="Navigation\Plugins\NavigatorPluginContext.cs" />
+    <Compile Include="Navigation\Plugins\Parameter\ViewParameterPlugin.cs" />
+    <Compile Include="Navigation\ViewAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Windows\Data\NotConverter.cs" />
     <Compile Include="Windows\Interactivity\CallMethodBehavior.cs" />

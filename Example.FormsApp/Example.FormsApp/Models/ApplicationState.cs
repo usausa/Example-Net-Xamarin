@@ -1,14 +1,9 @@
 ﻿namespace Example.FormsApp.Models
 {
-    using System.Diagnostics;
+    using Example.ComponentModel;
 
-    public class ApplicationState
+    public class ApplicationState : NotificationObject
     {
         public int Counter { get; set; }
-
-        public ApplicationState()
-        {
-            Debug.WriteLine("ApplicationState created.");
-        }
     }
 }

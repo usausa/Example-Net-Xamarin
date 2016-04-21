@@ -6,6 +6,8 @@
 
         public object PreviousView { get; internal set; }
 
+        public object PreviousTarget { get; internal set; }
+
         public object ViewId { get; internal set; }
 
         public object View { get; internal set; }

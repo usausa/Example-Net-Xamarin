@@ -1,5 +1,8 @@
 ﻿namespace Example.FormsApp.Views
 {
+    using Example.Navigation;
+
+    [View(ViewId.Debug)]
     public partial class DebugView
     {
         private static int instance;

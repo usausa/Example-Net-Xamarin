@@ -12,7 +12,7 @@
     /// </summary>
     public class MasterPageViewModel : NotificationObject, IDisposable
     {
-        private readonly Navigator navigator;
+        private readonly INavigator navigator;
 
         private string title;
 
@@ -32,7 +32,7 @@
         /// </summary>
         /// <param name="navigator"></param>
         /// <param name="messenger"></param>
-        public MasterPageViewModel(Navigator navigator, IMessenger messenger)
+        public MasterPageViewModel(INavigator navigator, IMessenger messenger)
         {
             this.navigator = navigator;
             Messenger = messenger;

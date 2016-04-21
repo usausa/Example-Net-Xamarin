@@ -8,9 +8,18 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type={x:Type v:Input1ViewModel}}"
              x:Class="Example.FormsApp.Views.Wizard.Input1View">
-  <Button Text="Back">
-    <Button.Behaviors>
-      <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateToMenu"/>
-    </Button.Behaviors>
-  </Button>
+  <StackLayout>
+    <Button Text="Cancel">
+      <Button.Behaviors>
+        <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateBack"/>
+      </Button.Behaviors>
+    </Button>
+    <Button Text="Next">
+      <Button.Behaviors>
+        <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateNext"/>
+      </Button.Behaviors>
+    </Button>
+    <Label Text="Value1"/>
+    <Entry Text="{Binding Context.Value1}"/>
+  </StackLayout>
 </ContentView>
