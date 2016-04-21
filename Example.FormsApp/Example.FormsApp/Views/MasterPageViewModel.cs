@@ -10,7 +10,7 @@
     /// <summary>
     ///
     /// </summary>
-    public class MasterPageViewModel : NotificationObject, IDisposable
+    public sealed class MasterPageViewModel : NotificationObject, IDisposable
     {
         private readonly INavigator navigator;
 

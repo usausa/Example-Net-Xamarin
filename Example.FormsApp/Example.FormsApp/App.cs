@@ -33,10 +33,12 @@
         {
             kernel.Bind<IDevice>().ToConstant(device);
 
+            kernel.Bind<DataService>().ToSelf().InSingletonScope();
+
             kernel.Bind<Calculator>().ToConstant(new Calculator(5));
             kernel.Bind<ApplicationState>().ToSelf().InSingletonScope();
 
-            var navigator = new Navigator { Factory = new NinjectNavigatorFactory(kernel) };
+            var navigator = new Navigator(); // { Factory = new NinjectNavigatorFactory(kernel) };
             navigator.AutoRegister(GetType().GetTypeInfo().Assembly);   // slow?
             kernel.Bind<INavigator>().ToConstant(navigator);
 

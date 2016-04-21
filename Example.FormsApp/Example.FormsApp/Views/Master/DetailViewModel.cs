@@ -8,5 +8,13 @@
         {
             get { return "Detail"; }
         }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public void NavigateBack()
+        {
+            Navigator.Forward(ViewId.Master);
+        }
     }
 }

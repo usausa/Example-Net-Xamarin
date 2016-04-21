@@ -6,7 +6,7 @@
     using Example.FormsApp.Models;
     using Example.Windows.Messaging;
 
-    public class DebugViewModel : ViewModelBase, IDisposable
+    public sealed class DebugViewModel : ViewModelBase, IDisposable
     {
         private static int instance;
 
@@ -49,7 +49,7 @@
         /// <summary>
         ///
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1821:RemoveEmptyFinalizers", Justification = "Ignore")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1821:RemoveEmptyFinalizers", Justification = "Debug")]
         ~DebugViewModel()
         {
             instance--;
@@ -59,6 +59,7 @@
         /// <summary>
         ///
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1816:CallGCSuppressFinalizeCorrectly", Justification = "Debug")]
         public void Dispose()
         {
             System.Diagnostics.Debug.WriteLine("[DEBUG] DebugViewModel.Dispose()");

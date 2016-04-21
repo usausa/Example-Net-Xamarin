@@ -4,7 +4,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:Example.FormsApp.Views.Master"
+             xmlns:ii="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type={x:Type vm:DetailViewModel}}"
              x:Class="Example.FormsApp.Views.Master.DetailView">
+  <StackLayout>
+    <Button Text="Back">
+      <Button.Behaviors>
+        <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateBack"/>
+      </Button.Behaviors>
+    </Button>
+  </StackLayout>
 </ContentView>

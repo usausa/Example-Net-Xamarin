@@ -6,7 +6,7 @@
     [View(ViewId.DetailEdit)]
     public partial class DetailView
     {
-        public DetailView(DetailView vm)
+        public DetailView(DetailViewModel vm)
         {
             BindingContext = vm;
             InitializeComponent();

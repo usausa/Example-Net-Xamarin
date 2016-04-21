@@ -65,11 +65,11 @@
             if (navigationContext.PreviousView != null)
             {
                 (Provider.ResolveEventTarget(navigationContext.PreviousView) as IViewEventSupport)?.OnViewNavigateFrom(navigationContext);
-            }
 
-            foreach (var plugin in Plugins)
-            {
-                plugin.OnNavigateFrom(pluginContext, CurrentView, CurrentTarget);
+                foreach (var plugin in Plugins)
+                {
+                    plugin.OnNavigateFrom(pluginContext, navigationContext.PreviousView, navigationContext.PreviousTarget);
+                }
             }
 
             // Create

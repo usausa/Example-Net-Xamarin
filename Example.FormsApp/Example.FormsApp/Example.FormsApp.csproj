@@ -43,11 +43,12 @@
     <Compile Include="App.cs" />
     <Compile Include="Device\IDevice.cs" />
     <Compile Include="Infrastructure\MessengerExtensions.cs" />
-    <Compile Include="Infrastructure\NinjectNavigatorFactory.cs" />
     <Compile Include="Interactivity\DisplayAlertMessageAction.cs" />
     <Compile Include="Interactivity\DisplayAlertParameter.cs" />
     <Compile Include="Models\ApplicationState.cs" />
     <Compile Include="Models\Calculator.cs" />
+    <Compile Include="Models\DataEntity.cs" />
+    <Compile Include="Models\DataService.cs" />
     <Compile Include="Models\WizardContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MessageId.cs" />

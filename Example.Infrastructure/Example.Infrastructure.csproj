@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ComponentModel\NotificationObject.cs" />
+    <Compile Include="ComponentModel\NotificationValue.cs" />
     <Compile Include="Navigation\Plugins\AttributeMemberCache.cs" />
     <Compile Include="Navigation\Plugins\AttributeMemberFactory.cs" />
     <Compile Include="Navigation\Forms\ContentViewProvider.cs" />
@@ -60,6 +61,8 @@
     <Compile Include="Navigation\Plugins\INavigatorPlugin.cs" />
     <Compile Include="Navigation\Plugins\NavigatorPluginBase.cs" />
     <Compile Include="Navigation\Plugins\NavigatorPluginContext.cs" />
+    <Compile Include="Navigation\Plugins\Parameter\Direction.cs" />
+    <Compile Include="Navigation\Plugins\Parameter\ViewParameterAttribute.cs" />
     <Compile Include="Navigation\Plugins\Parameter\ViewParameterPlugin.cs" />
     <Compile Include="Navigation\ViewAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

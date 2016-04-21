@@ -2,53 +2,13 @@
 <RuleSet Name="Example.FormsApp Rules" Description="これらの規則は、セキュリティ ホール、アプリケーション クラッシュ、その他の重要な論理エラーやデザイン エラーなど、コードに含まれる最も重要な問題に関するものです。プロジェクトにカスタムの規則セットを作成する場合は、必ずこの規則セットを含める必要があります。" ToolsVersion="14.0">
   <IncludeAll Action="Warning" />
   <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CA1006" Action="None" />
     <Rule Id="CA1020" Action="None" />
     <Rule Id="CA1026" Action="None" />
     <Rule Id="CA1045" Action="None" />
+    <Rule Id="CA1062" Action="None" />
     <Rule Id="CA2210" Action="None" />
     <!-- 色々エラーが発生するので、一端コード分析はやめる -->
-    <Rule Id="CA1001" Action="None" />
-    <Rule Id="CA1031" Action="None" />
-    <Rule Id="CA1062" Action="None" />
-    <Rule Id="CA1302" Action="None" />
-    <Rule Id="CA1303" Action="None" />
-    <Rule Id="CA1305" Action="None" />
-    <Rule Id="CA1306" Action="None" />
-    <Rule Id="CA1307" Action="None" />
-    <Rule Id="CA1308" Action="None" />
-    <Rule Id="CA1309" Action="None" />
-    <Rule Id="CA1500" Action="None" />
-    <Rule Id="CA1502" Action="None" />
-    <Rule Id="CA1505" Action="None" />
-    <Rule Id="CA1506" Action="None" />
-    <Rule Id="CA1600" Action="None" />
-    <Rule Id="CA1601" Action="None" />
-    <Rule Id="CA1800" Action="None" />
-    <Rule Id="CA1804" Action="None" />
-    <Rule Id="CA1806" Action="None" />
-    <Rule Id="CA1809" Action="None" />
-    <Rule Id="CA1814" Action="None" />
-    <Rule Id="CA1816" Action="None" />
-    <Rule Id="CA1820" Action="None" />
-    <Rule Id="CA2000" Action="None" />
-    <Rule Id="CA2001" Action="None" />
-    <Rule Id="CA2002" Action="None" />
-    <Rule Id="CA2003" Action="None" />
-    <Rule Id="CA2100" Action="None" />
-    <Rule Id="CA2103" Action="None" />
-    <Rule Id="CA2107" Action="None" />
-    <Rule Id="CA2122" Action="None" />
-    <Rule Id="CA2200" Action="None" />
-    <Rule Id="CA2201" Action="None" />
-    <Rule Id="CA2202" Action="None" />
-    <Rule Id="CA2204" Action="None" />
-    <Rule Id="CA2208" Action="None" />
-    <Rule Id="CA2215" Action="None" />
-    <Rule Id="CA2219" Action="None" />
-    <Rule Id="CA2233" Action="None" />
-    <Rule Id="CA2234" Action="None" />
-    <Rule Id="CA2241" Action="None" />
-    <Rule Id="CA2242" Action="None" />
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
     <Rule Id="SA1101" Action="Hidden" />
@@ -57,7 +17,9 @@
     <Rule Id="SA1202" Action="Hidden" />
     <Rule Id="SA1204" Action="Hidden" />
     <Rule Id="SA1402" Action="Hidden" />
+    <Rule Id="SA1516" Action="Hidden" />
     <Rule Id="SA1606" Action="Hidden" />
+    <Rule Id="SA1607" Action="Hidden" />
     <Rule Id="SA1614" Action="Hidden" />
     <Rule Id="SA1616" Action="Hidden" />
     <Rule Id="SA1622" Action="Hidden" />

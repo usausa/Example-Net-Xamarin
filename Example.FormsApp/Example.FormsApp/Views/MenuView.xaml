@@ -21,7 +21,7 @@
                                         MethodParameter="{x:Static v:ViewId.Calculator}"/>
       </Button.Behaviors>
     </Button>
-    <Button Text="Select">
+    <Button Text="Master">
       <Button.Behaviors>
         <ii:ParameterCallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Navigate"
                                         MethodParameter="{x:Static v:ViewId.Master}"/>
