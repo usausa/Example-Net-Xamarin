@@ -1,13 +1,24 @@
 ﻿namespace Example.Navigation.Forms
 {
+    using Example.Windows.Messaging;
+
     using Xamarin.Forms;
 
     /// <summary>
     ///
     /// </summary>
-    public class ContentViewProvider : IViewProvider
+    public class MessengerViewProvider : IViewProvider
     {
-        public ContentView Container { get; set; }
+        private IMessenger Messenger { get; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="messenger"></param>
+        public MessengerViewProvider(IMessenger messenger)
+        {
+            Messenger = messenger;
+        }
 
         /// <summary>
         ///
@@ -25,7 +36,7 @@
         /// <param name="view"></param>
         public void ViewSwitch(object view)
         {
-            Container.Content = (View)view;
+            Messenger.Send(null, new NavigateParameter((View)view));
         }
 
         /// <summary>

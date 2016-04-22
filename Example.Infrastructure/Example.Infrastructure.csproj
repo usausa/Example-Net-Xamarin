@@ -40,6 +40,10 @@
   <ItemGroup>
     <Compile Include="ComponentModel\NotificationObject.cs" />
     <Compile Include="ComponentModel\NotificationValue.cs" />
+    <Compile Include="Navigation\Forms\MessengerViewProvider.cs" />
+    <Compile Include="Navigation\Forms\NavigateParameter.cs" />
+    <Compile Include="Navigation\Forms\ViewNavigateMessageAction.cs" />
+    <Compile Include="Navigation\Forms\ViewCleanupHelper.cs" />
     <Compile Include="Navigation\Plugins\AttributeMemberCache.cs" />
     <Compile Include="Navigation\Plugins\AttributeMemberFactory.cs" />
     <Compile Include="Navigation\Forms\ContentViewProvider.cs" />
