@@ -7,7 +7,7 @@
     ///
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class AttributeMember<T>
+    public class AttributeMember<T> : IAttributeMember<T>
         where T : Attribute
     {
         private readonly FieldInfo fieldInfo;
@@ -39,7 +39,7 @@
         /// <summary>
         ///
         /// </summary>
-        public T Attribute { get; private set; }
+        public T Attribute { get; }
 
         /// <summary>
         ///

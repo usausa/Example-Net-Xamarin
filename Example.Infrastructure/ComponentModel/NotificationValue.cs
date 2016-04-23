@@ -6,7 +6,7 @@
     ///
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class NotificationValue<T> : INotifyPropertyChanged
+    public sealed class NotificationValue<T> : IValueHolder<T>, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

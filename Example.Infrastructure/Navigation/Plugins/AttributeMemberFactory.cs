@@ -15,14 +15,14 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static AttributeMember<T>[] GetAttributeMembers<T>(Type type)
+        public static IAttributeMember<T>[] GetAttributeMembers<T>(Type type)
             where T : Attribute
         {
             return type.GetTypeInfo().DeclaredFields.Where(fi => !fi.IsStatic)
-                .SelectMany(fi => fi.GetCustomAttributes<T>(), (fi, attr) => new AttributeMember<T>(fi, attr))
+                .SelectMany(fi => fi.GetCustomAttributes<T>(), (fi, attr) => (IAttributeMember<T>)new AttributeMember<T>(fi, attr))
                 .Union(
                     type.GetTypeInfo().DeclaredProperties.Where(pi => pi.CanWrite)
-                        .SelectMany(pi => pi.GetCustomAttributes<T>(), (pi, attr) => new AttributeMember<T>(pi, attr)))
+                        .SelectMany(pi => pi.GetCustomAttributes<T>(), (pi, attr) => (IAttributeMember<T>)new AttributeMember<T>(pi, attr)))
                 .ToArray();
         }
     }

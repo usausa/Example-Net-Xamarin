@@ -10,16 +10,16 @@
     public class AttributeMemberCache<T>
         where T : Attribute
     {
-        private readonly Dictionary<Type, AttributeMember<T>[]> cache = new Dictionary<Type, AttributeMember<T>[]>();
+        private readonly Dictionary<Type, IAttributeMember<T>[]> cache = new Dictionary<Type, IAttributeMember<T>[]>();
 
         /// <summary>
         ///
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public IEnumerable<AttributeMember<T>> GetAttributeMembers(Type type)
+        public IEnumerable<IAttributeMember<T>> GetAttributeMembers(Type type)
         {
-            AttributeMember<T>[] members;
+            IAttributeMember<T>[] members;
             if (cache.TryGetValue(type, out members))
             {
                 return members;
