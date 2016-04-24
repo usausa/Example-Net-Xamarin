@@ -70,6 +70,7 @@
     <Compile Include="Navigation\Plugins\Parameter\Direction.cs" />
     <Compile Include="Navigation\Plugins\Parameter\ViewParameterAttribute.cs" />
     <Compile Include="Navigation\Plugins\Parameter\ViewParameterPlugin.cs" />
+    <Compile Include="Navigation\Plugins\ValueHolderAttributeMember.cs" />
     <Compile Include="Navigation\ViewAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Windows\Data\NotConverter.cs" />
