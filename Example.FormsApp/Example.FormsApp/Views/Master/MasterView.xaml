@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:ii="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
+             xmlns:i="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
              xmlns:vm="clr-namespace:Example.FormsApp.Views.Master"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type={x:Type vm:MasterViewModel}}"
@@ -11,17 +11,17 @@
   <StackLayout>
     <Button Text="Back">
       <Button.Behaviors>
-        <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateToMenu"/>
+        <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateToMenu"/>
       </Button.Behaviors>
     </Button>
     <Button Text="New">
       <Button.Behaviors>
-        <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateToDetailNew"/>
+        <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateToDetailNew"/>
       </Button.Behaviors>
     </Button>
     <Button Text="Edit">
       <Button.Behaviors>
-        <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateToDetailEdit"/>
+        <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateToDetailEdit"/>
       </Button.Behaviors>
     </Button>
     <ListView ItemsSource="{Binding Items}"/>

@@ -4,8 +4,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:nav="clr-namespace:Example.Navigation.Forms;assembly=Example.Infrastructure"
-             xmlns:ii="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
-             xmlns:ai="clr-namespace:Example.FormsApp.Interactivity"
+             xmlns:i="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
              xmlns:v="clr-namespace:Example.FormsApp.Views"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type={x:Type v:MasterPageViewModel}}"
@@ -17,17 +16,17 @@
                 WinPhone="0" />
   </ContentPage.Padding>
   <ContentPage.Behaviors>
-    <ii:MessageBehavior Messenger="{Binding Messenger}">
-      <ai:DisplayAlertMessageAction />
-    </ii:MessageBehavior>
+    <i:MessageBehavior Messenger="{Binding Messenger}">
+      <i:DisplayAlertMessageAction />
+    </i:MessageBehavior>
   </ContentPage.Behaviors>
   <StackLayout>
     <Label Text="{Binding Title}" VerticalOptions="Center" HorizontalOptions="Center" />
     <ContentView x:Name="Container">
       <ContentView.Behaviors>
-        <ii:MessageBehavior Messenger="{Binding Messenger}">
+        <i:MessageBehavior Messenger="{Binding Messenger}">
           <nav:ViewNavigateMessageAction />
-        </ii:MessageBehavior>
+        </i:MessageBehavior>
       </ContentView.Behaviors>
     </ContentView>
   </StackLayout>

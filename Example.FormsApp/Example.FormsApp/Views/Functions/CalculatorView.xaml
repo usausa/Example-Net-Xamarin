@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:ii="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
+             xmlns:i="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
              xmlns:vf="clr-namespace:Example.FormsApp.Views.Functions"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type={x:Type vf:CalculatorViewModel}}"
              x:Class="Example.FormsApp.Views.Functions.CalculatorView">
   <Button Text="Back">
     <Button.Behaviors>
-      <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateToMenu"/>
+      <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateToMenu"/>
     </Button.Behaviors>
   </Button>
 </ContentView>

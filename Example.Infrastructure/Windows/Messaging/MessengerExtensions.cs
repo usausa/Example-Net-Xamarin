@@ -1,10 +1,6 @@
-﻿namespace Example.FormsApp.Infrastructure
+﻿namespace Example.Windows.Messaging
 {
     using System.Threading.Tasks;
-
-    using Example.FormsApp.Interactivity;
-
-    using Example.Windows.Messaging;
 
     /// <summary>
     ///

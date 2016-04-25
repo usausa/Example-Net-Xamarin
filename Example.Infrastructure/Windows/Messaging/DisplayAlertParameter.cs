@@ -1,4 +1,4 @@
-﻿namespace Example.FormsApp.Interactivity
+﻿namespace Example.Windows.Messaging
 {
     using System.Threading.Tasks;
 

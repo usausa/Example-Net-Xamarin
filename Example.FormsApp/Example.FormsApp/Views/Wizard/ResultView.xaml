@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:ii="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
+             xmlns:i="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
              xmlns:v="clr-namespace:Example.FormsApp.Views.Wizard"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type={x:Type v:ResultViewModel}}"
@@ -11,12 +11,12 @@
   <StackLayout>
     <Button Text="Back">
       <Button.Behaviors>
-        <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateBack"/>
+        <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateBack"/>
       </Button.Behaviors>
     </Button>
     <Button Text="Complete">
       <Button.Behaviors>
-        <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateNext"/>
+        <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateNext"/>
       </Button.Behaviors>
     </Button>
     <Label Text="Value1"/>

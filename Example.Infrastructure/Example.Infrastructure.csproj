@@ -75,14 +75,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Windows\Data\NotConverter.cs" />
     <Compile Include="Windows\Interactivity\CallMethodBehavior.cs" />
+    <Compile Include="Windows\Interactivity\DisplayAlertMessageAction.cs" />
+    <Compile Include="Windows\Messaging\DisplayAlertParameter.cs" />
     <Compile Include="Windows\Interactivity\IMessageAction.cs" />
     <Compile Include="Windows\Interactivity\MessageAction.cs" />
     <Compile Include="Windows\Interactivity\MessageBehavior.cs" />
     <Compile Include="Windows\Interactivity\ParameterCallMethodBehavior.cs" />
+    <Compile Include="Windows\Interactivity\SetLabelTextMessageAction.cs" />
     <Compile Include="Windows\Messaging\CancelMessage.cs" />
     <Compile Include="Windows\Messaging\IMessenger.cs" />
     <Compile Include="Windows\Messaging\Messenger.cs" />
     <Compile Include="Windows\Messaging\MessengerEventArgs.cs" />
+    <Compile Include="Windows\Messaging\MessengerExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

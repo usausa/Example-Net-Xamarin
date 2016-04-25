@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:ii="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
-             xmlns:ai="clr-namespace:Example.FormsApp.Interactivity"
+             xmlns:i="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
              xmlns:v="clr-namespace:Example.FormsApp.Views"
              xmlns:a="clr-namespace:Example.FormsApp"
              mc:Ignorable="d"
@@ -13,36 +12,36 @@
   <StackLayout>
     <Button Text="Back">
       <Button.Behaviors>
-        <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateToMenu"/>
+        <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateToMenu"/>
       </Button.Behaviors>
     </Button>
     <Label VerticalOptions="Center" HorizontalOptions="Center" >
       <Label.Behaviors>
-        <ii:MessageBehavior Message="{x:Static a:MessageId.Debug}" Messenger="{Binding Messenger}">
-          <ai:SetTextMessageAction />
-        </ii:MessageBehavior>
+        <i:MessageBehavior Message="{x:Static a:MessageId.Debug}" Messenger="{Binding Messenger}">
+          <i:SetLabelTextMessageAction />
+        </i:MessageBehavior>
       </Label.Behaviors>
     </Label>
     <Button Text="Message">
       <Button.Behaviors>
-        <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Message"/>
+        <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Message"/>
       </Button.Behaviors>
     </Button>
     <Button Text="Information">
       <Button.Behaviors>
-        <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Information"/>
+        <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Information"/>
       </Button.Behaviors>
     </Button>
     <Label VerticalOptions="Center" HorizontalOptions="Center" Text="{Binding Result}">
     </Label>
     <Button Text="Confirm">
       <Button.Behaviors>
-        <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Confirm"/>
+        <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Confirm"/>
       </Button.Behaviors>
     </Button>
     <Button Text="GC">
       <Button.Behaviors>
-        <ii:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Collect"/>
+        <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Collect"/>
       </Button.Behaviors>
     </Button>
   </StackLayout>

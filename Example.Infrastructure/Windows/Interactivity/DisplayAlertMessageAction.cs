@@ -1,8 +1,8 @@
-﻿namespace Example.FormsApp.Interactivity
+﻿namespace Example.Windows.Interactivity
 {
     using System;
 
-    using Example.Windows.Interactivity;
+    using Example.Windows.Messaging;
 
     using Xamarin.Forms;
 
@@ -25,7 +25,7 @@
             }
             else
             {
-                parameter.Result = associatedObject.DisplayAlert("test", "message", "ok", "cancel");
+                parameter.Result = associatedObject.DisplayAlert(parameter.Title, parameter.Message, parameter.Accept, parameter.Cancel);
             }
         }
     }

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:ii="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
+             xmlns:i="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
              xmlns:v="clr-namespace:Example.FormsApp.Views"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type={x:Type v:MenuViewModel}}"
@@ -11,25 +11,25 @@
   <StackLayout>
     <Button Text="Debug">
       <Button.Behaviors>
-        <ii:ParameterCallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Navigate"
+        <i:ParameterCallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Navigate"
                                         MethodParameter="{x:Static v:ViewId.Debug}"/>
       </Button.Behaviors>
     </Button>
     <Button Text="Calculator">
       <Button.Behaviors>
-        <ii:ParameterCallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Navigate"
+        <i:ParameterCallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Navigate"
                                         MethodParameter="{x:Static v:ViewId.Calculator}"/>
       </Button.Behaviors>
     </Button>
     <Button Text="Master">
       <Button.Behaviors>
-        <ii:ParameterCallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Navigate"
+        <i:ParameterCallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Navigate"
                                         MethodParameter="{x:Static v:ViewId.Master}"/>
       </Button.Behaviors>
     </Button>
     <Button Text="Wizard">
       <Button.Behaviors>
-        <ii:ParameterCallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Navigate"
+        <i:ParameterCallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Navigate"
                                         MethodParameter="{x:Static v:ViewId.Input1}"/>
       </Button.Behaviors>
     </Button>

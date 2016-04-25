@@ -42,10 +42,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Device\IDevice.cs" />
-    <Compile Include="Infrastructure\MessengerExtensions.cs" />
     <Compile Include="Infrastructure\NinjectNavigatorFactory.cs" />
-    <Compile Include="Interactivity\DisplayAlertMessageAction.cs" />
-    <Compile Include="Interactivity\DisplayAlertParameter.cs" />
     <Compile Include="Models\ApplicationState.cs" />
     <Compile Include="Models\Calculator.cs" />
     <Compile Include="Models\DataEntity.cs" />
@@ -78,7 +75,6 @@
     </Compile>
     <Compile Include="Views\DebugViewModel.cs" />
     <Compile Include="Infrastructure\ViewModelBase.cs" />
-    <Compile Include="Interactivity\SetTextMessageAction.cs" />
     <Compile Include="Views\ViewId.cs" />
     <Compile Include="Views\Wizard\Input1View.xaml.cs">
       <DependentUpon>Input1View.xaml</DependentUpon>
