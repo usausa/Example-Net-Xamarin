@@ -34,7 +34,7 @@
         {
             get
             {
-                return fieldInfo != null ? fieldInfo.FieldType : propertyInfo.PropertyType;
+                return valuePropertyInfo.PropertyType;
             }
         }
 

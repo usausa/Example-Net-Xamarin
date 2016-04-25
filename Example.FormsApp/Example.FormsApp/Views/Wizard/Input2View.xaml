@@ -20,6 +20,6 @@
       </Button.Behaviors>
     </Button>
     <Label Text="Value2"/>
-    <Entry Text="{Binding Context.Value2}"/>
+    <Entry Text="{Binding Context.Value.Value2}"/>
   </StackLayout>
 </ContentView>

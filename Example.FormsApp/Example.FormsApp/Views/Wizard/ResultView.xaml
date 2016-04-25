@@ -20,8 +20,8 @@
       </Button.Behaviors>
     </Button>
     <Label Text="Value1"/>
-    <Label Text="{Binding Context.Value1}"/>
+    <Label Text="{Binding Context.Value.Value1}"/>
     <Label Text="Value2"/>
-    <Label Text="{Binding Context.Value2}"/>
+    <Label Text="{Binding Context.Value.Value2}"/>
   </StackLayout>
 </ContentView>

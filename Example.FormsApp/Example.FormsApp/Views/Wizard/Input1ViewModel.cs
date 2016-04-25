@@ -1,24 +1,19 @@
 ﻿namespace Example.FormsApp.Views.Wizard
 {
+    using Example.ComponentModel;
     using Example.FormsApp.Infrastructure;
     using Example.FormsApp.Models;
     using Example.Navigation.Plugins.Context;
 
     public class Input1ViewModel : ViewModelBase
     {
-        private WizardContext context;
-
         public override string Title
         {
             get { return "Input1"; }
         }
 
         [ViewContext]
-        public WizardContext Context
-        {
-            get { return context; }
-            set { SetProperty(ref context, value); }
-        }
+        public NotificationValue<WizardContext> Context { get; } = new NotificationValue<WizardContext>();
 
         /// <summary>
         ///
