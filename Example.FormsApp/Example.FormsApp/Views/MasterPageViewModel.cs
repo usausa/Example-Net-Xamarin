@@ -1,6 +1,7 @@
 ﻿namespace Example.FormsApp.Views
 {
     using System;
+    using System.Reflection;
 
     using Example.ComponentModel;
     using Example.FormsApp.Infrastructure;
@@ -55,8 +56,8 @@
         /// <param name="args"></param>
         private void NavigatorOnNavigating(object sender, NavigatingEventArgs args)
         {
-            var vm = args.Context.Target as ViewModelBase;
-            Title = vm != null ? vm.Title : "-";
+            var attribute = args.Context.View.GetType().GetTypeInfo().GetCustomAttribute<TitleAttribute>();
+            Title = attribute != null ? attribute.Title : "-";
         }
     }
 }

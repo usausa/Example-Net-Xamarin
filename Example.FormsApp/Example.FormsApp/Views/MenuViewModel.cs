@@ -7,11 +7,6 @@
     /// </summary>
     public class MenuViewModel : ViewModelBase
     {
-        public override string Title
-        {
-            get { return "Menu"; }
-        }
-
         /// <summary>
         ///
         /// </summary>

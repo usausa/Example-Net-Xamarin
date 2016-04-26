@@ -27,14 +27,6 @@
         /// <summary>
         ///
         /// </summary>
-        public override string Title
-        {
-            get { return "Debug"; }
-        }
-
-        /// <summary>
-        ///
-        /// </summary>
         /// <param name="state"></param>
         /// <param name="messenger"></param>
         public DebugViewModel(ApplicationState state, IMessenger messenger)

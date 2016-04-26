@@ -4,11 +4,6 @@
 
     public class CalculatorViewModel : ViewModelBase
     {
-        public override string Title
-        {
-            get { return "Calculator"; }
-        }
-
         /// <summary>
         ///
         /// </summary>

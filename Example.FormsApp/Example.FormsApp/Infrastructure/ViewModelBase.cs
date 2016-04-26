@@ -11,11 +11,6 @@
         /// <summary>
         ///
         /// </summary>
-        public abstract string Title { get; }
-
-        /// <summary>
-        ///
-        /// </summary>
         public INavigator Navigator { get; set; }
     }
 }

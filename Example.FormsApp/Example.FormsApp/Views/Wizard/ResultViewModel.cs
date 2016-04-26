@@ -7,11 +7,6 @@
 
     public class ResultViewModel : ViewModelBase
     {
-        public override string Title
-        {
-            get { return "Result"; }
-        }
-
         [ViewContext]
         public NotificationValue<WizardContext> Context { get; } = new NotificationValue<WizardContext>();
 

@@ -4,11 +4,6 @@
 
     public class DetailViewModel : ViewModelBase
     {
-        public override string Title
-        {
-            get { return "Detail"; }
-        }
-
         /// <summary>
         ///
         /// </summary>

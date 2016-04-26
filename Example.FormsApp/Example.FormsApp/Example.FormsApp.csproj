@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Device\IDevice.cs" />
+    <Compile Include="Infrastructure\TitleAttribute.cs" />
     <Compile Include="Infrastructure\NinjectNavigatorFactory.cs" />
     <Compile Include="Models\ApplicationState.cs" />
     <Compile Include="Models\Calculator.cs" />

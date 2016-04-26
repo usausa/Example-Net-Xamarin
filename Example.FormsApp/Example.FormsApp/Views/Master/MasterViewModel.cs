@@ -1,20 +1,12 @@
 ﻿namespace Example.FormsApp.Views.Master
 {
-    using System;
     using System.Collections.ObjectModel;
-    using System.Globalization;
-    using System.Linq;
 
     using Example.FormsApp.Infrastructure;
     using Example.FormsApp.Models;
 
     public class MasterViewModel : ViewModelBase
     {
-        public override string Title
-        {
-            get { return "Master"; }
-        }
-
         public ObservableCollection<DataEntity> Items { get; }
 
         /// <summary>

@@ -7,11 +7,6 @@
 
     public class Input1ViewModel : ViewModelBase
     {
-        public override string Title
-        {
-            get { return "Input1"; }
-        }
-
         [ViewContext]
         public NotificationValue<WizardContext> Context { get; } = new NotificationValue<WizardContext>();
 

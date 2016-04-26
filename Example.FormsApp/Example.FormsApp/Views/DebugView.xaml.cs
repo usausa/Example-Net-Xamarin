@@ -1,7 +1,10 @@
 ﻿namespace Example.FormsApp.Views
 {
+    using Example.FormsApp.Infrastructure;
+
     using Example.Navigation;
 
+    [Title("Debug")]
     [View(ViewId.Debug)]
     public partial class DebugView
     {
