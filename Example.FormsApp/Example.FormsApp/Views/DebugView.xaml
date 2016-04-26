@@ -15,6 +15,7 @@
         <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="NavigateToMenu"/>
       </Button.Behaviors>
     </Button>
+    
     <Label VerticalOptions="Center" HorizontalOptions="Center" >
       <Label.Behaviors>
         <i:MessageBehavior Message="{x:Static a:MessageId.Debug}" Messenger="{Binding Messenger}">
@@ -27,6 +28,7 @@
         <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Message"/>
       </Button.Behaviors>
     </Button>
+    
     <Button Text="Information">
       <Button.Behaviors>
         <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Information"/>
@@ -39,6 +41,21 @@
         <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Confirm"/>
       </Button.Behaviors>
     </Button>
+
+    <Label VerticalOptions="Center" HorizontalOptions="Center" Text="{Binding Selected}">
+    </Label>
+    <Button Text="Select">
+      <Button.Behaviors>
+        <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Select"/>
+      </Button.Behaviors>
+    </Button>
+
+    <Button Text="Indicator">
+      <Button.Behaviors>
+        <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Indicator"/>
+      </Button.Behaviors>
+    </Button>
+
     <Button Text="GC">
       <Button.Behaviors>
         <i:CallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Collect"/>

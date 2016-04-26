@@ -6,6 +6,9 @@
 
     using Xamarin.Forms;
 
+    /// <summary>
+    ///
+    /// </summary>
     public class DisplayAlertMessageAction : MessageAction<Page, DisplayAlertParameter>
     {
         /// <summary>
@@ -16,6 +19,11 @@
         {
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="associatedObject"></param>
+        /// <param name="parameter"></param>
         protected override void Invoke(Page associatedObject, DisplayAlertParameter parameter)
         {
             if (String.IsNullOrEmpty(parameter.Accept))

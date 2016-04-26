@@ -22,5 +22,15 @@
                 }
             }
         }
+
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="navigator"></param>
+        /// <param name="parameter"></param>
+        public static void Notify(this Navigator navigator, object parameter)
+        {
+            (navigator.CurrentTarget as IViewNotifySupport)?.OnViewNotify(navigator, parameter);
+        }
     }
 }

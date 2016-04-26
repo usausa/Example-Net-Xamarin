@@ -6,7 +6,7 @@
     ///
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-    public class ViewAttribute : Attribute
+    public sealed class ViewAttribute : Attribute
     {
         /// <summary>
         ///

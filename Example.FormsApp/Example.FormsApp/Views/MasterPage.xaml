@@ -18,6 +18,8 @@
   <ContentPage.Behaviors>
     <i:MessageBehavior Messenger="{Binding Messenger}">
       <i:DisplayAlertMessageAction />
+      <i:DisplayActionSheetMessageAction />
+      <i:BusyIndicatorMessageAction />
     </i:MessageBehavior>
   </ContentPage.Behaviors>
   <StackLayout>
