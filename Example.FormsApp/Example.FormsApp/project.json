@@ -2,6 +2,7 @@
   "supports": {},
   "dependencies": {
     "NETStandard.Library": "1.6.1",
+    "System.Reactive": "3.1.1",
     "Usa.Smart.Core": "1.0.0-beta5",
     "Xamarin.Forms": "2.3.4.224"
   },
