@@ -119,6 +119,9 @@
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.4.5.0\lib\netstandard1.1\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="Smart, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Usa.Smart.Core.1.0.0-beta5\lib\netstandard1.1\Smart.dll</HintPath>
     </Reference>
