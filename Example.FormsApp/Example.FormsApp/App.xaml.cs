@@ -1,8 +1,6 @@
 ﻿namespace Example.FormsApp
 {
-    using Xamarin.Forms;
-
-    public partial class App : Application
+    public partial class App
     {
         public App()
         {
