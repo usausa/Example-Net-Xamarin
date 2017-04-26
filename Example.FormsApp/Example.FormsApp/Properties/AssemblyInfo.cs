@@ -1,5 +1,7 @@
-﻿using System.Resources;
+﻿using System;
 using System.Reflection;
+using System.Resources;
+using System.Runtime.InteropServices;
 using Xamarin.Forms.Xaml;
 
 // General Information about an assembly is controlled through the following
@@ -14,6 +16,10 @@ using Xamarin.Forms.Xaml;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("")]
+
+[assembly: CLSCompliant(false)]
+
+[assembly: ComVisible(false)]
 
 // Version information for an assembly consists of the following four values:
 //
