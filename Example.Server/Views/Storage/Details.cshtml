@@ -1,0 +1,69 @@
+﻿@model IEnumerable<StorageDetailEntity>
+@{
+    ViewBag.Title = "Storage detail";
+    StorageView storage = ViewBag.Storage;
+}
+
+<table class="table table-condensed table-bordered table-nonfluid">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Entry user</th>
+            <th>Entry date</th>
+            <th class="text-right">Count</th>
+            <th class="text-right">Total price</th>
+            <th class="text-right">Total amount</th>
+            <th class="text-center">Inspection</th>
+            <th>Inspection user</th>
+            <th>Inspection date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@storage.StorageNo.PadZero(Length.StorageNo)</td>
+            <td>@storage.EntryUserId.PadZero(Length.UserId)</td>
+            <td>@storage.EntryAt.FormatTime()</td>
+            <td class="text-right">@storage.DetailCount.FormatNumber()</td>
+            <td class="text-right">@storage.TotalPrice.FormatNumber()</td>
+            <td class="text-right">@storage.TotalAmount.FormatNumber()</td>
+            <td class="text-center">
+                @{
+                    if (storage.InspectionUserId.HasValue)
+                    {
+                        <span class="label label-success">OK</span>
+                    }
+                    else
+                    {
+                        <span class="label label-warning">NG</span>
+                    }
+                }
+            </td>
+            <td>@storage.InspectionUserId.PadZero(Length.UserId)</td>
+            <td>@storage.InspectionAt.FormatTime()</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table table-striped table-condensed table-bordered table-nonfluid">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th class="text-right">Sales price</th>
+            <th class="text-right">Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detail in Model)
+        {
+            <tr>
+                <td>@detail.DetailNo</td>
+                <td>@detail.ItemCode</td>
+                <td>@detail.ItemName</td>
+                <td class="text-right">@detail.SalesPrice.FormatNumber()</td>
+                <td class="text-right">@detail.Amount.FormatNumber()</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -8,7 +8,6 @@
     <Rule Id="CA1045" Action="None" />
     <Rule Id="CA1062" Action="None" />
     <Rule Id="CA2210" Action="None" />
-    <!-- 色々エラーが発生するので、一端コード分析はやめる -->
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
     <Rule Id="SA1101" Action="Hidden" />
