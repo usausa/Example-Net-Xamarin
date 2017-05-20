@@ -1,6 +1,6 @@
-﻿using System.Resources;
+﻿using System;
 using System.Reflection;
-using System.Runtime.CompilerServices;
+using System.Resources;
 using System.Runtime.InteropServices;
 using Xamarin.Forms.Xaml;
 
@@ -12,10 +12,14 @@ using Xamarin.Forms.Xaml;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Example.FormsApp")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("")]
+
+[assembly: CLSCompliant(false)]
+
+[assembly: ComVisible(false)]
 
 // Version information for an assembly consists of the following four values:
 //
