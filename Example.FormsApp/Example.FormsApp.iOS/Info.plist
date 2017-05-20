@@ -21,10 +21,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>MinimumOSVersion</key>
-	<string>10.3</string>
 	<key>CFBundleDisplayName</key>
-	<string>Example.FormsApp</string>
+	<string>Example</string>
 	<key>CFBundleIdentifier</key>
 	<string>usausa.Example.FormsApp</string>
 	<key>CFBundleVersion</key>
