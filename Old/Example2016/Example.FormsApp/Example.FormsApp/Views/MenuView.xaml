@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:i="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
+             xmlns:v="clr-namespace:Example.FormsApp.Views"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type={x:Type v:MenuViewModel}}"
+             x:Class="Example.FormsApp.Views.MenuView">
+  <StackLayout>
+    <Button Text="Debug">
+      <Button.Behaviors>
+        <i:ParameterCallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Navigate"
+                                        MethodParameter="{x:Static v:ViewId.Debug}"/>
+      </Button.Behaviors>
+    </Button>
+    <Button Text="Calculator">
+      <Button.Behaviors>
+        <i:ParameterCallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Navigate"
+                                        MethodParameter="{x:Static v:ViewId.Calculator}"/>
+      </Button.Behaviors>
+    </Button>
+    <Button Text="Master">
+      <Button.Behaviors>
+        <i:ParameterCallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Navigate"
+                                        MethodParameter="{x:Static v:ViewId.Master}"/>
+      </Button.Behaviors>
+    </Button>
+    <Button Text="Wizard">
+      <Button.Behaviors>
+        <i:ParameterCallMethodBehavior EventName="Clicked" TargetObject="{Binding}" MethodName="Navigate"
+                                        MethodParameter="{x:Static v:ViewId.Input1}"/>
+      </Button.Behaviors>
+    </Button>
+  </StackLayout>
+</ContentView>

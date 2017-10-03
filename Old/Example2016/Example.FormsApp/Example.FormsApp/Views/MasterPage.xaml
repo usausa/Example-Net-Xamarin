@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:nav="clr-namespace:Example.Navigation.Forms;assembly=Example.Infrastructure"
+             xmlns:i="clr-namespace:Example.Windows.Interactivity;assembly=Example.Infrastructure"
+             xmlns:v="clr-namespace:Example.FormsApp.Views"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type={x:Type v:MasterPageViewModel}}"
+             x:Class="Example.FormsApp.Views.MasterPage">
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness"
+                iOS="0, 20, 0, 0"
+                Android="0"
+                WinPhone="0" />
+  </ContentPage.Padding>
+  <ContentPage.Behaviors>
+    <i:MessageBehavior Messenger="{Binding Messenger}">
+      <i:DisplayAlertMessageAction />
+      <i:DisplayActionSheetMessageAction />
+      <i:BusyIndicatorMessageAction />
+    </i:MessageBehavior>
+  </ContentPage.Behaviors>
+  <StackLayout>
+    <Label Text="{Binding Title}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <ContentView x:Name="Container">
+      <ContentView.Behaviors>
+        <i:MessageBehavior Messenger="{Binding Messenger}">
+          <nav:ViewNavigateMessageAction />
+        </i:MessageBehavior>
+      </ContentView.Behaviors>
+    </ContentView>
+  </StackLayout>
+</ContentPage>

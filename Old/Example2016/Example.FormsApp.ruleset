@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Example.FormsApp Rules" Description="これらの規則は、セキュリティ ホール、アプリケーション クラッシュ、その他の重要な論理エラーやデザイン エラーなど、コードに含まれる最も重要な問題に関するものです。プロジェクトにカスタムの規則セットを作成する場合は、必ずこの規則セットを含める必要があります。" ToolsVersion="14.0">
+  <IncludeAll Action="Warning" />
+  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+    <Rule Id="CA1006" Action="None" />
+    <Rule Id="CA1020" Action="None" />
+    <Rule Id="CA1026" Action="None" />
+    <Rule Id="CA1045" Action="None" />
+    <Rule Id="CA1062" Action="None" />
+    <Rule Id="CA2210" Action="None" />
+    <!-- 色々エラーが発生するので、一端コード分析はやめる -->
+  </Rules>
+  <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+    <Rule Id="SA1101" Action="Hidden" />
+    <Rule Id="SA1121" Action="Hidden" />
+    <Rule Id="SA1201" Action="Hidden" />
+    <Rule Id="SA1202" Action="Hidden" />
+    <Rule Id="SA1204" Action="Hidden" />
+    <Rule Id="SA1402" Action="Hidden" />
+    <Rule Id="SA1516" Action="Hidden" />
+    <Rule Id="SA1606" Action="Hidden" />
+    <Rule Id="SA1607" Action="Hidden" />
+    <Rule Id="SA1614" Action="Hidden" />
+    <Rule Id="SA1616" Action="Hidden" />
+    <Rule Id="SA1622" Action="Hidden" />
+    <Rule Id="SA1623" Action="Hidden" />
+    <Rule Id="SA1633" Action="Hidden" />
+    <Rule Id="SA1642" Action="Hidden" />
+    <Rule Id="SA1643" Action="Hidden" />
+    <Rule Id="SA1652" Action="Hidden" />
+  </Rules>
+</RuleSet>

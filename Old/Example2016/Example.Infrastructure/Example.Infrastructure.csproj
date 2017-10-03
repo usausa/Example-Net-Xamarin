@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{67F9D3A8-F71E-4428-913F-C37AE82CDB24}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Example</RootNamespace>
+    <AssemblyName>Example.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\Example.FormsApp.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\Example.FormsApp.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ComponentModel\IValueHolder.cs" />
+    <Compile Include="ComponentModel\NotificationObject.cs" />
+    <Compile Include="ComponentModel\NotificationValue.cs" />
+    <Compile Include="Navigation\Forms\MessengerViewProvider.cs" />
+    <Compile Include="Navigation\Forms\NavigateParameter.cs" />
+    <Compile Include="Navigation\Forms\ViewNavigateMessageAction.cs" />
+    <Compile Include="Navigation\Forms\ViewCleanupHelper.cs" />
+    <Compile Include="Navigation\IViewNotifySupport.cs" />
+    <Compile Include="Navigation\Plugins\IAttributeMember.cs" />
+    <Compile Include="Navigation\Plugins\AttributeMemberCache.cs" />
+    <Compile Include="Navigation\Plugins\AttributeMemberFactory.cs" />
+    <Compile Include="Navigation\Forms\ContentViewProvider.cs" />
+    <Compile Include="Navigation\INavigator.cs" />
+    <Compile Include="Navigation\IViewEventSupport.cs" />
+    <Compile Include="Navigation\IViewProvider.cs" />
+    <Compile Include="Navigation\NavigatingContext.cs" />
+    <Compile Include="Navigation\NavigatingEventArgs.cs" />
+    <Compile Include="Navigation\NavigatingParameter.cs" />
+    <Compile Include="Navigation\Navigator.cs" />
+    <Compile Include="Navigation\DefaultNavigatorFactory.cs" />
+    <Compile Include="Navigation\INavigatorFactory.cs" />
+    <Compile Include="Navigation\INavigatorAware.cs" />
+    <Compile Include="Navigation\NavigatorExtensions.cs" />
+    <Compile Include="Navigation\Plugins\AttributeMember.cs" />
+    <Compile Include="Navigation\Plugins\Context\IViewContextSupport.cs" />
+    <Compile Include="Navigation\Plugins\Context\ViewContextAttribute.cs" />
+    <Compile Include="Navigation\Plugins\Context\ViewContextPlugin.cs" />
+    <Compile Include="Navigation\Plugins\INavigatorPlugin.cs" />
+    <Compile Include="Navigation\Plugins\NavigatorPluginBase.cs" />
+    <Compile Include="Navigation\Plugins\NavigatorPluginContext.cs" />
+    <Compile Include="Navigation\Plugins\Parameter\Direction.cs" />
+    <Compile Include="Navigation\Plugins\Parameter\ViewParameterAttribute.cs" />
+    <Compile Include="Navigation\Plugins\Parameter\ViewParameterPlugin.cs" />
+    <Compile Include="Navigation\Plugins\ValueHolderAttributeMember.cs" />
+    <Compile Include="Navigation\ViewAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windows\Data\NotConverter.cs" />
+    <Compile Include="Windows\Interactivity\BusyIndicatorMessageAction.cs" />
+    <Compile Include="Windows\Interactivity\CallMethodBehavior.cs" />
+    <Compile Include="Windows\Interactivity\DisplayActionSheetMessageAction.cs" />
+    <Compile Include="Windows\Interactivity\DisplayAlertMessageAction.cs" />
+    <Compile Include="Windows\Messaging\BusyIndicatorParameter.cs" />
+    <Compile Include="Windows\Messaging\DisplayActionSheetParameter.cs" />
+    <Compile Include="Windows\Messaging\DisplayAlertParameter.cs" />
+    <Compile Include="Windows\Interactivity\IMessageAction.cs" />
+    <Compile Include="Windows\Interactivity\MessageAction.cs" />
+    <Compile Include="Windows\Interactivity\MessageBehavior.cs" />
+    <Compile Include="Windows\Interactivity\ParameterCallMethodBehavior.cs" />
+    <Compile Include="Windows\Interactivity\SetLabelTextMessageAction.cs" />
+    <Compile Include="Windows\Messaging\CancelMessage.cs" />
+    <Compile Include="Windows\Messaging\IMessenger.cs" />
+    <Compile Include="Windows\Messaging\Messenger.cs" />
+    <Compile Include="Windows\Messaging\MessengerEventArgs.cs" />
+    <Compile Include="Windows\Messaging\MessengerExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.1.0.6529\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.1.0.6529\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Forms.2.1.0.6529\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Forms.2.1.0.6529\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.1.0.6529\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.1.0.6529\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.1.0.6529\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
