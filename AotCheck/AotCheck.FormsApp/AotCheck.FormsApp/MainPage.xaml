@@ -4,8 +4,33 @@
              xmlns:local="clr-namespace:AotCheck.FormsApp"
              x:Class="AotCheck.FormsApp.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <ContentPage.BindingContext>
+        <local:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+
+        <Label Text="Runtime"/>
+        <Label Text="{Binding Runtime.Value}"/>
+
+        <Label Text="Expression"/>
+        <Label Text="Activator"/>
+        <Label Text="{Binding ExpressionActivator.Value}"/>
+        <Label Text="Getter"/>
+        <Label Text="{Binding ExpressionGetter.Value}"/>
+        <Label Text="Setter"/>
+        <Label Text="{Binding ExpressionSetter.Value}"/>
+
+        <Label Text="Reflection"/>
+        <Label Text="Activator"/>
+        <Label Text="{Binding ReflectionActivator.Value}"/>
+        <Label Text="Getter"/>
+        <Label Text="{Binding ReflectionGetter.Value}"/>
+        <Label Text="Setter"/>
+        <Label Text="{Binding ReflectionSetter.Value}"/>
+
+        <Button Text="Execute"/>
+
+    </StackLayout>
 
 </ContentPage>
