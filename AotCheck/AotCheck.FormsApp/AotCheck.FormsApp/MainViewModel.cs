@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using AotCheck.Library;
 using Smart.Forms.Input;
 
 namespace AotCheck.FormsApp
@@ -7,19 +8,19 @@ namespace AotCheck.FormsApp
 
     public class MainViewModel
     {
-        public NotificationValue<string> Runtime { get; } = new NotificationValue<string>("-");
+        public NotificationValue<string> Runtime { get; } = new NotificationValue<string>();
 
-        public NotificationValue<string> ExpressionActivator { get; } = new NotificationValue<string>("-");
+        public NotificationValue<string> ExpressionActivator { get; } = new NotificationValue<string>();
 
-        public NotificationValue<string> ExpressionGetter { get; } = new NotificationValue<string>("-");
+        public NotificationValue<string> ExpressionGetter { get; } = new NotificationValue<string>();
 
-        public NotificationValue<string> ExpressionSetter { get; } = new NotificationValue<string>("-");
+        public NotificationValue<string> ExpressionSetter { get; } = new NotificationValue<string>();
 
-        public NotificationValue<string> ReflectionActivator { get; } = new NotificationValue<string>("-");
+        public NotificationValue<string> ReflectionActivator { get; } = new NotificationValue<string>();
 
-        public NotificationValue<string> ReflectionGetter { get; } = new NotificationValue<string>("-");
+        public NotificationValue<string> ReflectionGetter { get; } = new NotificationValue<string>();
 
-        public NotificationValue<string> ReflectionSetter { get; } = new NotificationValue<string>("-");
+        public NotificationValue<string> ReflectionSetter { get; } = new NotificationValue<string>();
 
         public ICommand ExecuteCommand { get; }
 
@@ -30,7 +31,7 @@ namespace AotCheck.FormsApp
 
         private void Execute()
         {
-            Runtime.Value = "ok";
+            Runtime.Value = RuntimeHelper.IsCodegenAllowed().ToString();
         }
     }
 }

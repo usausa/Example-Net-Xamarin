@@ -123,6 +123,12 @@
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AotCheck.Library\AotCheck.Library.csproj">
+      <Project>{46a34aed-efee-4983-b6fc-594cabcf76cb}</Project>
+      <Name>AotCheck.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="..\AotCheck.FormsApp\AotCheck.FormsApp.projitems" Label="Shared" Condition="Exists('..\AotCheck.FormsApp\AotCheck.FormsApp.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

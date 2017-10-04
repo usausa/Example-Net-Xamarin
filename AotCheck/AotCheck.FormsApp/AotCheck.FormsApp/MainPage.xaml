@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:AotCheck.FormsApp"
              x:Class="AotCheck.FormsApp.MainPage">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:EmptyStringConverter x:Key="EmptyStringConverter" EmptyText="(No data)"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.BindingContext>
         <local:MainViewModel/>
     </ContentPage.BindingContext>
@@ -11,25 +17,25 @@
     <StackLayout>
 
         <Label Text="Runtime"/>
-        <Label Text="{Binding Runtime.Value}"/>
+        <Label Text="{Binding Runtime.Value, Converter={StaticResource EmptyStringConverter}}"/>
 
         <Label Text="Expression"/>
         <Label Text="Activator"/>
-        <Label Text="{Binding ExpressionActivator.Value}"/>
+        <Label Text="{Binding ExpressionActivator.Value, Converter={StaticResource EmptyStringConverter}}"/>
         <Label Text="Getter"/>
-        <Label Text="{Binding ExpressionGetter.Value}"/>
+        <Label Text="{Binding ExpressionGetter.Value, Converter={StaticResource EmptyStringConverter}}"/>
         <Label Text="Setter"/>
-        <Label Text="{Binding ExpressionSetter.Value}"/>
+        <Label Text="{Binding ExpressionSetter.Value, Converter={StaticResource EmptyStringConverter}}"/>
 
         <Label Text="Reflection"/>
         <Label Text="Activator"/>
-        <Label Text="{Binding ReflectionActivator.Value}"/>
+        <Label Text="{Binding ReflectionActivator.Value, Converter={StaticResource EmptyStringConverter}}"/>
         <Label Text="Getter"/>
-        <Label Text="{Binding ReflectionGetter.Value}"/>
+        <Label Text="{Binding ReflectionGetter.Value, Converter={StaticResource EmptyStringConverter}}"/>
         <Label Text="Setter"/>
-        <Label Text="{Binding ReflectionSetter.Value}"/>
+        <Label Text="{Binding ReflectionSetter.Value, Converter={StaticResource EmptyStringConverter}}"/>
 
-        <Button Text="Execute"/>
+        <Button Text="Execute" Command="{Binding ExecuteCommand}"/>
 
     </StackLayout>
 
