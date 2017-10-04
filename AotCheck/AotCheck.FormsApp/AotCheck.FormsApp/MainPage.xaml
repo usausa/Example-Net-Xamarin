@@ -6,7 +6,37 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local:EmptyStringConverter x:Key="EmptyStringConverter" EmptyText="(No data)"/>
+
+            <local:EmptyStringConverter x:Key="EmptyStringConverter" EmptyText="(n/a)"/>
+
+            <Color x:Key="MetroBlue">#2D89EF</Color>
+            <Color x:Key="MetroBlueDark">#2B5797</Color>
+
+            <Style x:Key="BodyGrid" TargetType="Grid">
+                <Setter Property="RowSpacing" Value="0"/>
+                <Setter Property="ColumnSpacing" Value="0" />
+            </Style>
+
+            <Style x:Key="TypeLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroBlueDark}" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style x:Key="ItemLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroBlue}" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style x:Key="ValueLabel" TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -14,29 +44,80 @@
         <local:MainViewModel/>
     </ContentPage.BindingContext>
 
-    <StackLayout>
+    <Grid Style="{StaticResource BodyGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <Label Text="Runtime"/>
-        <Label Text="{Binding Runtime.Value, Converter={StaticResource EmptyStringConverter}}"/>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+               Text="GenerateSupported" Style="{StaticResource ItemLabel}"/>
+        <Label Grid.Row="0" Grid.Column="2"
+               Text="{Binding GenerateSupported.Value, Converter={StaticResource EmptyStringConverter}}"
+               Style="{StaticResource ValueLabel}"/>
 
-        <Label Text="Expression"/>
-        <Label Text="Activator"/>
-        <Label Text="{Binding ExpressionActivator.Value, Converter={StaticResource EmptyStringConverter}}"/>
-        <Label Text="Getter"/>
-        <Label Text="{Binding ExpressionGetter.Value, Converter={StaticResource EmptyStringConverter}}"/>
-        <Label Text="Setter"/>
-        <Label Text="{Binding ExpressionSetter.Value, Converter={StaticResource EmptyStringConverter}}"/>
+        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+               Text="Reflection" Style="{StaticResource TypeLabel}"/>
+        <Label Grid.Row="2" Grid.Column="0" Text="Activator" Style="{StaticResource ItemLabel}"/>
+        <Label Grid.Row="2" Grid.Column="1" Text="Getter" Style="{StaticResource ItemLabel}"/>
+        <Label Grid.Row="2" Grid.Column="2" Text="Setter" Style="{StaticResource ItemLabel}"/>
+        <Label Grid.Row="3" Grid.Column="0"
+               Text="{Binding ReflectionActivator.Value, Converter={StaticResource EmptyStringConverter}}"
+               Style="{StaticResource ValueLabel}"/>
+        <Label Grid.Row="3" Grid.Column="1"
+               Text="{Binding ReflectionGetter.Value, Converter={StaticResource EmptyStringConverter}}"
+               Style="{StaticResource ValueLabel}"/>
+        <Label Grid.Row="3" Grid.Column="2"
+               Text="{Binding ReflectionSetter.Value, Converter={StaticResource EmptyStringConverter}}"
+               Style="{StaticResource ValueLabel}"/>
 
-        <Label Text="Reflection"/>
-        <Label Text="Activator"/>
-        <Label Text="{Binding ReflectionActivator.Value, Converter={StaticResource EmptyStringConverter}}"/>
-        <Label Text="Getter"/>
-        <Label Text="{Binding ReflectionGetter.Value, Converter={StaticResource EmptyStringConverter}}"/>
-        <Label Text="Setter"/>
-        <Label Text="{Binding ReflectionSetter.Value, Converter={StaticResource EmptyStringConverter}}"/>
+        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"
+               Text="Expression" Style="{StaticResource TypeLabel}"/>
+        <Label Grid.Row="5" Grid.Column="0" Text="Activator" Style="{StaticResource ItemLabel}"/>
+        <Label Grid.Row="5" Grid.Column="1" Text="Getter" Style="{StaticResource ItemLabel}"/>
+        <Label Grid.Row="5" Grid.Column="2" Text="Setter" Style="{StaticResource ItemLabel}"/>
+        <Label Grid.Row="6" Grid.Column="0"
+               Text="{Binding ExpressionActivator.Value, Converter={StaticResource EmptyStringConverter}}"
+               Style="{StaticResource ValueLabel}"/>
+        <Label Grid.Row="6" Grid.Column="1"
+               Text="{Binding ExpressionGetter.Value, Converter={StaticResource EmptyStringConverter}}"
+               Style="{StaticResource ValueLabel}"/>
+        <Label Grid.Row="6" Grid.Column="2"
+               Text="{Binding ExpressionSetter.Value, Converter={StaticResource EmptyStringConverter}}"
+               Style="{StaticResource ValueLabel}"/>
 
-        <Button Text="Execute" Command="{Binding ExecuteCommand}"/>
+        <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="3"
+               Text="Emit" Style="{StaticResource TypeLabel}"/>
+        <Label Grid.Row="8" Grid.Column="0" Text="Activator" Style="{StaticResource ItemLabel}"/>
+        <Label Grid.Row="8" Grid.Column="1" Text="Getter" Style="{StaticResource ItemLabel}"/>
+        <Label Grid.Row="8" Grid.Column="2" Text="Setter" Style="{StaticResource ItemLabel}"/>
+        <Label Grid.Row="9" Grid.Column="0"
+               Text="{Binding EmitActivator.Value, Converter={StaticResource EmptyStringConverter}}"
+               Style="{StaticResource ValueLabel}"/>
+        <Label Grid.Row="9" Grid.Column="1"
+               Text="{Binding EmitGetter.Value, Converter={StaticResource EmptyStringConverter}}"
+               Style="{StaticResource ValueLabel}"/>
+        <Label Grid.Row="9" Grid.Column="2"
+               Text="{Binding EmitSetter.Value, Converter={StaticResource EmptyStringConverter}}"
+               Style="{StaticResource ValueLabel}"/>
 
-    </StackLayout>
+        <Button Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3"
+                Text="Execute" Command="{Binding ExecuteCommand}"/>
+
+    </Grid>
 
 </ContentPage>
