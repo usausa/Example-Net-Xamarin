@@ -23,7 +23,7 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>AotCheck.FormsApp</string>
+	<string>AOT Check</string>
 	<key>CFBundleIdentifier</key>
 	<string>usausa.AotCheck.FormsApp</string>
 	<key>CFBundleVersion</key>
