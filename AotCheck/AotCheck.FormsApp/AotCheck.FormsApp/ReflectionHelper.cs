@@ -1,4 +1,4 @@
-﻿namespace AotCheck.Library
+﻿namespace AotCheck.FormsApp
 {
     using System;
     using System.Linq.Expressions;

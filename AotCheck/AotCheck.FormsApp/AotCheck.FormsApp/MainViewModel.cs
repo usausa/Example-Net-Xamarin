@@ -6,8 +6,6 @@
     using System.Threading.Tasks;
     using System.Windows.Input;
 
-    using AotCheck.Library;
-
     using Smart.ComponentModel;
     using Smart.Forms.Input;
 

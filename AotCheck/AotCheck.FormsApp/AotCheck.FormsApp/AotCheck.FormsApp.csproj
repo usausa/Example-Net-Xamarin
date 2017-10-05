@@ -6,6 +6,9 @@
 
   <ItemGroup>
     <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.3.0" />
+    <PackageReference Include="Usa.Smart.Core" Version="1.0.4" />
+    <PackageReference Include="Usa.Smart.Forms" Version="0.9.0" />
+    <PackageReference Include="Xamarin.Forms" Version="2.4.0.282" />
   </ItemGroup>
 
 </Project>
