@@ -2,8 +2,8 @@
 
 * Android
 
-![screenshot](https://github.com/usausa/Example-Net-Xamarin/blob/master/AotCheck/Docs/Android.png)
+<img src="https://github.com/usausa/Example-Net-Xamarin/blob/master/AotCheck/Docs/Android.png" width="50%"/>
 
 * iOS
 
-![screenshot](https://github.com/usausa/Example-Net-Xamarin/blob/master/AotCheck/Docs/iOS.png)
+<img src="https://github.com/usausa/Example-Net-Xamarin/blob/master/AotCheck/Docs/iOS.png" width="50%"/>
