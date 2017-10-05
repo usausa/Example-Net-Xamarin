@@ -49,38 +49,20 @@
             var ci = typeof(Data).GetConstructors().First();
             var pi = typeof(Data).GetProperty(nameof(Data.Value));
 
-            var factory1 = ReflectionHelper.CreateReflectinFactory<Data>(ci);
-            var getter1 = ReflectionHelper.CreateReflectionGetter<Data, string>(pi);
-            var setter1 = ReflectionHelper.CreateReflectionSetter<Data, string>(pi);
-
-            var factory2 = ReflectionHelper.CreateExpressionFactory<Data>(ci);
-            var getter2 = ReflectionHelper.CreateExpressionGetter<Data, string>(pi);
-            var setter2 = ReflectionHelper.CreateExpressionSetter<Data, string>(pi);
-
-            var factory3 = ReflectionHelper.CreateEmitFactory<Data>(ci);
-            var getter3 = ReflectionHelper.CreateEmitGetter<Data, string>(pi);
-            var setter3 = ReflectionHelper.CreateEmitSetter<Data, string>(pi);
-
             // Reflection
-            await AwaitHelper.SwitchOffMainThreadAsync();
-            ReflectionActivator.Value = FactoryBench(factory1);
-
-            // TODO getter
-            // TODO setter
+            ReflectionActivator.Value = FactoryBench(ReflectionHelper.CreateReflectinFactory<Data>(ci));
+            ReflectionGetter.Value = GetterBench(ReflectionHelper.CreateReflectionGetter<Data, string>(pi));
+            ReflectionSetter.Value = SetterBench(ReflectionHelper.CreateReflectionSetter<Data, string>(pi));
 
             // Expression
-            await AwaitHelper.SwitchOffMainThreadAsync();
-            ExpressionActivator.Value = FactoryBench(factory2);
-
-            // TODO getter
-            // TODO setter
+            ExpressionActivator.Value = FactoryBench(ReflectionHelper.CreateExpressionFactory<Data>(ci));
+            ExpressionGetter.Value = GetterBench(ReflectionHelper.CreateExpressionGetter<Data, string>(pi));
+            ExpressionSetter.Value = SetterBench(ReflectionHelper.CreateExpressionSetter<Data, string>(pi));
 
             // Emit
-            await AwaitHelper.SwitchOffMainThreadAsync();
-            EmitActivator.Value = FactoryBench(factory3);
-
-            // TODO getter
-            // TODO setter
+            EmitActivator.Value = FactoryBench(ReflectionHelper.CreateEmitFactory<Data>(ci));
+            EmitGetter.Value = GetterBench(ReflectionHelper.CreateEmitGetter<Data, string>(pi));
+            EmitSetter.Value = SetterBench(ReflectionHelper.CreateEmitSetter<Data, string>(pi));
         }
 
         private static string FactoryBench(Func<Data> factory)
@@ -93,12 +75,50 @@
             GC.Collect();
             GC.WaitForPendingFinalizers();
 
-            factory.Invoke();
+            factory();
 
             var watch = Stopwatch.StartNew();
             for (var i = 0; i < 1000000; i++)
             {
-                factory.Invoke();
+                factory();
+            }
+
+            return watch.ElapsedMilliseconds.ToString();
+        }
+
+        private static string GetterBench(Func<Data, string> getter)
+        {
+            if (getter == null)
+            {
+                return string.Empty;
+            }
+
+            var data = new Data();
+            getter(data);
+
+            var watch = Stopwatch.StartNew();
+            for (var i = 0; i < 1000000; i++)
+            {
+                getter(data);
+            }
+
+            return watch.ElapsedMilliseconds.ToString();
+        }
+
+        private static string SetterBench(Action<Data, string> setter)
+        {
+            if (setter == null)
+            {
+                return string.Empty;
+            }
+
+            var data = new Data();
+            setter(data, null);
+
+            var watch = Stopwatch.StartNew();
+            for (var i = 0; i < 1000000; i++)
+            {
+                setter(data, null);
             }
 
             return watch.ElapsedMilliseconds.ToString();

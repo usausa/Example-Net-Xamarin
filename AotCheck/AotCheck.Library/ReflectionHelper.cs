@@ -131,7 +131,7 @@
         {
             try
             {
-                var method = new DynamicMethod(string.Empty, typeof(object), new[] { typeof(object) }, true);
+                var method = new DynamicMethod(string.Empty, typeof(TMember), new[] { typeof(TTarget) }, true);
                 var generator = method.GetILGenerator();
                 var getter = pi.GetGetMethod(true);
 
@@ -159,7 +159,7 @@
         {
             try
             {
-                var method = new DynamicMethod(string.Empty, typeof(void), new[] { typeof(object), typeof(object) }, true);
+                var method = new DynamicMethod(string.Empty, typeof(void), new[] { typeof(TTarget), typeof(TMember) }, true);
                 var generator = method.GetILGenerator();
                 var setter = pi.GetSetMethod(true);
 
