@@ -19,13 +19,14 @@
 
             <Style x:Key="TypeLabel" TargetType="Label">
                 <Setter Property="FontSize" Value="Large" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />
                 <Setter Property="BackgroundColor" Value="{StaticResource MetroBlueDark}" />
                 <Setter Property="TextColor" Value="White" />
             </Style>
 
             <Style x:Key="ItemLabel" TargetType="Label">
-                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="FontSize" Value="Medium" />
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
                 <Setter Property="VerticalTextAlignment" Value="Center" />
                 <Setter Property="BackgroundColor" Value="{StaticResource MetroBlue}" />
@@ -39,6 +40,13 @@
 
         </ResourceDictionary>
     </ContentPage.Resources>
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android">0</On>
+            <On Platform="iOS">0,20,0,0</On>
+        </OnPlatform>
+    </ContentPage.Padding>
 
     <ContentPage.BindingContext>
         <local:MainViewModel/>
