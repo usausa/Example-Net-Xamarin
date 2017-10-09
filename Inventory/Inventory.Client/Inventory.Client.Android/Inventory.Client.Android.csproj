@@ -115,6 +115,12 @@
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Inventory.Client\Inventory.Client.csproj">
+      <Project>{d23c5f08-d33e-43c5-b799-6227abcc8b59}</Project>
+      <Name>Inventory.Client</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="..\Inventory.Client\Inventory.Client.projitems" Label="Shared" Condition="Exists('..\Inventory.Client\Inventory.Client.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
