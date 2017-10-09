@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="Usa.Smart.Core" Version="1.0.4" />
     <PackageReference Include="Usa.Smart.Forms" Version="0.9.0" />
     <PackageReference Include="Usa.Smart.Forms.Navigation" Version="0.9.0" />
