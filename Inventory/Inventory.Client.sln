@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Client.iOS", "Inv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory.Client", "Inventory.Client\Inventory.Client\Inventory.Client.csproj", "{D23C5F08-D33E-43C5-B799-6227ABCC8B59}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE0DD537-EC64-4DAB-AA67-AE41C94B3CD2}"
+	ProjectSection(SolutionItems) = preProject
+		Inventory.Client.ruleset = Inventory.Client.ruleset
+		Inventory.Client.sln.DotSettings = Inventory.Client.sln.DotSettings
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
