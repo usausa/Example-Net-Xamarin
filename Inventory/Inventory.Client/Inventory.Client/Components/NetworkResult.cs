@@ -20,7 +20,7 @@
 
     public class NetworkResult<T> : NetworkResult
     {
-        public T Result { get; private set; }
+        public T Result { get; }
 
         public NetworkResult(bool success, WebExceptionStatus status, HttpStatusCode statusCode, T result)
             : base(success, status, statusCode)

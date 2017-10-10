@@ -17,14 +17,14 @@
 
         public long ResetValue
         {
-            get { return Int64.Parse(resetValue, CultureInfo.InvariantCulture); }
-            set { SetProperty(ref resetValue, value.ToString(CultureInfo.InvariantCulture)); }
+            get => Int64.Parse(resetValue, CultureInfo.InvariantCulture);
+            set => SetProperty(ref resetValue, value.ToString(CultureInfo.InvariantCulture));
         }
 
         public long Value
         {
-            get { return Int64.Parse(buffer, CultureInfo.InvariantCulture); }
-            set { SetProperty(ref buffer, value.ToString(CultureInfo.InvariantCulture)); }
+            get => Int64.Parse(buffer, CultureInfo.InvariantCulture);
+            set => SetProperty(ref buffer, value.ToString(CultureInfo.InvariantCulture));
         }
 
         public bool IncrementEnabled => Value < maxValue;

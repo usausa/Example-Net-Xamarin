@@ -10,8 +10,8 @@
 
         public bool IsSelected
         {
-            get { return isSelected; }
-            set { SetProperty(ref isSelected, value); }
+            get => isSelected;
+            set => SetProperty(ref isSelected, value);
         }
 
         public SelectableItem(T item)

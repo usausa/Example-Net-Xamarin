@@ -33,22 +33,19 @@
 
         private static void OnApplyPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var view = bindable as View;
-            if (view == null)
+            if (bindable is View view)
             {
-                return;
-            }
+                var effect = view.Effects.FirstOrDefault(x => x is EntryErrorEffect);
+                if (effect != null)
+                {
+                    view.Effects.Remove(effect);
+                }
 
-            var effect = view.Effects.FirstOrDefault(x => x is EntryErrorEffect);
-            if (effect != null)
-            {
-                view.Effects.Remove(effect);
-            }
-
-            var apply = (bool)newValue;
-            if (apply)
-            {
-                view.Effects.Add(new EntryErrorEffect());
+                var apply = (bool)newValue;
+                if (apply)
+                {
+                    view.Effects.Add(new EntryErrorEffect());
+                }
             }
         }
 

@@ -11,22 +11,19 @@
 
         private static void OnMaxLengthChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            var view = bindable as View;
-            if (view == null)
+            if (bindable is View view)
             {
-                return;
-            }
+                var effect = view.Effects.FirstOrDefault(x => x is MaxLengthEffect);
+                if (effect != null)
+                {
+                    view.Effects.Remove(effect);
+                }
 
-            var effect = view.Effects.FirstOrDefault(x => x is MaxLengthEffect);
-            if (effect != null)
-            {
-                view.Effects.Remove(effect);
-            }
-
-            var maxLength = (int)newValue;
-            if (maxLength > 0)
-            {
-                view.Effects.Add(new MaxLengthEffect());
+                var maxLength = (int)newValue;
+                if (maxLength > 0)
+                {
+                    view.Effects.Add(new MaxLengthEffect());
+                }
             }
         }
 

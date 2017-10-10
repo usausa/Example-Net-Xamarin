@@ -36,7 +36,7 @@
                     var response = await client.GetAsync(path, token);
                     if (!response.IsSuccessStatusCode)
                     {
-                        return new NetworkResult<T>(false, WebExceptionStatus.Success, response.StatusCode, default(T));
+                        return new NetworkResult<T>(false, WebExceptionStatus.Success, response.StatusCode, default);
                     }
 
                     var json = await response.Content.ReadAsStringAsync();
@@ -47,19 +47,19 @@
                 }
                 catch (HttpRequestException)
                 {
-                    return new NetworkResult<T>(false, WebExceptionStatus.ConnectFailure, 0, default(T));
+                    return new NetworkResult<T>(false, WebExceptionStatus.ConnectFailure, 0, default);
                 }
                 catch (WebException ex)
                 {
-                    return new NetworkResult<T>(false, ex.Status, (ex.Response as HttpWebResponse)?.StatusCode ?? 0, default(T));
+                    return new NetworkResult<T>(false, ex.Status, (ex.Response as HttpWebResponse)?.StatusCode ?? 0, default);
                 }
                 catch (TaskCanceledException)
                 {
-                    return new NetworkResult<T>(false, WebExceptionStatus.Success, HttpStatusCode.RequestTimeout, default(T));
+                    return new NetworkResult<T>(false, WebExceptionStatus.Success, HttpStatusCode.RequestTimeout, default);
                 }
                 catch (IOException)
                 {
-                    return new NetworkResult<T>(false, WebExceptionStatus.UnknownError, 0, default(T));
+                    return new NetworkResult<T>(false, WebExceptionStatus.UnknownError, 0, default);
                 }
             }
         }
@@ -97,7 +97,7 @@
                 }
                 catch (IOException)
                 {
-                    return new NetworkResult<T>(false, WebExceptionStatus.UnknownError, 0, default(T));
+                    return new NetworkResult<T>(false, WebExceptionStatus.UnknownError, 0, default);
                 }
             }
         }

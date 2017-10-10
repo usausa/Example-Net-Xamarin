@@ -10,8 +10,8 @@
 
         public string Value
         {
-            get { return buffer; }
-            set { SetProperty(ref buffer, value); }
+            get => buffer;
+            set => SetProperty(ref buffer, value);
         }
 
         public SimpleStack(int maxLength)

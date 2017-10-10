@@ -32,32 +32,32 @@
 
         public int DetailNo
         {
-            get { return detailNo; }
-            set { SetProperty(ref detailNo, value); }
+            get => detailNo;
+            set => SetProperty(ref detailNo, value);
         }
 
         public string ItemCode
         {
-            get { return itemCode; }
-            set { SetProperty(ref itemCode, value); }
+            get => itemCode;
+            set => SetProperty(ref itemCode, value);
         }
 
         public string ItemName
         {
-            get { return itemName; }
-            set { SetProperty(ref itemName, value); }
+            get => itemName;
+            set => SetProperty(ref itemName, value);
         }
 
         public long SalesPrice
         {
-            get { return salesPrice; }
-            set { SetProperty(ref salesPrice, value); }
+            get => salesPrice;
+            set => SetProperty(ref salesPrice, value);
         }
 
         public long Amount
         {
-            get { return amount; }
-            set { SetProperty(ref amount, value); }
+            get => amount;
+            set => SetProperty(ref amount, value);
         }
 
         public void FromBytes(byte[] buffer)

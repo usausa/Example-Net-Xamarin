@@ -52,56 +52,56 @@
 
         public int StorageNo
         {
-            get { return storageNo; }
-            set { SetProperty(ref storageNo, value); }
+            get => storageNo;
+            set => SetProperty(ref storageNo, value);
         }
 
         public int EntryUserId
         {
-            get { return entryUserId; }
-            set { SetProperty(ref entryUserId, value); }
+            get => entryUserId;
+            set => SetProperty(ref entryUserId, value);
         }
 
         public DateTimeOffset EntryAt
         {
-            get { return entryAt; }
-            set { SetProperty(ref entryAt, value); }
+            get => entryAt;
+            set => SetProperty(ref entryAt, value);
         }
 
         public int? InspectionUserId
         {
-            get { return inspectionUserId; }
-            set { SetProperty(ref inspectionUserId, value); }
+            get => inspectionUserId;
+            set => SetProperty(ref inspectionUserId, value);
         }
 
         public DateTimeOffset? InspectionAt
         {
-            get { return inspectionAt; }
-            set { SetProperty(ref inspectionAt, value); }
+            get => inspectionAt;
+            set => SetProperty(ref inspectionAt, value);
         }
 
         public int DetailCount
         {
-            get { return detailCount; }
-            set { SetProperty(ref detailCount, value); }
+            get => detailCount;
+            set => SetProperty(ref detailCount, value);
         }
 
         public long TotalPrice
         {
-            get { return totalPrice; }
-            set { SetProperty(ref totalPrice, value); }
+            get => totalPrice;
+            set => SetProperty(ref totalPrice, value);
         }
 
         public long TotalAmount
         {
-            get { return totalAmount; }
-            set { SetProperty(ref totalAmount, value); }
+            get => totalAmount;
+            set => SetProperty(ref totalAmount, value);
         }
 
         public bool IsChecked
         {
-            get { return isChecked; }
-            set { SetProperty(ref isChecked, value); }
+            get => isChecked;
+            set => SetProperty(ref isChecked, value);
         }
 
         public void FromBytes(byte[] buffer)
