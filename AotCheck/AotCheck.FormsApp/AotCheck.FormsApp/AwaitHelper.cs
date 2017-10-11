@@ -7,7 +7,7 @@
 
     public static class AwaitHelper
     {
-        internal static TaskSchedulerAwaiter SwitchOffMainThreadAsync(CancellationToken cancellationToken = default(CancellationToken))
+        internal static TaskSchedulerAwaiter SwitchOffMainThreadAsync(CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
             return new TaskSchedulerAwaiter(
