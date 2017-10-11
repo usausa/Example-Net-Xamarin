@@ -52,6 +52,8 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <LangVersion>latest</LangVersion>
     <CodeAnalysisRuleSet>..\..\Inventory.Client.ruleset</CodeAnalysisRuleSet>
+    <AotAssemblies>true</AotAssemblies>
+    <EnableLLVM>true</EnableLLVM>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -62,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\AwaitExtensions.cs" />
+    <Compile Include="Components\FileService.cs" />
+    <Compile Include="Components\LoadingService.cs" />
+    <Compile Include="Components\MobileBarcodeService.cs" />
+    <Compile Include="Effects\EntryErrorEffect.cs" />
+    <Compile Include="Effects\MaxLengthEffect.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

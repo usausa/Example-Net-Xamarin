@@ -4,7 +4,14 @@
     using Android.Content.PM;
     using Android.OS;
 
-    [Activity(Label = "Inventory.Client", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    using Inventory.Client.Components;
+    using Inventory.Client.Droid.Components;
+
+    using Smart.Resolver;
+
+    using ZXing.Mobile;
+
+    [Activity(MainLauncher = true, ScreenOrientation = ScreenOrientation.Portrait, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -15,7 +22,21 @@
             base.OnCreate(bundle);
 
             Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App(null));
+
+            ZXing.Net.Mobile.Forms.Android.Platform.Init();
+            MobileBarcodeScanner.Initialize(Application);
+
+            LoadApplication(new App(new ComponentProvider()));
+        }
+
+        private class ComponentProvider : IComponentProvider
+        {
+            public void RegisterComponents(ResolverConfig config)
+            {
+                config.Bind<IBarcodeService>().To<MobileBarcodeService>().InSingletonScope();
+                config.Bind<IFileService>().To<FileService>().InSingletonScope();
+                config.Bind<ILoadingService>().To<LoadingService>().InSingletonScope();
+            }
         }
     }
 }
