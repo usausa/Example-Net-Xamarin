@@ -1,10 +1,329 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:effects="clr-namespace:Inventory.Client.Effects;assembly=Inventory.Client"
+             xmlns:models="clr-namespace:Inventory.Client.Models;assembly=Inventory.Client"
+             xmlns:data="clr-namespace:Smart.Forms.Data;assembly=Smart.Forms"
+             xmlns:converters="clr-namespace:Inventory.Client.Converters;assembly=Inventory.Client"
              x:Class="Inventory.Client.App">
-	<Application.Resources>
+    <Application.Resources>
 
-		<!-- Application resource dictionary -->
+        <ResourceDictionary>
 
-	</Application.Resources>
+            <!-- Color -->
+
+            <Color x:Key="MetroBlue">#2D89EF</Color>
+            <Color x:Key="MetroBlueBrighter">#4AA6FF</Color>
+            <Color x:Key="MetroBlueDarker">#0E6AD0</Color>
+
+            <Color x:Key="MetroBlueLight">#EFF4FF</Color>
+            <Color x:Key="MetroBlueLightBrighter">#FAFFFF</Color>
+            <Color x:Key="MetroBlueLightDarker">#D0D5E0</Color>
+
+            <Color x:Key="MetroBlueDark">#2B5797</Color>
+            <Color x:Key="MetroBlueDarkBrighter">#4874B4</Color>
+            <Color x:Key="MetroBlueDarkDarker">#0C3878</Color>
+
+            <Color x:Key="MetroTeal">#00ABA9</Color>
+            <Color x:Key="MetroTealBrighter">#1DC8C6</Color>
+            <Color x:Key="MetroTealDarker">#008C8A</Color>
+
+            <Color x:Key="MetroGreen">#00A300</Color>
+            <Color x:Key="MetroGreenBrighter">#1DC01D</Color>
+            <Color x:Key="MetroGreenDarker">#008400</Color>
+
+            <Color x:Key="MetroLightGreen">#99B433</Color>
+            <Color x:Key="MetroLightGreenBrighter">#B6D150</Color>
+            <Color x:Key="MetroLightGreenDarker">#7A9514</Color>
+
+            <Color x:Key="MetroDarkGreen">#1E7145</Color>
+            <Color x:Key="MetroDarkGreenBrighter">#3B8E62</Color>
+            <Color x:Key="MetroDarkGreenDarker">#005226</Color>
+
+            <Color x:Key="MetroRed">#EE1111</Color>
+            <Color x:Key="MetroRedBrighter">#FF2E2E</Color>
+            <Color x:Key="MetroRedDarker">#CF0000</Color>
+
+            <Color x:Key="MetroRedDark">#B91D47</Color>
+            <Color x:Key="MetroRedDarkBrighter">#D63A64</Color>
+            <Color x:Key="MetroRedDarkDarker">#9A0028</Color>
+
+            <Color x:Key="MetroYellow">#FFC40D</Color>
+            <Color x:Key="MetroYellowBrighter">#FFE12A</Color>
+            <Color x:Key="MetroYellowDarker">#E0A500</Color>
+
+            <Color x:Key="MetroOrange">#E3A21A</Color>
+            <Color x:Key="MetroOrangeBrighter">#FFBF37</Color>
+            <Color x:Key="MetroOrangeDarker">#C48300</Color>
+
+            <Color x:Key="MetroOrangeDark">#DA532C</Color>
+            <Color x:Key="MetroOrangeDarkBrighter">#F77049</Color>
+            <Color x:Key="MetroOrangeDarkDarker">#BB340D</Color>
+
+            <Color x:Key="MetroMagenta">#FF0097</Color>
+            <Color x:Key="MetroMagentaBrighter">#FF1DB4</Color>
+            <Color x:Key="MetroMagentaDarker">#E00078</Color>
+
+            <Color x:Key="MetroPurple">#7E3878</Color>
+            <Color x:Key="MetroPurpleBrighter">#9B5595</Color>
+            <Color x:Key="MetroPurpleDarker">#5F1959</Color>
+
+            <Color x:Key="MetroPurpleLight">#9F00A7</Color>
+            <Color x:Key="MetroPurpleLightBrighter">#BC1DC4</Color>
+            <Color x:Key="MetroPurpleLightDarker">#800088</Color>
+
+            <Color x:Key="MetroPurpleDark">#603CBA</Color>
+            <Color x:Key="MetroPurpleDarkBrighter">#7D59D7</Color>
+            <Color x:Key="MetroPurpleDarkDarker">#411D9B</Color>
+
+            <Color x:Key="MetroDarken">#1D1D1D</Color>
+            <Color x:Key="MetroDarkenBrighter">#3B3B3B</Color>
+            <Color x:Key="MetroDarkenDarker">#000000</Color>
+
+            <Color x:Key="MetroLighten">#D5E7EC</Color>
+            <Color x:Key="MetroLightenBrighter">#F1FFFF</Color>
+            <Color x:Key="MetroLightenDarker">#B6C8CD</Color>
+
+            <Color x:Key="MetroGrayDark">#525252</Color>
+            <Color x:Key="MetroGrayDarkBrighter">#707070</Color>
+            <Color x:Key="MetroGrayDarkDarker">#343434</Color>
+
+            <!-- Color -->
+
+            <Color x:Key="NoErrorColor">Transparent</Color>
+
+            <Color x:Key="ErrorColor">#EE1111</Color>
+
+            <!-- Size -->
+
+            <OnPlatform x:Key="LittleSize"
+                  x:TypeArguments="x:Double"
+                  iOS="11"
+                  Android="12"/>
+
+            <OnPlatform x:Key="MidMediumSize"
+                  x:TypeArguments="x:Double"
+                  iOS="12"
+                  Android="14"/>
+
+            <OnPlatform x:Key="MediumSize"
+                  x:TypeArguments="x:Double"
+                  iOS="14"
+                  Android="16"/>
+
+            <OnPlatform x:Key="LargeSize"
+                  x:TypeArguments="x:Double"
+                  iOS="16"
+                  Android="18"/>
+
+            <OnPlatform x:Key="LargerSize"
+                  x:TypeArguments="x:Double"
+                  iOS="18"
+                  Android="20"/>
+
+            <OnPlatform x:Key="BigSize"
+                  x:TypeArguments="x:Double"
+                  iOS="20"
+                  Android="24"/>
+
+            <OnPlatform x:Key="ExtraBigSize"
+                x:TypeArguments="x:Double"
+                iOS="24"
+                Android="32"/>
+
+            <OnPlatform x:Key="HugeSize"
+                  x:TypeArguments="x:Double"
+                  iOS="32"
+                  Android="48"/>
+
+            <!-- Layout -->
+
+            <Style x:Key="BodyGrid" TargetType="Grid">
+                <Setter Property="RowSpacing" Value="0"/>
+                <Setter Property="ColumnSpacing" Value="0" />
+                <Setter Property="Margin" Value="0,6,0,0" />
+            </Style>
+
+            <Style x:Key="ContentStackLayout" TargetType="StackLayout">
+                <Setter Property="Spacing" Value="0"/>
+            </Style>
+
+            <Style x:Key="FunctionGrid" TargetType="Grid">
+                <Setter Property="RowSpacing" Value="0"/>
+                <Setter Property="ColumnSpacing" Value="0" />
+            </Style>
+
+            <Style x:Key="FillGrid" TargetType="Grid">
+                <Setter Property="RowSpacing" Value="0"/>
+                <Setter Property="ColumnSpacing" Value="0"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style x:Key="DisplayAreaGrid" TargetType="Grid">
+                <Setter Property="RowSpacing" Value="0"/>
+                <Setter Property="ColumnSpacing" Value="0"/>
+            </Style>
+
+            <!-- Button -->
+
+            <Style x:Key="MenuButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroTeal}"/>
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="Margin" Value="3" />
+            </Style>
+
+            <Style x:Key="FunctionButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroBlue}"/>
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+                <Setter Property="BorderRadius" Value="0"/>
+            </Style>
+
+            <!-- Label -->
+
+            <Style x:Key="DisplayLeftLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource LargeSize}" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+            </Style>
+
+            <Style x:Key="DisplayRightLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource LargeSize}" />
+                <Setter Property="HorizontalOptions" Value="End" />
+            </Style>
+
+            <!-- BoxView -->
+
+            <Style x:Key="StatusBoxView" TargetType="BoxView">
+                <Setter Property="Margin" Value="1" />
+            </Style>
+
+            <!-- ListView -->
+
+            <Style x:Key="ListHeaderGrid" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroDarken}"/>
+                <Setter Property="RowSpacing" Value="0"/>
+                <Setter Property="ColumnSpacing" Value="0" />
+            </Style>
+
+            <Style x:Key="ListHeaderLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style x:Key="ListItemGrid" TargetType="Grid">
+                <Setter Property="RowSpacing" Value="0"/>
+                <Setter Property="ColumnSpacing" Value="0" />
+            </Style>
+
+            <Style x:Key="ListItemLeftLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+            </Style>
+
+            <Style x:Key="ListItemRightLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="End" />
+            </Style>
+
+            <!-- Setting -->
+
+            <Style x:Key="SettingLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource LargeSize}" />
+            </Style>
+
+            <Style x:Key="SettingEntry" TargetType="Entry">
+                <Setter Property="FontSize" Value="{StaticResource LargeSize}" />
+                <Setter Property="PlaceholderColor" Value="{StaticResource MetroLighten}"/>
+                <Setter Property="effects:EntryErrorEffect.Apply" Value="True"/>
+                <Setter Property="effects:EntryErrorEffect.ErrorColor" Value="{StaticResource NoErrorColor}"/>
+                <Setter Property="Opacity" Value="0.6" />
+                <Style.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                        <Setter Property="Opacity" Value="1" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!-- Pad -->
+
+            <Style x:Key="ResultPadGrid" TargetType="Grid">
+                <Setter Property="RowSpacing" Value="0"/>
+                <Setter Property="ColumnSpacing" Value="0" />
+            </Style>
+
+            <Style x:Key="ResultPadBoxView" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroGrayDark}"/>
+            </Style>
+
+            <Style x:Key="ResultPadLayout" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroGrayDark}"/>
+            </Style>
+
+            <Style x:Key="ResultPadCenterLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource HugeSize}" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="ResultPadRightLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource HugeSize}" />
+                <Setter Property="HorizontalOptions" Value="End" />
+            </Style>
+
+            <Style x:Key="PadLeftButton" TargetType="Button">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="{StaticResource ExtraBigSize}" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="Margin" Value="3" />
+            </Style>
+
+            <Style x:Key="PadRightButton" TargetType="Button">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="{StaticResource ExtraBigSize}" />
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="Margin" Value="3" />
+            </Style>
+
+            <Style x:Key="NumberPadButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#EEE"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="{StaticResource ExtraBigSize}" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="Margin" Value="3" />
+            </Style>
+
+            <Style x:Key="FunctionPadButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroOrange}"/>
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource ExtraBigSize}" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="Margin" Value="3" />
+            </Style>
+
+            <!-- Converter -->
+
+            <data:DateFormatConverter x:Key="DateTimeConverter"
+                                Format="MM/dd HH:mm" />
+            <data:DigitFormatConverter x:Key="UserIdConverter"
+                                 Format="{x:Static models:Format.UserId}" />
+            <data:DigitFormatConverter x:Key="StorageNoConverter"
+                                 Format="{x:Static models:Format.StorageNo}" />
+            <data:DigitFormatConverter x:Key="DetailNoConverter"
+                                 Format="{x:Static models:Format.DetailNo}" />
+            <data:BoolToColorConverter x:Key="SelectedColorConverter"
+                                 TrueColor="{StaticResource MetroBlueLightDarker}" />
+            <data:NullToColorConverter x:Key="InspectedColorConverter"
+                                 NonNullColor="{StaticResource MetroBlue}"
+                                 NullColor="{StaticResource MetroRed}" />
+            <converters:InspectStatusColorConverter x:Key="InspectStatusColorConverter"
+                                              InspectedColor="{StaticResource MetroBlue}"
+                                              CheckedColor="{StaticResource MetroGreen}"
+                                              UnCheckedColor="{StaticResource MetroRed}" />
+
+        </ResourceDictionary>
+
+    </Application.Resources>
 </Application>

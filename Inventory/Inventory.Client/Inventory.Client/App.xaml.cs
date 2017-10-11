@@ -32,6 +32,7 @@ namespace Inventory.Client
 
         private void RegisterComponents(ResolverConfig config)
         {
+            config.UseAutoBinding();
             config.UseNavigator();
             config.Bind<ISettingService>().To<SettingService>().InSingletonScope();
             config.Bind<IDialogService>().To<DialogService>().InSingletonScope();
