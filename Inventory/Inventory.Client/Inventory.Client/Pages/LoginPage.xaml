@@ -7,9 +7,10 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type={x:Type pages:LoginPageViewModel}}"
              x:Class="Inventory.Client.Pages.LoginPage"
-             Title="Login">
+             Title="Login"
+             NavigationPage.HasBackButton="False">
 
-  <Grid Style="{StaticResource BodyGrid}">
+    <Grid Style="{StaticResource BodyGrid}">
     <Grid.RowDefinitions>
       <RowDefinition Height="*"/>
       <RowDefinition Height="Auto"/>

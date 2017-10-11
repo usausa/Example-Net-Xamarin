@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pages="clr-namespace:Inventory.Client.Pages.Setting;assembly=Inventory.Client"
+             xmlns:models="clr-namespace:Inventory.Client.Models;assembly=Inventory.Client"
+             xmlns:effects="clr-namespace:Inventory.Client.Effects;assembly=Inventory.Client"
+             xmlns:validation="clr-namespace:Smart.Forms.Validation;assembly=Smart.Forms"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type={x:Type pages:SettingPageViewModel}}"
+             x:Class="Inventory.Client.Pages.Setting.SettingPage"
+             Title="Setting"
+             NavigationPage.HasBackButton="False">
+
+    <ContentPage.Behaviors>
+    <validation:SetFocusToErrorElementBehavior Request="{Binding ValidationRequest}"/>
+  </ContentPage.Behaviors>
+
+  <Grid Style="{StaticResource BodyGrid}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <!-- Start:Content -->
+    <StackLayout Grid.Row="0" Style="{StaticResource ContentStackLayout}">
+
+      <Label Style="{StaticResource SettingLabel}"
+             Text="EndPoint" />
+      <Entry Style="{StaticResource SettingEntry}"
+             Text="{Binding EndPoint.Value, Mode=TwoWay}"
+             Keyboard="Url"
+             Placeholder="http://server/"
+             validation:Validation.HasError="{Binding EndPoint.HasError}" >
+        <Entry.Behaviors>
+          <validation:ClearErrorOnFocusedBehavior Target="{Binding EndPoint}"/>
+          <validation:ValidateOnUnfocusedBehavior Target="{Binding EndPoint}"/>
+        </Entry.Behaviors>
+        <Entry.Triggers>
+          <DataTrigger TargetType="Entry" Binding="{Binding EndPoint.HasError}" Value="True">
+            <Setter Property="effects:EntryErrorEffect.ErrorColor" Value="{StaticResource ErrorColor}"/>
+          </DataTrigger>
+        </Entry.Triggers>
+      </Entry>
+
+      <Label Style="{StaticResource SettingLabel}"
+             Text="Terminal No" />
+      <Entry Style="{StaticResource SettingEntry}"
+             Text="{Binding TerminalNo.Value, Mode=TwoWay}"
+             Keyboard="Numeric"
+             Placeholder="999999"
+             effects:MaxLengthEffect.MaxLength="{x:Static models:Length.TerminalNo}"
+             validation:Validation.HasError="{Binding TerminalNo.HasError}" >
+        <Entry.Behaviors>
+          <validation:ClearErrorOnFocusedBehavior Target="{Binding TerminalNo}"/>
+          <validation:ValidateOnUnfocusedBehavior Target="{Binding TerminalNo}"/>
+        </Entry.Behaviors>
+        <Entry.Triggers>
+          <DataTrigger TargetType="Entry" Binding="{Binding TerminalNo.HasError}" Value="True">
+            <Setter Property="effects:EntryErrorEffect.ErrorColor" Value="{StaticResource ErrorColor}"/>
+          </DataTrigger>
+        </Entry.Triggers>
+      </Entry>
+
+    </StackLayout>
+    <!-- End:Content -->
+
+    <!-- Start:Function -->
+    <Grid Grid.Row="1" Style="{StaticResource FunctionGrid}">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+
+      <Button Grid.Column="0" Style="{StaticResource FunctionButton}"
+                Command="{Binding BackCommand}"
+                Text="Back" />
+      <Button Grid.Column="1" Style="{StaticResource FunctionButton}"
+                IsEnabled="False" />
+      <Button Grid.Column="2" Style="{StaticResource FunctionButton}"
+                IsEnabled="False" />
+      <Button Grid.Column="3" Style="{StaticResource FunctionButton}"
+                IsEnabled="False" />
+
+    </Grid>
+    <!-- End:Function -->
+
+  </Grid>
+
+</ContentPage>

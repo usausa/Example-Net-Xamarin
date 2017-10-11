@@ -7,7 +7,8 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type={x:Type pages:MenuPageViewModel}}"
              x:Class="Inventory.Client.Pages.MenuPage"
-             Title="Menu">
+             Title="Menu"
+             NavigationPage.HasBackButton="False">
 
   <Grid Style="{StaticResource BodyGrid}">
     <Grid.RowDefinitions>
