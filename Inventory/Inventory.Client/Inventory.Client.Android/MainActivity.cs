@@ -29,6 +29,11 @@
             LoadApplication(new App(new ComponentProvider()));
         }
 
+        public override void OnBackPressed()
+        {
+            MoveTaskToBack(true);
+        }
+
         private class ComponentProvider : IComponentProvider
         {
             public void RegisterComponents(ResolverConfig config)
