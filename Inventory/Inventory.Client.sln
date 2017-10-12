@@ -16,6 +16,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Inventory.Client.sln.DotSettings = Inventory.Client.sln.DotSettings
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{56F7CAB5-3AE3-4BF9-A4E4-C2F7F298E88F}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Entry1.png = Docs\Entry1.png
+		Docs\Entry2.png = Docs\Entry2.png
+		Docs\Inspection1.png = Docs\Inspection1.png
+		Docs\InspectionRecieve.png = Docs\InspectionRecieve.png
+		Docs\Login.png = Docs\Login.png
+		Docs\MasterDownload.png = Docs\MasterDownload.png
+		Docs\Menu.png = Docs\Menu.png
+		Docs\QtyEdit.png = Docs\QtyEdit.png
+		Docs\Setting.png = Docs\Setting.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
