@@ -1,25 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-
 namespace Inventory.Server
 {
-    public class Program
+    using System.IO;
+
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.AspNetCore;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Configuration;
+
+    /// <summary>
+    ///
+    /// </summary>
+    public static class Program
     {
         public static void Main(string[] args)
         {
+            // Disable ApplicationInsight
+            TelemetryConfiguration.Active.DisableTelemetry = true;
+
             BuildWebHost(args).Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static IWebHost BuildWebHost(string[] args)
+        {
+            var config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("hosting.json", optional: true)
+                .AddCommandLine(args)
+                .Build();
+
+            return WebHost.CreateDefaultBuilder(args)
+                .CaptureStartupErrors(true) // Capture Startup Errors
+                //.UseSetting(WebHostDefaults.DetailedErrorsKey, "true")  // Detailed Errors
+                .UseConfiguration(config)
                 .UseStartup<Startup>()
                 .Build();
+        }
     }
 }

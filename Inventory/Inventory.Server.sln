@@ -1,9 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Server", "Inventory.Server\Inventory.Server.csproj", "{75C83427-2E79-43A7-AEE2-0E0DA48DB6AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory.Server", "Inventory.Server\Inventory.Server.csproj", "{75C83427-2E79-43A7-AEE2-0E0DA48DB6AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4D129C79-5AAF-4897-ABEC-1390088F2177}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Inventory.Server.ruleset = Inventory.Server.ruleset
+		Inventory.Server.sln.DotSettings = Inventory.Server.sln.DotSettings
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
