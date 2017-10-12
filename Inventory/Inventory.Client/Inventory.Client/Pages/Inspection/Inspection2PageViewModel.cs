@@ -1,6 +1,5 @@
-﻿namespace Inventory.Client.Pages.Entry
+﻿namespace Inventory.Client.Pages.Inspection
 {
-    using System;
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Threading.Tasks;
@@ -18,19 +17,15 @@
     using Smart.Forms.Navigation.Plugins.Parameter;
     using Smart.Forms.ViewModels;
 
-    public class Entry2PageViewModel : DisposableViewModelBase, INavigationAware
+    public class Inspection2PageViewModel : DisposableViewModelBase, INavigationAware
     {
         private readonly INavigator navigator;
 
         private readonly IDialogService dialogService;
 
-        private readonly IBarcodeService barcodeService;
+        private readonly InspectionService inspectionService;
 
-        private readonly ItemService itemService;
-
-        private readonly EntryService entryService;
-
-        private EntryEntity selected;
+        private InspectionEntity selected;
 
         private bool updated;
 
@@ -41,40 +36,33 @@
         [Parameter(Direction.Import)]
         public NotificationValue<int> StorageNo { get; } = new NotificationValue<int>();
 
-        public NotificationValue<EntryStatusEntity> Status { get; } = new NotificationValue<EntryStatusEntity>();
+        public NotificationValue<InspectionStatusEntity> Status { get; } = new NotificationValue<InspectionStatusEntity>();
 
-        public ObservableCollection<EntryEntity> Entities { get; } = new ObservableCollection<EntryEntity>();
+        public ObservableCollection<InspectionEntity> Entities { get; } = new ObservableCollection<InspectionEntity>();
 
         public AsyncCommand BackCommand { get; }
 
         public AsyncCommand NextCommand { get; }
 
-        public AsyncCommand ScanCommand { get; }
+        public AsyncCommand<InspectionEntity> EditCommand { get; }
 
-        public AsyncCommand<EntryEntity> EditCommand { get; }
-
-        public Entry2PageViewModel(
+        public Inspection2PageViewModel(
             INavigator navigator,
             IDialogService dialogService,
             ISettingService settingService,
-            IBarcodeService barcodeService,
-            ItemService itemService,
-            EntryService entryService,
+            InspectionService inspectionService,
             Session session)
         {
             this.navigator = navigator;
             this.dialogService = dialogService;
-            this.barcodeService = barcodeService;
-            this.itemService = itemService;
-            this.entryService = entryService;
+            this.inspectionService = inspectionService;
 
             UserId.Value = session.UserId;
             TerminalNo.Value = settingService.GetTerminalNo();
 
             BackCommand = MakeBusyCommand(Back);
             NextCommand = MakeBusyCommand(Next);
-            ScanCommand = MakeBusyCommand(Scan);
-            EditCommand = MakeBusyCommand<EntryEntity>(Edit);
+            EditCommand = MakeBusyCommand<InspectionEntity>(Edit);
         }
 
         public void OnNavigatingTo(NavigationContext context)
@@ -101,7 +89,7 @@
             {
                 await ExecuteBusyAsync(async () =>
                 {
-                    var pair = await entryService.QueryEntryAsync(StorageNo.Value);
+                    var pair = await inspectionService.QueryInspectionAsync(StorageNo.Value);
 
                     Status.Value = pair.Status;
 
@@ -123,61 +111,25 @@
         {
             if (updated)
             {
-                if (!await dialogService.DisplayConfirm("Entry", "Discard the edits ?"))
+                if (!await dialogService.DisplayConfirm("Inspection", "Discard the edits ?"))
                 {
                     return;
                 }
             }
 
-            await navigator.ForwardAsync("Entry1Page");
+            await navigator.ForwardAsync("Inspection1Page");
         }
 
         private async Task Next()
         {
-            await entryService.UpdateAsync(Status.Value, Entities.Reverse());
+            Status.Value.IsChecked = true;
 
-            await navigator.ForwardAsync("Entry1Page");
+            await inspectionService.UpdateAsync(Status.Value, Entities.Reverse());
+
+            await navigator.ForwardAsync("Inspection1Page");
         }
 
-        private async Task Scan()
-        {
-            var code = await barcodeService.ScanAsync();
-            if (String.IsNullOrEmpty(code))
-            {
-                return;
-            }
-
-            var item = await itemService.FindItemAsync(code);
-            if (item == null)
-            {
-                return;
-            }
-
-            // TODO
-            if ((Entities.Count > 0) && (Entities[0].ItemCode == code))
-            {
-                Entities[0].Amount++;
-            }
-            else
-            {
-                var entry = new EntryEntity
-                {
-                    DetailNo = Entities.Count + 1,
-                    ItemCode = item.ItemCode,
-                    ItemName = item.ItemName,
-                    SalesPrice = item.SalesPrice,
-                    Amount = 1
-                };
-
-                Entities.Insert(0, entry);
-            }
-
-            updated = true;
-
-            UpdateSummary();
-        }
-
-        private async Task Edit(EntryEntity entity)
+        private async Task Edit(InspectionEntity entity)
         {
             selected = entity;
 

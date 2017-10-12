@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pages="clr-namespace:Inventory.Client.Pages.Inspection;assembly=Inventory.Client"
              xmlns:interactivity="clr-namespace:Smart.Forms.Interactivity;assembly=Smart.Forms"
-             xmlns:pages="clr-namespace:Inventory.Client.Pages.Sync;assembly=Inventory.Client"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance Type={x:Type pages:InspectionRecievePageViewModel}}"
-             x:Class="Inventory.Client.Pages.Sync.InspectionRecievePage"
-             Title="Inspection recieve"
+             d:DataContext="{d:DesignInstance Type={x:Type pages:Inspection1PageViewModel}}"
+             x:Class="Inventory.Client.Pages.Inspection.Inspection1Page"
+             Title="Storage"
              NavigationPage.HasBackButton="False">
 
     <Grid Style="{StaticResource BodyGrid}">
@@ -28,10 +28,9 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="12"/>
-          <ColumnDefinition Width="2*"/>
-          <ColumnDefinition Width="5*"/>
-          <ColumnDefinition Width="5*"/>
-          <ColumnDefinition Width="4*"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="3*"/>
+          <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource ListHeaderLabel}"
                Text="Storage"/>
@@ -43,10 +42,6 @@
                Text="InspectBy"/>
         <Label Grid.Row="1" Grid.Column="3" Style="{StaticResource ListHeaderLabel}"
                Text="InspectAt"/>
-        <Label Grid.Row="0" Grid.Column="4" Style="{StaticResource ListHeaderLabel}"
-               Text="Lines"/>
-        <Label Grid.Row="1" Grid.Column="4" Style="{StaticResource ListHeaderLabel}"
-               Text="Qty"/>
       </Grid>
 
       <ListView ItemsSource="{Binding Items}">
@@ -64,13 +59,12 @@
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                   <ColumnDefinition Width="12"/>
-                  <ColumnDefinition Width="2*"/>
-                  <ColumnDefinition Width="5*"/>
-                  <ColumnDefinition Width="5*"/>
-                  <ColumnDefinition Width="4*"/>
+                  <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="3*"/>
+                  <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <BoxView Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Style="{StaticResource StatusBoxView}"
-                         BackgroundColor="{Binding Item.InspectionUserId, Converter={StaticResource InspectedColorConverter}}" />
+                         BackgroundColor="{Binding Item, Converter={StaticResource InspectStatusColorConverter}}" />
                 <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource ListItemLeftLabel}"
                        Text="{Binding Item.StorageNo, Converter={StaticResource StorageNoConverter}}" />
                 <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource ListItemLeftLabel}"
@@ -81,10 +75,6 @@
                        Text="{Binding Item.InspectionUserId, Converter={StaticResource UserIdConverter}}" />
                 <Label Grid.Row="1" Grid.Column="3" Style="{StaticResource ListItemLeftLabel}"
                        Text="{Binding Item.InspectionAt, Converter={StaticResource DateTimeConverter}}" />
-                <Label Grid.Row="0" Grid.Column="4" Style="{StaticResource ListItemRightLabel}"
-                       Text="{Binding Item.DetailCount, StringFormat='{0:#,0}'}" />
-                <Label Grid.Row="1" Grid.Column="4" Style="{StaticResource ListItemRightLabel}"
-                       Text="{Binding Item.TotalAmount, StringFormat='{0:#,0}'}" />
               </Grid>
             </ViewCell>
           </DataTemplate>
@@ -112,8 +102,8 @@
       <Button Grid.Column="2" Style="{StaticResource FunctionButton}"
                 IsEnabled="False" />
       <Button Grid.Column="3" Style="{StaticResource FunctionButton}"
-                Command="{Binding RecieveCommand}"
-                Text="Recv" />
+                Command="{Binding NextCommand}"
+                Text="Next" />
 
     </Grid>
     <!-- End:Function -->

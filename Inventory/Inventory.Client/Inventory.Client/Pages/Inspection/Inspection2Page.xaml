@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pages="clr-namespace:Inventory.Client.Pages.Inspection;assembly=Inventory.Client"
              xmlns:interactivity="clr-namespace:Smart.Forms.Interactivity;assembly=Smart.Forms"
-             xmlns:pages="clr-namespace:Inventory.Client.Pages.Entry;assembly=Inventory.Client"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance Type={x:Type pages:Entry2PageViewModel}}"
-             x:Class="Inventory.Client.Pages.Entry.Entry2Page"
-             Title="Entry"
+             d:DataContext="{d:DesignInstance Type={x:Type pages:Inspection2PageViewModel}}"
+             x:Class="Inventory.Client.Pages.Inspection.Inspection2Page"
+             Title="Inspection"
              NavigationPage.HasBackButton="False">
 
     <Grid Style="{StaticResource BodyGrid}">
@@ -85,7 +85,7 @@
         <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource ListHeaderLabel}"
                Text="Code"/>
         <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource ListHeaderLabel}"
-               Text="Qty"/>
+               Text="Amount"/>
         <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource ListHeaderLabel}"
                Text="Name"/>
         <Label Grid.Row="1" Grid.Column="2" Style="{StaticResource ListHeaderLabel}"
@@ -144,8 +144,7 @@
       <Button Grid.Column="1" Style="{StaticResource FunctionButton}"
                 IsEnabled="False" />
       <Button Grid.Column="2" Style="{StaticResource FunctionButton}"
-                Command="{Binding ScanCommand}"
-                Text="Scan" />
+                IsEnabled="False" />
       <Button Grid.Column="3" Style="{StaticResource FunctionButton}"
                 Command="{Binding NextCommand}"
                 Text="Update" />
