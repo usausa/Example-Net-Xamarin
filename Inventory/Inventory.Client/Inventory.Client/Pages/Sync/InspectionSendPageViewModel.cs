@@ -106,7 +106,6 @@
                             UserId = session.UserId,
                             Entries = pair.Entities.Select(x => new StorageDetailsRequestEntry
                             {
-                                DetailNo = x.DetailNo,
                                 ItemCode = x.ItemCode,
                                 ItemName = x.ItemName,
                                 SalesPrice = x.SalesPrice,
