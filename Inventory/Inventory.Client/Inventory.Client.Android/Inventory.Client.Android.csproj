@@ -103,7 +103,7 @@
       <Version>1.0.2</Version>
     </PackageReference>
     <PackageReference Include="Usa.Smart.Core">
-      <Version>1.0.4</Version>
+      <Version>1.0.5</Version>
     </PackageReference>
     <PackageReference Include="Usa.Smart.Forms">
       <Version>0.9.0</Version>
