@@ -37,10 +37,10 @@
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
     <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
-    <AotAssemblies>true</AotAssemblies>
-    <EnableLLVM>false</EnableLLVM>
     <LangVersion>latest</LangVersion>
     <CodeAnalysisRuleSet>..\..\AotCheck.FormsApp.ruleset</CodeAnalysisRuleSet>
+    <AotAssemblies>true</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -53,6 +53,8 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <LangVersion>latest</LangVersion>
     <CodeAnalysisRuleSet>..\..\AotCheck.FormsApp.ruleset</CodeAnalysisRuleSet>
+    <AotAssemblies>true</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
