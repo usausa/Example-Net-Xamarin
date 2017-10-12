@@ -40,7 +40,7 @@
         <Label Grid.Row="0" Grid.Column="3" Style="{StaticResource DisplayLeftLabel}"
                Text="{Binding TerminalNo.Value}" />
         <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource DisplayLeftLabel}"
-               Text="Storage" />
+               Text="No" />
         <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource DisplayLeftLabel}"
                Text="{Binding StorageNo.Value, Converter={StaticResource StorageNoConverter}}" />
       </Grid>
@@ -56,15 +56,15 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource DisplayRightLabel}"
-               Text="Lines" />
+               Text="Total Lines" />
         <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource DisplayRightLabel}"
                Text="{Binding Status.Value.DetailCount, StringFormat='{0:#,0}'}" />
         <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource DisplayRightLabel}"
-               Text="Price" />
+               Text="Total Price" />
         <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource DisplayRightLabel}"
                Text="{Binding Status.Value.TotalPrice, StringFormat='{0:#,0}'}" />
         <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource DisplayRightLabel}"
-               Text="Qty" />
+               Text="Total Qty" />
         <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource DisplayRightLabel}"
                Text="{Binding Status.Value.TotalQty, StringFormat='{0:#,0}'}" />
       </Grid>
@@ -147,7 +147,7 @@
                 IsEnabled="False" />
       <Button Grid.Column="3" Style="{StaticResource FunctionButton}"
                 Command="{Binding NextCommand}"
-                Text="Update" />
+                Text="Next" />
 
     </Grid>
     <!-- End:Function -->

@@ -32,7 +32,7 @@
           <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource ListHeaderLabel}"
-               Text="Storage"/>
+               Text="No"/>
         <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource ListHeaderLabel}"
                Text="Lines"/>
         <Label Grid.Row="0" Grid.Column="3" Style="{StaticResource ListHeaderLabel}"

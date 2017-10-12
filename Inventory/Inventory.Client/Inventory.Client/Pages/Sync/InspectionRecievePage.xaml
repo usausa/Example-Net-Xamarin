@@ -34,7 +34,7 @@
           <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource ListHeaderLabel}"
-               Text="Storage"/>
+               Text="No"/>
         <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource ListHeaderLabel}"
                Text="EntryBy"/>
         <Label Grid.Row="1" Grid.Column="2" Style="{StaticResource ListHeaderLabel}"
