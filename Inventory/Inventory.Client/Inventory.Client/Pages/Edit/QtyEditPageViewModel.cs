@@ -13,7 +13,7 @@
     {
         private readonly INavigator navigator;
 
-        public NumberStack Stack { get; } = new NumberStack(Length.Amount);
+        public NumberStack Stack { get; } = new NumberStack(Length.Qty);
 
         public AsyncCommand CancelCommand { get; }
 

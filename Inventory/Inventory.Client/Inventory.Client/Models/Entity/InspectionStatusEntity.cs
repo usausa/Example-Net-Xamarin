@@ -15,7 +15,7 @@
         public const int InspectionAtLength = Length.DateTime;
         public const int DetailCountLength = Length.DetailNo;
         public const int TotalPriceLength = Length.TotalPrice;
-        public const int TotalAmountLength = Length.TotalAmount;
+        public const int TotalQtyLength = Length.TotalQty;
         public const int IsCheckedLength = Length.Flag;
         public const int CrLfLength = Length.CrLf;
 
@@ -26,8 +26,8 @@
         public const int InspectionAtOffset = InspectionUserIdOffset + InspectionUserIdLength;
         public const int DetailCountOffset = InspectionAtOffset + InspectionAtLength;
         public const int TotalPriceOffset = DetailCountOffset + DetailCountLength;
-        public const int TotalAmountOffset = TotalPriceOffset + TotalPriceLength;
-        public const int IsCheckedOffset = TotalAmountOffset + TotalAmountLength;
+        public const int TotalQtyOffset = TotalPriceOffset + TotalPriceLength;
+        public const int IsCheckedOffset = TotalQtyOffset + TotalQtyLength;
         public const int CrLfOffset = IsCheckedOffset + IsCheckedLength;
 
         public const int Size = CrLfOffset + CrLfLength;
@@ -46,7 +46,7 @@
 
         private long totalPrice;
 
-        private long totalAmount;
+        private long totalQty;
 
         private bool isChecked;
 
@@ -92,10 +92,10 @@
             set => SetProperty(ref totalPrice, value);
         }
 
-        public long TotalAmount
+        public long TotalQty
         {
-            get => totalAmount;
-            set => SetProperty(ref totalAmount, value);
+            get => totalQty;
+            set => SetProperty(ref totalQty, value);
         }
 
         public bool IsChecked
@@ -113,7 +113,7 @@
             inspectionAt = ByteSerializer.ReadDateTimeNullable(buffer, InspectionAtOffset, InspectionAtLength);
             detailCount = ByteSerializer.ReadInteger(buffer, DetailCountOffset, DetailCountLength);
             totalPrice = ByteSerializer.ReadLong(buffer, TotalPriceOffset, TotalPriceLength);
-            totalAmount = ByteSerializer.ReadLong(buffer, TotalAmountOffset, TotalAmountLength);
+            totalQty = ByteSerializer.ReadLong(buffer, TotalQtyOffset, TotalQtyLength);
             isChecked = ByteSerializer.ReadBoolean(buffer, IsCheckedOffset, IsCheckedLength);
         }
 
@@ -127,7 +127,7 @@
             ByteSerializer.WriteDateTimeNullable(inspectionAt, buffer, InspectionAtOffset, InspectionAtLength);
             ByteSerializer.WriteInteger(detailCount, buffer, DetailCountOffset, DetailCountLength);
             ByteSerializer.WriteLong(totalPrice, buffer, TotalPriceOffset, TotalPriceLength);
-            ByteSerializer.WriteLong(totalAmount, buffer, TotalAmountOffset, TotalAmountLength);
+            ByteSerializer.WriteLong(totalQty, buffer, TotalQtyOffset, TotalQtyLength);
             ByteSerializer.WriteBoolean(isChecked, buffer, IsCheckedOffset, IsCheckedLength);
             ByteSerializer.WriteCrLf(buffer, CrLfOffset);
             return buffer;

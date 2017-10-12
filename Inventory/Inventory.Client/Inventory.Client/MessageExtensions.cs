@@ -33,7 +33,7 @@
             message.Append("Status = ").Append(result.Status).AppendLine();
             message.Append("Code = ").Append(result.StatusCode);
 
-            return dialogService.DisplayAlert("通信エラー", message.ToString(), "OK");
+            return dialogService.DisplayAlert("Network error", message.ToString(), "OK");
         }
     }
 }

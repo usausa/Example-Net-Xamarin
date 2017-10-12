@@ -134,8 +134,8 @@
                         .Aggregate(new EntrySummaryView(), (s, e) =>
                         {
                             s.DetailCount += 1;
-                            s.TotalPrice += e.SalesPrice * e.Amount;
-                            s.TotalAmount += e.Amount;
+                            s.TotalPrice += e.SalesPrice * e.Qty;
+                            s.TotalQty += e.Qty;
                             return s;
                         });
 
@@ -150,7 +150,7 @@
                             InspectionAt = ret.Result.InspectionAt,
                             DetailCount = summary.DetailCount,
                             TotalPrice = summary.TotalPrice,
-                            TotalAmount = summary.TotalAmount,
+                            TotalQty = summary.TotalQty,
                             IsChecked = false
                         },
                         ret.Result.Entries.Select((x, i) => new InspectionEntity
@@ -158,8 +158,8 @@
                             ItemCode = x.ItemCode,
                             ItemName = x.ItemName,
                             SalesPrice = x.SalesPrice,
-                            Amount = x.Amount,
-                            OriginalAmount = x.Amount,
+                            Qty = x.Qty,
+                            OriginalQty = x.Qty,
                         }));
                 }
 

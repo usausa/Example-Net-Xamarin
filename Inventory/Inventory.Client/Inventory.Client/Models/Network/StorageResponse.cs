@@ -18,7 +18,7 @@
 
         public long TotalPrice { get; set; }
 
-        public long TotalAmount { get; set; }
+        public long TotalQty { get; set; }
     }
 
     public class StorageResponse

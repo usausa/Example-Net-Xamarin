@@ -12,7 +12,7 @@
 
         public long SalesPrice { get; set; }
 
-        public long Amount { get; set; }
+        public long Qty { get; set; }
     }
 
     public class StorageDetailsResponse
@@ -31,7 +31,7 @@
 
         public long TotalPrice { get; set; }
 
-        public long TotalAmount { get; set; }
+        public long TotalQty { get; set; }
 
         public StorageDetailsResponseEntry[] Entries { get; set; }
     }

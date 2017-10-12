@@ -72,7 +72,7 @@
                 var value = context.Parameters.GetValueOrDefault<long?>(EditParameter.Value);
                 if (value.HasValue)
                 {
-                    selected.Amount = value.Value;
+                    selected.Qty = value.Value;
 
                     updated = true;
 
@@ -134,9 +134,9 @@
             selected = entity;
 
             var parameters = new NavigationParameters()
-                .SetValue(EditParameter.Value, entity.Amount)
-                .SetValue(EditParameter.ResetValue, entity.Amount);
-            await navigator.PushModelAsync("/Edit/AmountEditPage", parameters);
+                .SetValue(EditParameter.Value, entity.Qty)
+                .SetValue(EditParameter.ResetValue, entity.Qty);
+            await navigator.PushModelAsync("/Edit/QtyEditPage", parameters);
         }
 
         private void UpdateSummary()
@@ -145,14 +145,14 @@
                 .Aggregate(new EntrySummaryView(), (s, e) =>
                 {
                     s.DetailCount += 1;
-                    s.TotalPrice += e.SalesPrice * e.Amount;
-                    s.TotalAmount += e.Amount;
+                    s.TotalPrice += e.SalesPrice * e.Qty;
+                    s.TotalQty += e.Qty;
                     return s;
                 });
 
             Status.Value.DetailCount = summary.DetailCount;
             Status.Value.TotalPrice = summary.TotalPrice;
-            Status.Value.TotalAmount = summary.TotalAmount;
+            Status.Value.TotalQty = summary.TotalQty;
         }
     }
 }

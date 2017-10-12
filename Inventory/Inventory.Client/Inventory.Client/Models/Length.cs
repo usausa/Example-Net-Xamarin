@@ -13,10 +13,10 @@
         public const int ItemCode = 20;
         public const int ItemName = 20;
         public const int SalesPrice = 7;
-        public const int Amount = 3;
+        public const int Qty = 3;
 
-        public const int TotalPrice = DetailNo + Amount + SalesPrice;
-        public const int TotalAmount = DetailNo + Amount;
+        public const int TotalPrice = DetailNo + Qty + SalesPrice;
+        public const int TotalQty = DetailNo + Qty;
 
         public const int DateTime = 17;
         public const int Flag = 1;

@@ -64,9 +64,9 @@
         <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource DisplayRightLabel}"
                Text="{Binding Status.Value.TotalPrice, StringFormat='{0:#,0}'}" />
         <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource DisplayRightLabel}"
-               Text="Amount" />
+               Text="Qty" />
         <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource DisplayRightLabel}"
-               Text="{Binding Status.Value.TotalAmount, StringFormat='{0:#,0}'}" />
+               Text="{Binding Status.Value.TotalQty, StringFormat='{0:#,0}'}" />
       </Grid>
 
       <!-- Start:List -->
@@ -85,7 +85,7 @@
         <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource ListHeaderLabel}"
                Text="Code"/>
         <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource ListHeaderLabel}"
-               Text="Amount"/>
+               Text="Qty"/>
         <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource ListHeaderLabel}"
                Text="Name"/>
         <Label Grid.Row="1" Grid.Column="2" Style="{StaticResource ListHeaderLabel}"
@@ -114,7 +114,7 @@
                 <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource ListItemLeftLabel}"
                        Text="{Binding ItemCode}"/>
                 <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource ListItemRightLabel}"
-                       Text="{Binding Amount}" />
+                       Text="{Binding Qty}" />
                 <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource ListItemLeftLabel}"
                        Text="{Binding ItemName}"/>
                 <Label Grid.Row="1" Grid.Column="2" Style="{StaticResource ListItemRightLabel}"

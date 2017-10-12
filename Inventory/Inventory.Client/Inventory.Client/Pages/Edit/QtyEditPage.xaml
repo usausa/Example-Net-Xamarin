@@ -5,9 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pages="clr-namespace:Inventory.Client.Pages.Edit;assembly=Inventory.Client"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance Type={x:Type pages:AmountEditPageViewModel}}"
+             d:DataContext="{d:DesignInstance Type={x:Type pages:QtyEditPageViewModel}}"
              x:Class="Inventory.Client.Pages.Edit.QtyEditPage"
-             Title="Amount"
+             Title="Qty"
              NavigationPage.HasBackButton="False">
 
     <Grid Style="{StaticResource BodyGrid}">

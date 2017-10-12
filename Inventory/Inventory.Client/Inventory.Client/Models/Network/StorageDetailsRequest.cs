@@ -10,7 +10,7 @@
 
         public long SalesPrice { get; set; }
 
-        public long Amount { get; set; }
+        public long Qty { get; set; }
     }
 
     public class StorageDetailsRequest

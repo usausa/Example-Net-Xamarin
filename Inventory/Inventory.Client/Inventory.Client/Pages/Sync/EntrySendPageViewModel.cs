@@ -105,7 +105,7 @@
                             ItemCode = x.ItemCode,
                             ItemName = x.ItemName,
                             SalesPrice = x.SalesPrice,
-                            Amount = x.Amount
+                            Qty = x.Qty
                         }).ToArray()
                     };
 

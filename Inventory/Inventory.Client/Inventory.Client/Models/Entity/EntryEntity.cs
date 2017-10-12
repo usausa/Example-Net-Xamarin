@@ -9,14 +9,14 @@
         public const int ItemCodeLength = Length.ItemCode;
         public const int ItemNameLength = Length.ItemName;
         public const int SalesPriceLength = Length.SalesPrice;
-        public const int AmountLength = Length.Amount;
+        public const int QtyLength = Length.Qty;
         public const int CrLfLength = Length.CrLf;
 
         public const int ItemCodeOffset = 0;
         public const int ItemNameOffset = ItemCodeOffset + ItemCodeLength;
         public const int SalesPriceOffset = ItemNameOffset + ItemNameLength;
-        public const int AmountOffset = SalesPriceOffset + SalesPriceLength;
-        public const int CrLfOffset = AmountOffset + AmountLength;
+        public const int QtyOffset = SalesPriceOffset + SalesPriceLength;
+        public const int CrLfOffset = QtyOffset + QtyLength;
 
         public const int Size = CrLfOffset + CrLfLength;
 
@@ -28,7 +28,7 @@
 
         private long salesPrice;
 
-        private long amount;
+        private long qty;
 
         public int DetailNo
         {
@@ -54,10 +54,10 @@
             set => SetProperty(ref salesPrice, value);
         }
 
-        public long Amount
+        public long Qty
         {
-            get => amount;
-            set => SetProperty(ref amount, value);
+            get => qty;
+            set => SetProperty(ref qty, value);
         }
 
         public void FromBytes(byte[] buffer)
@@ -65,7 +65,7 @@
             itemCode = ByteSerializer.ReadString(buffer, ItemCodeOffset, ItemCodeLength);
             itemName = ByteSerializer.ReadString(buffer, ItemNameOffset, ItemNameLength);
             salesPrice = ByteSerializer.ReadLong(buffer, SalesPriceOffset, SalesPriceLength);
-            amount = ByteSerializer.ReadLong(buffer, AmountOffset, AmountLength);
+            qty = ByteSerializer.ReadLong(buffer, QtyOffset, QtyLength);
         }
 
         public byte[] ToBytes()
@@ -74,7 +74,7 @@
             ByteSerializer.WriteString(itemCode, buffer, ItemCodeOffset, ItemCodeLength);
             ByteSerializer.WriteString(itemName, buffer, ItemNameOffset, ItemNameLength);
             ByteSerializer.WriteLong(salesPrice, buffer, SalesPriceOffset, SalesPriceLength);
-            ByteSerializer.WriteLong(amount, buffer, AmountOffset, AmountLength);
+            ByteSerializer.WriteLong(qty, buffer, QtyOffset, QtyLength);
             ByteSerializer.WriteCrLf(buffer, CrLfOffset);
             return buffer;
         }
