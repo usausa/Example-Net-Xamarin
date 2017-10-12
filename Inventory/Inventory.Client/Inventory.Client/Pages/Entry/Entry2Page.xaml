@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:interactivity="clr-namespace:Smart.Forms.Interactivity;assembly=Smart.Forms"
+             xmlns:pages="clr-namespace:Inventory.Client.Pages.Entry;assembly=Inventory.Client"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type={x:Type pages:Entry2PageViewModel}}"
+             x:Class="Inventory.Client.Pages.Entry.Entry2Page"
+             Title="Input"
+             NavigationPage.HasBackButton="False">
+
+    <Grid Style="{StaticResource BodyGrid}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <!-- Start:Content -->
+    <StackLayout Grid.Row="0" Style="{StaticResource ContentStackLayout}">
+
+      <Grid Style="{StaticResource DisplayAreaGrid}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="2*"/>
+          <ColumnDefinition Width="3*"/>
+          <ColumnDefinition Width="2*"/>
+          <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource DisplayLeftLabel}"
+               Text="User" />
+        <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource DisplayLeftLabel}"
+               Text="{Binding UserId.Value, Converter={StaticResource UserIdConverter}}" />
+        <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource DisplayLeftLabel}"
+               Text="Terminal" />
+        <Label Grid.Row="0" Grid.Column="3" Style="{StaticResource DisplayLeftLabel}"
+               Text="{Binding TerminalNo.Value}" />
+        <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource DisplayLeftLabel}"
+               Text="Storage" />
+        <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource DisplayLeftLabel}"
+               Text="{Binding StorageNo.Value, Converter={StaticResource StorageNoConverter}}" />
+      </Grid>
+
+      <Grid Style="{StaticResource DisplayAreaGrid}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource DisplayRightLabel}"
+               Text="Lines" />
+        <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource DisplayRightLabel}"
+               Text="{Binding Status.Value.DetailCount, StringFormat='{0:#,0}'}" />
+        <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource DisplayRightLabel}"
+               Text="Price" />
+        <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource DisplayRightLabel}"
+               Text="{Binding Status.Value.TotalPrice, StringFormat='{0:#,0}'}" />
+        <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource DisplayRightLabel}"
+               Text="Amount" />
+        <Label Grid.Row="2" Grid.Column="1" Style="{StaticResource DisplayRightLabel}"
+               Text="{Binding Status.Value.TotalAmount, StringFormat='{0:#,0}'}" />
+      </Grid>
+
+      <!-- Start:List -->
+      <Grid Style="{StaticResource ListHeaderGrid}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="6*"/>
+          <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource ListHeaderLabel}"
+               Text="Lines"/>
+        <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource ListHeaderLabel}"
+               Text="Code"/>
+        <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource ListHeaderLabel}"
+               Text="Qty"/>
+        <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource ListHeaderLabel}"
+               Text="Name"/>
+        <Label Grid.Row="1" Grid.Column="2" Style="{StaticResource ListHeaderLabel}"
+               Text="Price"/>
+      </Grid>
+
+      <ListView ItemsSource="{Binding Entities}">
+        <ListView.Behaviors>
+          <interactivity:ItemSelectedToCommandBehavior Command="{Binding EditCommand}"/>
+        </ListView.Behaviors>
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <Grid Style="{StaticResource ListItemGrid}">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="*"/>
+                  <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="6*"/>
+                  <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource ListItemLeftLabel}"
+                       Text="{Binding DetailNo, Converter={StaticResource DetailNoConverter}}" />
+                <Label Grid.Row="0" Grid.Column="1" Style="{StaticResource ListItemLeftLabel}"
+                       Text="{Binding ItemCode}"/>
+                <Label Grid.Row="0" Grid.Column="2" Style="{StaticResource ListItemRightLabel}"
+                       Text="{Binding Amount}" />
+                <Label Grid.Row="1" Grid.Column="1" Style="{StaticResource ListItemLeftLabel}"
+                       Text="{Binding ItemName}"/>
+                <Label Grid.Row="1" Grid.Column="2" Style="{StaticResource ListItemRightLabel}"
+                       Text="{Binding SalesPrice, StringFormat='{0:#,0}'}" />
+              </Grid>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+      <!-- End:List -->
+
+    </StackLayout>
+    <!-- End:Content -->
+
+    <!-- Start:Function -->
+    <Grid Grid.Row="1" Style="{StaticResource FunctionGrid}">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+
+      <Button Grid.Column="0" Style="{StaticResource FunctionButton}"
+                Command="{Binding BackCommand}"
+                Text="Back" />
+      <Button Grid.Column="1" Style="{StaticResource FunctionButton}"
+                IsEnabled="False" />
+      <Button Grid.Column="2" Style="{StaticResource FunctionButton}"
+                Command="{Binding ScanCommand}"
+                Text="Scan" />
+      <Button Grid.Column="3" Style="{StaticResource FunctionButton}"
+                Command="{Binding NextCommand}"
+                Text="Update" />
+
+    </Grid>
+    <!-- End:Function -->
+
+  </Grid>
+
+</ContentPage>

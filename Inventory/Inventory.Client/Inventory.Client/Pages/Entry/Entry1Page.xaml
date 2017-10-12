@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pages="clr-namespace:Inventory.Client.Pages.Entry;assembly=Inventory.Client"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type={x:Type pages:Entry1PageViewModel}}"
+             x:Class="Inventory.Client.Pages.Entry.Entry1Page"
+             Title="Storage"
+             NavigationPage.HasBackButton="False">
+
+    <Grid Style="{StaticResource BodyGrid}">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <!-- Start:Content -->
+    <StackLayout Grid.Row="0" Style="{StaticResource ContentStackLayout}">
+      <Grid Style="{StaticResource FillGrid}">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <BoxView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource ResultPadBoxView}"/>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource ResultPadCenterLabel}"
+               Text="{Binding Stack.Value}" />
+
+        <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource NumberPadButton}"
+                Command="{Binding KeyPressCommand}" CommandParameter="7" Text="7" />
+        <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource NumberPadButton}"
+                Command="{Binding KeyPressCommand}" CommandParameter="8" Text="8" />
+        <Button Grid.Row="1" Grid.Column="2" Style="{StaticResource NumberPadButton}"
+                Command="{Binding KeyPressCommand}" CommandParameter="9" Text="9" />
+
+        <Button Grid.Row="2" Grid.Column="0" Style="{StaticResource NumberPadButton}"
+                Command="{Binding KeyPressCommand}" CommandParameter="4" Text="4" />
+        <Button Grid.Row="2" Grid.Column="1" Style="{StaticResource NumberPadButton}"
+                Command="{Binding KeyPressCommand}" CommandParameter="5" Text="5" />
+        <Button Grid.Row="2" Grid.Column="2" Style="{StaticResource NumberPadButton}"
+                Command="{Binding KeyPressCommand}" CommandParameter="6" Text="6" />
+
+        <Button Grid.Row="3" Grid.Column="0" Style="{StaticResource NumberPadButton}"
+                Command="{Binding KeyPressCommand}" CommandParameter="1" Text="1" />
+        <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource NumberPadButton}"
+                Command="{Binding KeyPressCommand}" CommandParameter="2" Text="2" />
+        <Button Grid.Row="3" Grid.Column="2" Style="{StaticResource NumberPadButton}"
+                Command="{Binding KeyPressCommand}" CommandParameter="3" Text="3" />
+
+        <Button Grid.Row="4" Grid.Column="0" Style="{StaticResource FunctionPadButton}"
+                Command="{Binding KeyPressCommand}" CommandParameter="C" Text="C" />
+        <Button Grid.Row="4" Grid.Column="1" Style="{StaticResource NumberPadButton}"
+                Command="{Binding KeyPressCommand}" CommandParameter="0" Text="0" />
+        <Button Grid.Row="4" Grid.Column="2" Style="{StaticResource FunctionPadButton}"
+                Command="{Binding KeyPressCommand}" CommandParameter="BS" Text="BS" />
+
+      </Grid>
+    </StackLayout>
+    <!-- End:Content -->
+
+    <!-- Start:Function -->
+    <Grid Grid.Row="1" Style="{StaticResource FunctionGrid}">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+
+      <Button Grid.Column="0" Style="{StaticResource FunctionButton}"
+                Command="{Binding BackCommand}"
+                Text="Back" />
+      <Button Grid.Column="1" Style="{StaticResource FunctionButton}"
+                IsEnabled="False" />
+      <Button Grid.Column="2" Style="{StaticResource FunctionButton}"
+                IsEnabled="False" />
+      <Button Grid.Column="3" Style="{StaticResource FunctionButton}"
+                Command="{Binding NextCommand}"
+                Text="Next" />
+
+    </Grid>
+    <!-- End:Function -->
+
+  </Grid>
+
+</ContentPage>
