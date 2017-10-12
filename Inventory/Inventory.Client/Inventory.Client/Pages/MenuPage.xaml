@@ -31,22 +31,22 @@
 
         <Button Grid.Row="0" Style="{StaticResource MenuButton}"
                 Command="{Binding NavigateIfSettedCommand}" CommandParameter="/Sync/MasterDownloadPage"
-                Text="Master Download" />
+                Text="Master download" />
         <Button Grid.Row="1" Style="{StaticResource MenuButton}"
                 Command="{Binding NavigateIfItemExistCommand}" CommandParameter="/Entry/Entry1Page"
-                Text="Data Entry" />
+                Text="Data entry" />
         <Button Grid.Row="2" Style="{StaticResource MenuButton}"
                 Command="{Binding NavigateIfSettedCommand}" CommandParameter="/Sync/EntrySendPage"
-                Text="Data Send" />
+                Text="Data send" />
         <Button Grid.Row="3" Style="{StaticResource MenuButton}"
                 Command="{Binding NavigateIfItemExistCommand}" CommandParameter="/Sync/InspectionRecievePage"
-                Text="Inspection Recieve" />
+                Text="Inspection recieve" />
         <Button Grid.Row="4" Style="{StaticResource MenuButton}"
                 Command="{Binding NavigateIfItemExistCommand}" CommandParameter="/Inspection/Inspection1Page"
                 Text="Inspection" />
         <Button Grid.Row="5" Style="{StaticResource MenuButton}"
                 Command="{Binding NavigateIfSettedCommand}" CommandParameter="/Sync/InspectionSendPage"
-                Text="Inspection Send" />
+                Text="Inspection send" />
         <Button Grid.Row="6" Style="{StaticResource MenuButton}"
                 Command="{Binding NavigateCommand}" CommandParameter="/Setting/SettingPage"
                 Text="Setting" />
