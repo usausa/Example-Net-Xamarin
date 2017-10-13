@@ -101,7 +101,7 @@
       <Version>1.0.5</Version>
     </PackageReference>
     <PackageReference Include="Usa.Smart.Forms">
-      <Version>0.9.1</Version>
+      <Version>0.9.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Animated.Vector.Drawable">
       <Version>25.4.0.2</Version>
