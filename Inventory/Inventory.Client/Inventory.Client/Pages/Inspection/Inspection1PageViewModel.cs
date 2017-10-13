@@ -1,4 +1,4 @@
-﻿namespace Inventory.Client.Pages.Inspection
+namespace Inventory.Client.Pages.Inspection
 {
     using System.Collections.ObjectModel;
     using System.Threading.Tasks;
@@ -13,7 +13,7 @@
     using Smart.Forms.Navigation.Plugins.Parameter;
     using Smart.Forms.ViewModels;
 
-    public class Inspection1PageViewModel : DisposableViewModelBase, INavigationAware
+    public class Inspection1PageViewModel : ViewModelBase, INavigationAware
     {
         private readonly INavigator navigator;
 
@@ -41,8 +41,8 @@
             this.navigator = navigator;
             this.inspectionService = inspectionService;
 
-            BackCommand = MakeBusyCommand(Back);
-            NextCommand = MakeBusyCommand(Next, () => selected.Value != null).Observe(selected);
+            BackCommand = MakeAsyncCommand(Back);
+            NextCommand = MakeAsyncCommand(Next, () => selected.Value != null).Observe(selected);
             SelectCommand = new DelegateCommand<SelectableItem<InspectionStatusEntity>>(Select);
         }
 

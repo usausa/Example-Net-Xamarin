@@ -1,4 +1,4 @@
-﻿namespace Inventory.Client.Pages.Inspection
+namespace Inventory.Client.Pages.Inspection
 {
     using System.Collections.ObjectModel;
     using System.Linq;
@@ -17,7 +17,7 @@
     using Smart.Forms.Navigation.Plugins.Parameter;
     using Smart.Forms.ViewModels;
 
-    public class Inspection2PageViewModel : DisposableViewModelBase, INavigationAware
+    public class Inspection2PageViewModel : ViewModelBase, INavigationAware
     {
         private readonly INavigator navigator;
 
@@ -60,9 +60,9 @@
             UserId.Value = session.UserId;
             TerminalNo.Value = settingService.GetTerminalNo();
 
-            BackCommand = MakeBusyCommand(Back);
-            NextCommand = MakeBusyCommand(Next);
-            EditCommand = MakeBusyCommand<InspectionEntity>(Edit);
+            BackCommand = MakeAsyncCommand(Back);
+            NextCommand = MakeAsyncCommand(Next);
+            EditCommand = MakeAsyncCommand<InspectionEntity>(Edit);
         }
 
         public void OnNavigatingTo(NavigationContext context)

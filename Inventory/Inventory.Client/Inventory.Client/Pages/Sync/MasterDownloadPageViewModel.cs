@@ -1,4 +1,4 @@
-﻿namespace Inventory.Client.Pages.Sync
+namespace Inventory.Client.Pages.Sync
 {
     using System.Threading.Tasks;
 
@@ -10,7 +10,7 @@
     using Smart.Forms.Navigation;
     using Smart.Forms.ViewModels;
 
-    public class MasterDownloadPageViewModel : DisposableViewModelBase
+    public class MasterDownloadPageViewModel : ViewModelBase
     {
         private readonly INavigator navigator;
 
@@ -43,8 +43,8 @@
             this.networkClient = networkClient;
             this.itemService = itemService;
 
-            BackCommand = MakeBusyCommand(Back);
-            RecieveCommand = MakeBusyCommand(Recieve);
+            BackCommand = MakeAsyncCommand(Back);
+            RecieveCommand = MakeAsyncCommand(Recieve);
         }
 
         private async Task Back()

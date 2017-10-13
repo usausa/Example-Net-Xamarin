@@ -1,4 +1,4 @@
-﻿namespace Inventory.Client.Pages.Edit
+namespace Inventory.Client.Pages.Edit
 {
     using System.Threading.Tasks;
 
@@ -9,7 +9,7 @@
     using Smart.Forms.Navigation;
     using Smart.Forms.ViewModels;
 
-    public class QtyEditPageViewModel : DisposableViewModelBase, INavigationAware
+    public class QtyEditPageViewModel : ViewModelBase, INavigationAware
     {
         private readonly INavigator navigator;
 
@@ -25,8 +25,8 @@
         {
             this.navigator = navigator;
 
-            CancelCommand = MakeBusyCommand(Cancel);
-            ApplyCommand = MakeBusyCommand(Apply);
+            CancelCommand = MakeAsyncCommand(Cancel);
+            ApplyCommand = MakeAsyncCommand(Apply);
             KeyPressCommand = new DelegateCommand<string>(KeyPress);
         }
 

@@ -1,4 +1,4 @@
-﻿namespace Inventory.Client.Pages.Sync
+namespace Inventory.Client.Pages.Sync
 {
     using System.Collections.ObjectModel;
     using System.Linq;
@@ -14,7 +14,7 @@
     using Smart.Forms.Navigation;
     using Smart.Forms.ViewModels;
 
-    public class EntrySendPageViewModel : DisposableViewModelBase, INavigationAware
+    public class EntrySendPageViewModel : ViewModelBase, INavigationAware
     {
         private readonly INavigator navigator;
 
@@ -53,8 +53,8 @@
             this.entryService = entryService;
             this.session = session;
 
-            BackCommand = MakeBusyCommand(Back);
-            SendCommand = MakeBusyCommand(Send, () => Entities.Count > 0).Observe(Entities);
+            BackCommand = MakeAsyncCommand(Back);
+            SendCommand = MakeAsyncCommand(Send, () => Entities.Count > 0).Observe(Entities);
         }
 
         public void OnNavigatingTo(NavigationContext context)

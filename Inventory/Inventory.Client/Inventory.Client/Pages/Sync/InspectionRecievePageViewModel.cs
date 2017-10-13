@@ -1,4 +1,4 @@
-﻿namespace Inventory.Client.Pages.Sync
+namespace Inventory.Client.Pages.Sync
 {
     using System.Collections.ObjectModel;
     using System.Linq;
@@ -17,7 +17,7 @@
     using Smart.Forms.Navigation;
     using Smart.Forms.ViewModels;
 
-    public class InspectionRecievePageViewModel : DisposableViewModelBase, INavigationAware
+    public class InspectionRecievePageViewModel : ViewModelBase, INavigationAware
     {
         private readonly INavigator navigator;
 
@@ -57,8 +57,8 @@
             this.networkClient = networkClient;
             this.inspectionService = inspectionService;
 
-            BackCommand = MakeBusyCommand(Back);
-            RecieveCommand = MakeBusyCommand(Recieve, () => selectedCount.Value > 0).Observe(selectedCount);
+            BackCommand = MakeAsyncCommand(Back);
+            RecieveCommand = MakeAsyncCommand(Recieve, () => selectedCount.Value > 0).Observe(selectedCount);
             SelectCommand = new DelegateCommand<SelectableItem<StorageResponseEntry>>(Select);
         }
 

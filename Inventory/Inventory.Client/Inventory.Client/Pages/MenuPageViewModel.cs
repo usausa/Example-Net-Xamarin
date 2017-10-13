@@ -1,4 +1,4 @@
-﻿namespace Inventory.Client.Pages
+namespace Inventory.Client.Pages
 {
     using System;
     using System.Threading.Tasks;
@@ -10,7 +10,7 @@
     using Smart.Forms.Navigation;
     using Smart.Forms.ViewModels;
 
-    public class MenuPageViewModel : DisposableViewModelBase
+    public class MenuPageViewModel : ViewModelBase
     {
         private readonly INavigator navigator;
 
@@ -36,10 +36,10 @@
             var setted = !String.IsNullOrEmpty(settingService.GetEndPoint());
             var itemExist = itemService.IsItemExists();
 
-            NavigateCommand = MakeBusyCommand<string>(Navigate);
-            NavigateIfSettedCommand = MakeBusyCommand<string>(Navigate, x => setted);
-            NavigateIfItemExistCommand = MakeBusyCommand<string>(Navigate, x => itemExist);
-            LogoutCommand = MakeBusyCommand(Logout);
+            NavigateCommand = MakeAsyncCommand<string>(Navigate);
+            NavigateIfSettedCommand = MakeAsyncCommand<string>(Navigate, x => setted);
+            NavigateIfItemExistCommand = MakeAsyncCommand<string>(Navigate, x => itemExist);
+            LogoutCommand = MakeAsyncCommand(Logout);
         }
 
         private async Task Navigate(string page)

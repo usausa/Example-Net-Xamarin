@@ -306,22 +306,22 @@
             <!-- Converter -->
 
             <data:DateFormatConverter x:Key="DateTimeConverter"
-                                Format="MM/dd HH:mm" />
-            <data:DigitFormatConverter x:Key="UserIdConverter"
-                                 Format="{x:Static models:Format.UserId}" />
-            <data:DigitFormatConverter x:Key="StorageNoConverter"
-                                 Format="{x:Static models:Format.StorageNo}" />
-            <data:DigitFormatConverter x:Key="DetailNoConverter"
-                                 Format="{x:Static models:Format.DetailNo}" />
+                                      Format="MM/dd HH:mm" />
+            <data:FormatConverter x:Key="UserIdConverter"
+                                  Format="{x:Static models:Format.UserId}" />
+            <data:FormatConverter x:Key="StorageNoConverter"
+                                  Format="{x:Static models:Format.StorageNo}" />
+            <data:FormatConverter x:Key="DetailNoConverter"
+                                  Format="{x:Static models:Format.DetailNo}" />
             <data:BoolToColorConverter x:Key="SelectedColorConverter"
-                                 TrueColor="{StaticResource MetroBlueLightDarker}" />
+                                       TrueColor="{StaticResource MetroBlueLightDarker}" />
             <data:NullToColorConverter x:Key="InspectedColorConverter"
-                                 NonNullColor="{StaticResource MetroBlue}"
-                                 NullColor="{StaticResource MetroRed}" />
+                                       NonNullColor="{StaticResource MetroBlue}"
+                                       NullColor="{StaticResource MetroRed}" />
             <converters:InspectStatusColorConverter x:Key="InspectStatusColorConverter"
-                                              InspectedColor="{StaticResource MetroBlue}"
-                                              CheckedColor="{StaticResource MetroGreen}"
-                                              UnCheckedColor="{StaticResource MetroRed}" />
+                                                    InspectedColor="{StaticResource MetroBlue}"
+                                                    CheckedColor="{StaticResource MetroGreen}"
+                                                    UnCheckedColor="{StaticResource MetroRed}" />
 
         </ResourceDictionary>
 

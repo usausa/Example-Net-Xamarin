@@ -157,7 +157,7 @@
       <Version>1.0.5</Version>
     </PackageReference>
     <PackageReference Include="Usa.Smart.Forms">
-      <Version>0.9.0</Version>
+      <Version>0.9.3</Version>
     </PackageReference>
     <PackageReference Include="Usa.Smart.Resolver">
       <Version>1.4.0</Version>

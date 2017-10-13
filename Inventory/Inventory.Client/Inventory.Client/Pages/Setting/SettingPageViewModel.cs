@@ -1,4 +1,4 @@
-﻿namespace Inventory.Client.Pages.Setting
+namespace Inventory.Client.Pages.Setting
 {
     using System;
     using System.Text.RegularExpressions;
@@ -13,7 +13,7 @@
     using Smart.Forms.Validation;
     using Smart.Forms.ViewModels;
 
-    public class SettingPageViewModel : DisposableViewModelBase
+    public class SettingPageViewModel : ViewModelBase
     {
         private readonly INavigator navigator;
 
@@ -46,7 +46,7 @@
             EndPoint.Value = String.IsNullOrEmpty(endPoint) ? "http://" : endPoint;
             TerminalNo.Value = settingService.GetTerminalNo();
 
-            BackCommand = MakeBusyCommand(Back);
+            BackCommand = MakeAsyncCommand(Back);
         }
 
         private async Task Back()

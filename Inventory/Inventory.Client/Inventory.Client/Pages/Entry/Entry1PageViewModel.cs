@@ -1,4 +1,4 @@
-﻿namespace Inventory.Client.Pages.Entry
+namespace Inventory.Client.Pages.Entry
 {
     using System;
     using System.Reactive.Linq;
@@ -14,7 +14,7 @@
     using Smart.Forms.ViewModels;
     using Smart.Reactive;
 
-    public class Entry1PageViewModel : DisposableViewModelBase
+    public class Entry1PageViewModel : ViewModelBase
     {
         private readonly INavigator navigator;
 
@@ -35,8 +35,8 @@
         {
             this.navigator = navigator;
 
-            BackCommand = MakeBusyCommand(Back);
-            NextCommand = MakeBusyCommand(Next, () => validate.Value).Observe(validate);
+            BackCommand = MakeAsyncCommand(Back);
+            NextCommand = MakeAsyncCommand(Next, () => validate.Value).Observe(validate);
             KeyPressCommand = new DelegateCommand<string>(KeyPress);
 
             Stack.PropertyChangedAsObservable(nameof(Stack.Value))

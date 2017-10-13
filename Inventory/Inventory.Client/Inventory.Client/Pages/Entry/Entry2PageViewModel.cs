@@ -1,4 +1,4 @@
-﻿namespace Inventory.Client.Pages.Entry
+namespace Inventory.Client.Pages.Entry
 {
     using System;
     using System.Collections.ObjectModel;
@@ -18,7 +18,7 @@
     using Smart.Forms.Navigation.Plugins.Parameter;
     using Smart.Forms.ViewModels;
 
-    public class Entry2PageViewModel : DisposableViewModelBase, INavigationAware
+    public class Entry2PageViewModel : ViewModelBase, INavigationAware
     {
         private readonly INavigator navigator;
 
@@ -71,10 +71,10 @@
             UserId.Value = session.UserId;
             TerminalNo.Value = settingService.GetTerminalNo();
 
-            BackCommand = MakeBusyCommand(Back);
-            NextCommand = MakeBusyCommand(Next);
-            ScanCommand = MakeBusyCommand(Scan);
-            EditCommand = MakeBusyCommand<EntryEntity>(Edit);
+            BackCommand = MakeAsyncCommand(Back);
+            NextCommand = MakeAsyncCommand(Next);
+            ScanCommand = MakeAsyncCommand(Scan);
+            EditCommand = MakeAsyncCommand<EntryEntity>(Edit);
         }
 
         public void OnNavigatingTo(NavigationContext context)
