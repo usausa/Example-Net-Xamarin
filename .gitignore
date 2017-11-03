@@ -237,3 +237,7 @@ _Pvt_Extensions
 
 # Subversion
 .svn/
+
+# Folder customize
+desktop.ini
+__*
