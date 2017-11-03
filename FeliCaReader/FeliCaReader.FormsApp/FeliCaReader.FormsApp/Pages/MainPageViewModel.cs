@@ -1,12 +1,11 @@
-﻿using FeliCaReader.FormsApp.Models;
-
-namespace FeliCaReader.FormsApp.Pages
+﻿namespace FeliCaReader.FormsApp.Pages
 {
     using System;
     using System.Linq;
     using System.Reactive.Linq;
     using System.Threading;
 
+    using FeliCaReader.FormsApp.Models;
     using FeliCaReader.FormsApp.Services;
 
     using Smart.Forms.ViewModels;
@@ -34,17 +33,19 @@ namespace FeliCaReader.FormsApp.Pages
                 return;
             }
 
-            var blocks1 = Enumerable.Range(0, 10).Select(x => new ReadBlock { BlockNo = (byte)x }).ToArray();
-            var blocks2 = Enumerable.Range(10, 10).Select(x => new ReadBlock { BlockNo = (byte)x }).ToArray();
+            var blocks1 = Enumerable.Range(0, 8).Select(x => new ReadBlock { BlockNo = (byte)x }).ToArray();
+            var blocks2 = Enumerable.Range(8, 8).Select(x => new ReadBlock { BlockNo = (byte)x }).ToArray();
+            var blocks3 = Enumerable.Range(16, 4).Select(x => new ReadBlock { BlockNo = (byte)x }).ToArray();
             if (!reader.ExecuteReadWoe(idm, 0x090F, blocks1) ||
-                !reader.ExecuteReadWoe(idm, 0x090F, blocks2))
+                !reader.ExecuteReadWoe(idm, 0x090F, blocks2) ||
+                !reader.ExecuteReadWoe(idm, 0x090F, blocks3))
             {
                 return;
             }
 
             // Debug
             var access = Suica.ConvertToAccessData(block.BlockData);
-            var logs = blocks1.Concat(blocks2)
+            var logs = blocks1.Concat(blocks2).Concat(blocks3)
                 .Select(x => Suica.ConvertToLogData(x.BlockData))
                 .Where(x => x != null)
                 .ToArray();
