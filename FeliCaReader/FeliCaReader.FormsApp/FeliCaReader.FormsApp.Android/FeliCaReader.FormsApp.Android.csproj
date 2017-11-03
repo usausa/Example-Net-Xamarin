@@ -6,12 +6,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1D6F038C-2375-4E3F-8928-CF6202065243}</ProjectGuid>
+    <ProjectGuid>{D209DAA7-66F9-47E8-ADA8-9144E3414574}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FeliCaReader.Droid</RootNamespace>
-    <AssemblyName>FeliCaReader.Android</AssemblyName>
+    <RootNamespace>FeliCaReader.FormsApp.Droid</RootNamespace>
+    <AssemblyName>FeliCaReader.FormsApp.Android</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
@@ -134,7 +134,7 @@
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
-  <Import Project="..\FeliCaReader\FeliCaReader.projitems" Label="Shared" Condition="Exists('..\FeliCaReader\FeliCaReader.projitems')" />
+  <Import Project="..\FeliCaReader.FormsApp\FeliCaReader.FormsApp.projitems" Label="Shared" Condition="Exists('..\FeliCaReader.FormsApp\FeliCaReader.FormsApp.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Animated.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.25.4.0.2\build\MonoAndroid70\Xamarin.Android.Support.Animated.Vector.Drawable.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

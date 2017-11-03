@@ -3,10 +3,10 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>dfd4b0d9-8889-4edb-9ee1-2b5b1b33fcca</SharedGUID>
+    <SharedGUID>6d5d76c8-9275-4959-bbf2-396e5d9e4336</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>FeliCaReader</Import_RootNamespace>
+    <Import_RootNamespace>FeliCaReader.FormsApp</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">

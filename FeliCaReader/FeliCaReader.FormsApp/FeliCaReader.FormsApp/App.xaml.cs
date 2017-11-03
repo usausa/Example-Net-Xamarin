@@ -5,7 +5,7 @@ using System.Text;
 
 using Xamarin.Forms;
 
-namespace FeliCaReader
+namespace FeliCaReader.FormsApp
 {
 	public partial class App : Application
 	{
@@ -13,7 +13,7 @@ namespace FeliCaReader
 		{
 			InitializeComponent();
 
-			MainPage = new FeliCaReader.MainPage();
+			MainPage = new FeliCaReader.FormsApp.MainPage();
 		}
 
 		protected override void OnStart ()

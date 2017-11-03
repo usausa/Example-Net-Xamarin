@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace FeliCaReader
+namespace FeliCaReader.FormsApp
 {
 	public partial class MainPage : ContentPage
 	{
