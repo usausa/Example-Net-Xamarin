@@ -76,11 +76,7 @@
         public static string ConvertProcessString(byte process)
         {
             var processType = (byte)(process & 0b01111111);
-            var withCache = (process & 0b10000000) != 0;
-
-            var name = ProcessNames.TryGetValue(processType, out string value) ? value : processType.ToString("X");
-
-            return withCache ? name + " 現金併用" : name;
+            return ProcessNames.TryGetValue(processType, out string value) ? value : processType.ToString("X");
         }
 
         public static bool IsProcessOfSales(byte process)
@@ -116,6 +112,33 @@
             var hour = bytes[offset + 2] >> 3;
             var minute = ByteConverter.ToInt32(bytes, offset + 2, 2) >> 5 & 0b111111;
             return new DateTime(year, month, day, hour, minute, 0);
+        }
+
+        public static SuicaAccessData ConvertToAccessData(byte[] data)
+        {
+            return new SuicaAccessData
+            {
+                Balance = ByteConverter.ToInt32L(data, 11, 2),
+                TransactionId = ByteConverter.ToInt32(data, 14, 2)
+            };
+        }
+
+        public static SuicaLogData ConvertToLogData(byte[] data)
+        {
+            if (data[1] == 0x00)
+            {
+                return null;
+            }
+
+            return new SuicaLogData
+            {
+                TerminalType = data[0],
+                ProcessType = (byte)(data[1] & 0b01111111),
+                WithCash = (data[1] & 0b10000000) != 0,
+                DateTime = IsProcessOfSales(data[1]) ? ConvertDateTime(data, 4) : ConvertDate(data, 4),
+                Balance = ByteConverter.ToInt32L(data, 10, 2),
+                TransactionId = ByteConverter.ToInt32(data, 13, 2)
+            };
         }
     }
 }

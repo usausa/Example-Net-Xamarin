@@ -18,12 +18,16 @@
 
         public byte[] Access(byte[] command)
         {
+            System.Diagnostics.Debug.WriteLine("SEND: " + BitConverter.ToString(command));
             try
             {
-                return nfc.Transceive(command);
+                var response = nfc.Transceive(command);
+                System.Diagnostics.Debug.WriteLine("RECV: " + BitConverter.ToString(response));
+                return response;
             }
             catch (TagLostException)
             {
+                System.Diagnostics.Debug.WriteLine("RECV: ");
                 return Array.Empty<byte>();
             }
         }
