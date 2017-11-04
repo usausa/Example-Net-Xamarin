@@ -1,6 +1,7 @@
 ﻿namespace FeliCaReader.FormsApp.Pages
 {
     using System;
+    using System.Collections.ObjectModel;
     using System.Linq;
     using System.Reactive.Linq;
     using System.Threading;
@@ -8,10 +9,19 @@
     using FeliCaReader.FormsApp.Models;
     using FeliCaReader.FormsApp.Services;
 
+    using Smart.Collections.Generic;
+    using Smart.ComponentModel;
     using Smart.Forms.ViewModels;
+    using Smart.Text;
 
     public class MainPageViewModel : ViewModelBase
     {
+        public NotificationValue<string> Idm { get; } = new NotificationValue<string>();
+
+        public NotificationValue<SuicaAccessData> Access { get; } = new NotificationValue<SuicaAccessData>();
+
+        public ObservableCollection<SuicaLogData> Logs { get; } = new ObservableCollection<SuicaLogData>();
+
         public MainPageViewModel(IFeliCaService feliCaService)
         {
             Disposables.Add(feliCaService.Detected
@@ -21,6 +31,10 @@
 
         private void OnDetected(IFeliCaReader reader)
         {
+            Idm.Value = string.Empty;
+            Access.Value = null;
+            Logs.Clear();
+
             var idm = reader.ExecutePolling(0x0003);
             if (idm.Length == 0)
             {
@@ -43,37 +57,12 @@
                 return;
             }
 
-            // Debug
-            var access = Suica.ConvertToAccessData(block.BlockData);
-            var logs = blocks1.Concat(blocks2).Concat(blocks3)
+            Idm.Value = HexEncoder.ToHex(idm);
+            Access.Value = Suica.ConvertToAccessData(block.BlockData);
+            Logs.AddRange(blocks1.Concat(blocks2).Concat(blocks3)
                 .Select(x => Suica.ConvertToLogData(x.BlockData))
                 .Where(x => x != null)
-                .ToArray();
-
-            System.Diagnostics.Debug.WriteLine($"[残額] {access.Balance}");
-            System.Diagnostics.Debug.WriteLine("[履歴]");
-            foreach (var log in logs)
-            {
-                var withCash = log.WithCash ? " 現金併用" : string.Empty;
-                if (Suica.IsProcessOfSales(log.ProcessType))
-                {
-                    System.Diagnostics.Debug.WriteLine(
-                        $"機器=[{Suica.ConvertTerminalString(log.TerminalType)}], " +
-                        $"利用=[{Suica.ConvertProcessString(log.ProcessType)}{withCash}], " +
-                        $"取引日時=[{log.DateTime:yyyy/MM/dd HH:mm}], " +
-                        $"残額=[{log.Balance}], " +
-                        $"取引通番=[{log.TransactionId}]");
-                }
-                else
-                {
-                    System.Diagnostics.Debug.WriteLine(
-                        $"機器=[{Suica.ConvertTerminalString(log.TerminalType)}], " +
-                        $"利用=[{Suica.ConvertProcessString(log.ProcessType)}{withCash}], " +
-                        $"取引日=[{log.DateTime:yyyy/MM/dd}], " +
-                        $"残額=[{log.Balance}], " +
-                        $"取引通番=[{log.TransactionId}]");
-                }
-            }
+                .ToArray());
         }
     }
 }

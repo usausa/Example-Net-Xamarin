@@ -1,12 +1,108 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FeliCaReader.FormsApp.Pages.MainPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pages="clr-namespace:FeliCaReader.FormsApp.Pages;assembly=FeliCaReader.FormsApp"
+             xmlns:interactivity="clr-namespace:Smart.Forms.Interactivity;assembly=Smart.Forms"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type={x:Type pages:MainPageViewModel}}"
+             x:Class="FeliCaReader.FormsApp.Pages.MainPage"
+             Title="交通系Reader"
+             NavigationPage.HasBackButton="False">
+
+    <StackLayout Style="{StaticResource DefaultStackLayout}">
+
+        <Grid Style="{StaticResource DefaultGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ContentView Grid.Column="0" Style="{StaticResource IdmLabelContentView}">
+                <Label Style="{StaticResource IdmLabel}"
+                       Text="{Binding Idm.Value}"/>
+            </ContentView>
+
+            <ContentView Grid.Column="1" Style="{StaticResource BalanceLabelContentView}">
+                <Grid Style="{StaticResource DefaultGrid}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Style="{StaticResource YenLabel}"
+                           Text="￥"/>
+                    <Label Grid.Column="1" Style="{StaticResource BalanceLabel}"
+                           Text="{Binding Access.Value.Balance, StringFormat='{0:#,0}'}"/>
+
+                </Grid>
+            </ContentView>
+
+        </Grid>
+
+        <ListView Style="{StaticResource LogListView}" ItemsSource="{Binding Logs}">
+            <ListView.Behaviors>
+                <interactivity:ItemSelectedToCommandBehavior/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Style="{StaticResource DefaultGrid}" Padding="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <ContentView Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Style="{StaticResource LabelContentView}"
+                                         BackgroundColor="{Binding Process, Converter={StaticResource ProcessColorConverter}}">
+                                <StackLayout Style="{StaticResource DefaultStackLayout}">
+                                    <Label Style="{StaticResource DateTimeLabel}"
+                                           Text="{Binding DateTime, StringFormat='{0:yyyy年}'}"/>
+                                    <Label Style="{StaticResource DateTimeLabel}"
+                                           Text="{Binding DateTime, StringFormat='{0:MM月dd日}'}"/>
+                                    <Label Style="{StaticResource DateTimeLabel}"
+                                           Text="{Binding ., Converter={StaticResource LogTimeConverter}, StringFormat='{0:HH時mm分}'}"/>
+                                </StackLayout>
+                            </ContentView>
+
+                            <ContentView Grid.Column="1" Grid.Row="0" Style="{StaticResource LogUpperContentView}">
+                                <StackLayout Style="{StaticResource DefaultStackLayout}" Orientation="Horizontal">
+                                    <Label Style="{StaticResource TerminalProcessLabel}"
+                                           Text="{Binding Terminal, Converter={StaticResource TerminalStringConverter}}"/>
+                                    <Label Style="{StaticResource TerminalProcessLabel}"
+                                           Text=" - "/>
+                                    <Label Style="{StaticResource TerminalProcessLabel}"
+                                           Text="{Binding Process, Converter={StaticResource ProcessStringConverter}}"/>
+                                </StackLayout>
+                            </ContentView>
+
+                            <ContentView Grid.Column="1" Grid.Row="1" Style="{StaticResource LogLowerLabelContentView}">
+                                <Grid Style="{StaticResource DefaultGrid}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Style="{StaticResource YenLabel}"
+                                           Text="￥"/>
+                                    <Label Grid.Column="1" Style="{StaticResource BalanceLabel}"
+                                           Text="{Binding Balance, StringFormat='{0:#,0}'}"/>
+
+                                </Grid>
+                            </ContentView>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </StackLayout>
+
 </ContentPage>

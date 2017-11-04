@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:FeliCaReader.FormsApp.Converters;assembly=FeliCaReader.FormsApp"
              x:Class="FeliCaReader.FormsApp.App">
 	<Application.Resources>
 
@@ -118,7 +119,7 @@
 
 	        <OnPlatform x:Key="ExtraBigSize" x:TypeArguments="x:Double">
 	            <On Platform="iOS">24</On>
-	            <On Platform="Android">32</On>
+	            <On Platform="Android">36</On>
 	        </OnPlatform>
 
 	        <OnPlatform x:Key="HugeSize" x:TypeArguments="x:Double">
@@ -128,7 +129,111 @@
 
 	        <!-- Style -->
 
+            <Style x:Key="DefaultGrid" TargetType="Grid">
+                <Setter Property="RowSpacing" Value="0"/>
+                <Setter Property="ColumnSpacing" Value="0"/>
+	        </Style>
+
+            <Style x:Key="DefaultStackLayout" TargetType="StackLayout">
+                <Setter Property="Spacing" Value="0"/>
+	        </Style>
+
+	        <Style x:Key="LogListView" TargetType="ListView">
+	            <Setter Property="BackgroundColor" Value="Black"/>
+	            <Setter Property="HasUnevenRows" Value="True"/>
+	        </Style>
+
+            <Style x:Key="LabelContentView" TargetType="ContentView">
+                <Setter Property="Padding" Value="3"/>
+	        </Style>
+
+            <Style x:Key="IdmLabelContentView" TargetType="ContentView">
+                <Setter Property="Padding" Value="3"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroGreen}"/>
+	        </Style>
+
+	        <Style x:Key="BalanceLabelContentView" TargetType="ContentView">
+	            <Setter Property="Padding" Value="3"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroGrayDarkDarker}"/>
+	        </Style>
+
+	        <Style x:Key="LogUpperContentView" TargetType="ContentView">
+	            <Setter Property="Padding" Value="3"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroGrayDarkBrighter}"/>
+	        </Style>
+
+	        <Style x:Key="LogLowerLabelContentView" TargetType="ContentView">
+	            <Setter Property="Padding" Value="3"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroGrayDark}"/>
+	        </Style>
+
+            <Style x:Key="IdmLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource MidMediumSize}"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+	        </Style>
+
+	        <Style x:Key="YenLabel" TargetType="Label">
+	            <Setter Property="FontSize" Value="{StaticResource BigSize}"/>
+	            <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+	            <Setter Property="VerticalTextAlignment" Value="Center"/>
+	        </Style>
+
+	        <Style x:Key="BalanceLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource ExtraBigSize}"/>
+	            <Setter Property="TextColor" Value="White"/>
+	            <Setter Property="HorizontalTextAlignment" Value="End"/>
+	            <Setter Property="VerticalTextAlignment" Value="Center"/>
+	        </Style>
+
+	        <Style x:Key="DateTimeLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource LittleSize}"/>
+	            <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+	            <Setter Property="VerticalTextAlignment" Value="Center"/>
+	        </Style>
+
+	        <Style x:Key="TerminalProcessLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource MidMediumSize}"/>
+	            <Setter Property="TextColor" Value="White"/>
+	            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+	            <Setter Property="VerticalTextAlignment" Value="Center"/>
+	        </Style>
+
             <!-- Converter -->
+
+            <converters:ProcessColorConverter x:Key="ProcessColorConverter">
+                <converters:ProcessColorConverter.Colors>
+                    <x:Array Type="{x:Type converters:ProcessColor}">
+                        <converters:ProcessColor ProcessType="1" Color="#00ABA9"/>
+                        <converters:ProcessColor ProcessType="2" Color="#DA532C"/>
+                        <converters:ProcessColor ProcessType="3" Color="#00ABA9"/>
+                        <converters:ProcessColor ProcessType="4" Color="#00ABA9"/>
+                        <converters:ProcessColor ProcessType="5" Color="#00ABA9"/>
+                        <converters:ProcessColor ProcessType="6" Color="#00ABA9"/>
+                        <converters:ProcessColor ProcessType="7" Color="#4874B4"/>
+                        <converters:ProcessColor ProcessType="8" Color="#4874B4"/>
+                        <converters:ProcessColor ProcessType="13" Color="#2D89EF"/>
+                        <converters:ProcessColor ProcessType="15" Color="#2D89EF"/>
+                        <converters:ProcessColor ProcessType="17" Color="#4874B4"/>
+                        <converters:ProcessColor ProcessType="19" Color="#99B433"/>
+                        <converters:ProcessColor ProcessType="20" Color="#DA532C"/>
+                        <converters:ProcessColor ProcessType="21" Color="#DA532C"/>
+                        <converters:ProcessColor ProcessType="31" Color="#DA532C"/>
+                        <converters:ProcessColor ProcessType="35" Color="#2D89EF"/>
+                        <converters:ProcessColor ProcessType="70" Color="#FF0097"/>
+                        <converters:ProcessColor ProcessType="72" Color="#F77049"/>
+                        <converters:ProcessColor ProcessType="73" Color="#F77049"/>
+                        <converters:ProcessColor ProcessType="74" Color="#FFC40D"/>
+                        <converters:ProcessColor ProcessType="75" Color="#FF0097"/>
+                    </x:Array>
+                </converters:ProcessColorConverter.Colors>
+            </converters:ProcessColorConverter>
+            <converters:LogTimeConverter x:Key="LogTimeConverter"/>
+            <converters:TerminalStringConverter x:Key="TerminalStringConverter"/>
+            <converters:ProcessStringConverter x:Key="ProcessStringConverter"/>
 
         </ResourceDictionary>
 

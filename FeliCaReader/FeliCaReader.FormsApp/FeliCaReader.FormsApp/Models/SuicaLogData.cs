@@ -4,11 +4,9 @@
 
     public class SuicaLogData
     {
-        public byte TerminalType { get; set; }
+        public byte Terminal { get; set; }
 
-        public byte ProcessType { get; set; }
-
-        public bool WithCash { get; set; }
+        public byte Process { get; set; }
 
         public DateTime DateTime { get; set; }
 

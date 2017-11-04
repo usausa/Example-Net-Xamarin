@@ -75,19 +75,28 @@
 
         public static string ConvertProcessString(byte process)
         {
-            var processType = (byte)(process & 0b01111111);
-            return ProcessNames.TryGetValue(processType, out string value) ? value : processType.ToString("X");
+            var processType = ConvertProcessType(process);
+            var withCache = (process & 0b10000000) != 0;
+
+            var name = ProcessNames.TryGetValue(processType, out string value) ? value : processType.ToString("X");
+
+            return withCache ? name + " 現金併用" : name;
+        }
+
+        public static byte ConvertProcessType(byte process)
+        {
+            return (byte)(process & 0b01111111);
         }
 
         public static bool IsProcessOfSales(byte process)
         {
-            var processType = (byte)(process & 0b01111111);
+            var processType = ConvertProcessType(process);
             return ProcessOfSales.Contains(processType);
         }
 
         public static bool IsProcessOfBus(byte process)
         {
-            var processType = (byte)(process & 0b01111111);
+            var processType = ConvertProcessType(process);
             return ProcessOfBus.Contains(processType);
         }
 
@@ -132,9 +141,8 @@
 
             return new SuicaLogData
             {
-                TerminalType = data[0],
-                ProcessType = (byte)(data[1] & 0b01111111),
-                WithCash = (data[1] & 0b10000000) != 0,
+                Terminal = data[0],
+                Process = data[1],
                 DateTime = IsProcessOfSales(data[1]) ? ConvertDateTime(data, 4) : ConvertDate(data, 4),
                 Balance = ByteConverter.ToInt32L(data, 10, 2),
                 TransactionId = ByteConverter.ToInt32(data, 13, 2)
