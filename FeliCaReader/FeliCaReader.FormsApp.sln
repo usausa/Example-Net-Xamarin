@@ -7,6 +7,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeliCaReader.FormsApp.Andro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeliCaReader.FormsApp", "FeliCaReader.FormsApp\FeliCaReader.FormsApp\FeliCaReader.FormsApp.csproj", "{EE15DC7D-029B-4D88-9746-5FFD9AC28BA8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C11D67F8-8125-45D9-9EBD-A13D923DEEDF}"
+	ProjectSection(SolutionItems) = preProject
+		FeliCaReader.FormsApp.ruleset = FeliCaReader.FormsApp.ruleset
+		FeliCaReader.FormsApp.sln.DotSettings = FeliCaReader.FormsApp.sln.DotSettings
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{2E2705EA-9DDD-41B8-8401-4BE5222184EE}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\MainPage.png = Docs\MainPage.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
