@@ -1,13 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AotCheck.FormsApp.Android", "AotCheck.FormsApp\AotCheck.FormsApp.Android\AotCheck.FormsApp.Android.csproj", "{C151BC10-A5EC-4117-9516-53563DECE2E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AotCheck.FormsApp.iOS", "AotCheck.FormsApp\AotCheck.FormsApp.iOS\AotCheck.FormsApp.iOS.csproj", "{AE1595A0-DA29-4067-8965-6536D3DA35EA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AotCheck.FormsApp", "AotCheck.FormsApp\AotCheck.FormsApp\AotCheck.FormsApp.csproj", "{7EA64101-97CE-49C5-A762-A20F5348565D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7FCA69C5-719F-4771-9578-2DA05D2E2986}"
+	ProjectSection(SolutionItems) = preProject
+		AotCheck.FormsApp.ruleset = AotCheck.FormsApp.ruleset
+		AotCheck.FormsApp.sln.DotSettings = AotCheck.FormsApp.sln.DotSettings
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{01022F25-80A6-4F9A-93BE-CC5622744EA4}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Android.png = Docs\Android.png
+		Docs\iOS.png = Docs\iOS.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
