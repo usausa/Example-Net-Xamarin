@@ -2,8 +2,12 @@
 
 ## [AotCheck](AotCheck)
 
-Reflection benchmark for Xamarin.Android and Xamain.iOS.
+Reflection benchmark for Xamarin.Forms(Android/iOS).
+
+## [FeliCaReader](FeliCaReader)
+
+FeliCa reader sample for Xamarin.Forms(Android).
 
 ## [Inventory](Inventory)
 
-* (Under construction)
+Backend business application sample for Xamarin.Forms(Android).
