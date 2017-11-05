@@ -7,13 +7,10 @@
     using Android.OS;
 
     using FeliCaReader.FormsApp.Droid.Services;
-    using FeliCaReader.FormsApp.Services;
-
-    using Smart.Resolver;
 
     [Activity(Label = "FeliCaReader", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     [IntentFilter(new[] { NfcAdapter.ActionTechDiscovered })]
-    public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity, IComponentProvider
+    public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         private NfcAdapter nfcDevice;
 
@@ -31,12 +28,7 @@
             felicaService = new AndroidFeliCaService();
 
             Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App(this));
-        }
-
-        public void RegisterComponents(ResolverConfig config)
-        {
-            config.Bind<IFeliCaService>().ToConstant(felicaService);
+            LoadApplication(new App(felicaService));
         }
 
         public override void OnBackPressed()

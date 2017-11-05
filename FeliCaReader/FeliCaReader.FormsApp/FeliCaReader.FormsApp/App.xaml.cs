@@ -2,34 +2,16 @@
 
 namespace FeliCaReader.FormsApp
 {
-    using Smart.Forms.Navigation;
-    using Smart.Resolver;
-
-    using Xamarin.Forms;
+    using FeliCaReader.FormsApp.Pages;
+    using FeliCaReader.FormsApp.Services;
 
     public partial class App
     {
-        private IResolver Resolver { get; }
-
-        public App(IComponentProvider provider)
+        public App(IFeliCaService feliCaService)
         {
             InitializeComponent();
 
-            var config = new ResolverConfig();
-            RegisterComponents(config);
-            provider.RegisterComponents(config);
-            Resolver = config.ToResolver();
-
-            MainPage = new NavigationPage { BarBackgroundColor = (Color)Resources["MetroBlueDark"] };
-
-            var navigationService = Resolver.Get<INavigator>();
-            navigationService.ForwardAsync("/MainPage");
-        }
-
-        private void RegisterComponents(ResolverConfig config)
-        {
-            config.UseAutoBinding();
-            config.UseNavigator();
+            MainPage = new MainPage(new MainPageViewModel(feliCaService));
         }
 
         protected override void OnStart()

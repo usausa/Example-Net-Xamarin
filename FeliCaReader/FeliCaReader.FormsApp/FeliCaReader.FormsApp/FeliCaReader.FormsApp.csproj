@@ -12,12 +12,7 @@
     <PackageReference Include="System.Reactive" Version="3.1.1" />
     <PackageReference Include="Usa.Smart.Core" Version="1.0.5" />
     <PackageReference Include="Usa.Smart.Forms" Version="0.9.3" />
-    <PackageReference Include="Usa.Smart.Forms.Navigation" Version="0.9.3" />
-    <PackageReference Include="Usa.Smart.Forms.Navigation.Resolver" Version="0.9.3" />
     <PackageReference Include="Usa.Smart.Forms.Reactive" Version="0.9.3" />
-    <PackageReference Include="Usa.Smart.Reactive" Version="1.0.1" />
-    <PackageReference Include="Usa.Smart.Resolver" Version="1.4.0" />
-    <PackageReference Include="Usa.Smart.Resolver.Xamarin" Version="1.4.0" />
     <PackageReference Include="Xamarin.Forms" Version="2.4.0.38779" />
   </ItemGroup>
 
