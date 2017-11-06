@@ -1,6 +1,6 @@
 # Xamarin.Forms code generation test project
 
-Reflection benchmark for Xamarin.Android and Xamain.iOS.
+Reflection benchmark for Xamarin.Forms(Android/iOS).
 
 ## Android
 
