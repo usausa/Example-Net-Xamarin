@@ -6,6 +6,7 @@ namespace Inventory.Client.Droid.Components
 
     using Xamarin.Forms;
 
+#pragma warning disable CS0618 // 型またはメンバーが古い形式です
     public class LoadingService : ILoadingService
     {
         private ProgressDialog progress;
@@ -30,4 +31,5 @@ namespace Inventory.Client.Droid.Components
             progress = null;
         }
     }
+#pragma warning restore CS0618 // 型またはメンバーが古い形式です
 }
