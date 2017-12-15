@@ -8,7 +8,7 @@
 
     using FeliCaReader.FormsApp.Droid.Services;
 
-    [Activity(Label = "FeliCaReader", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     [IntentFilter(new[] { NfcAdapter.ActionTechDiscovered })]
     public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
