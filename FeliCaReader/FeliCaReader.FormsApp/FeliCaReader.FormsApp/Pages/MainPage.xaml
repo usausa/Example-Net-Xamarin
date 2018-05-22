@@ -43,7 +43,7 @@
 
         <ListView Style="{StaticResource LogListView}" ItemsSource="{Binding Logs}">
             <ListView.Behaviors>
-                <interactivity:ItemSelectedToCommandBehavior/>
+                <interactivity:ListViewSelectedToCommandBehavior/>
             </ListView.Behaviors>
             <ListView.ItemTemplate>
                 <DataTemplate>

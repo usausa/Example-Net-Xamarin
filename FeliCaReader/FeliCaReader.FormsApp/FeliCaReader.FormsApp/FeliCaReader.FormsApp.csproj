@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="1.1.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="2.6.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
     <PackageReference Include="System.Reactive" Version="3.1.1" />
-    <PackageReference Include="Usa.Smart.Core" Version="1.0.5" />
-    <PackageReference Include="Usa.Smart.Forms" Version="0.9.3" />
-    <PackageReference Include="Usa.Smart.Forms.Reactive" Version="0.9.3" />
-    <PackageReference Include="Xamarin.Forms" Version="2.4.0.38779" />
+    <PackageReference Include="Usa.Smart.Core" Version="1.5.5" />
+    <PackageReference Include="Usa.Smart.Forms" Version="1.1.5" />
+    <PackageReference Include="Usa.Smart.Forms.Reactive" Version="1.1.5" />
+    <PackageReference Include="Xamarin.Forms" Version="3.0.0.482510" />
   </ItemGroup>
 
 </Project>
