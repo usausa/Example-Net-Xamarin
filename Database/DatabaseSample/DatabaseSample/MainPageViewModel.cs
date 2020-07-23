@@ -14,7 +14,6 @@
 
     using XamarinFormsComponents.Dialogs;
 
-
     public class MainPageViewModel : ViewModelBase
     {
         public static MainPageViewModel DesignInstance { get; } = null; // For design
