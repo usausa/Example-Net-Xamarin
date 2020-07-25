@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:NavigationSample.Shell;assembly=NavigationSample"
+             xmlns:markup="clr-namespace:NavigationSample.Markup;assembly=NavigationSample"
+             xmlns:modules="clr-namespace:NavigationSample.Modules.Main;assembly=NavigationSample"
+             mc:Ignorable="d"
+             x:Class="NavigationSample.Modules.Main.MenuView"
+             x:DataType="{x:Type modules:MenuViewModel}"
+             BindingContext="{Binding Source={x:Static modules:MenuViewModel.DesignInstance}}"
+             sr:BindingContextResolver.Type="{x:Type modules:MenuViewModel}"
+             shell:ShellProperty.Title="Menu">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId EditList}"
+                Text="🍇 Edit" />
+        <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId Stack1}"
+                Text="🍍 Stack" />
+        <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId WizardInput1}"
+                Text="🍑 Wizard" />
+        <Button Grid.Row="3" Grid.Column="0"
+                Style="{StaticResource MenuButton}"
+                IsEnabled="False"
+                Text="🍎 Shared1" />
+        <Button Grid.Row="3" Grid.Column="1"
+                Style="{StaticResource MenuButton}"
+                IsEnabled="False"
+                Text="🍏 Shared2" />
+        <Button Grid.Row="4" Grid.Column="0"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId NavigateInitialize}"
+                Text="🍈 Initialize" />
+        <Button Grid.Row="4" Grid.Column="1"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId NavigateCancel}"
+                Text="🍉 Cancel" />
+        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                IsEnabled="False"
+                Text="🍓 Modal" />
+        <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                Style="{StaticResource MenuButton}"
+                IsEnabled="False"
+                Text="" />
+        <Button Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
+                Style="{StaticResource MenuButton}"
+                IsEnabled="False"
+                Text="" />
+
+    </Grid>
+
+</ContentView>

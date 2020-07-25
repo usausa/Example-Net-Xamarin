@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:si="clr-namespace:Smart.Forms.Interactivity;assembly=Smart.Forms"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:NavigationSample.Shell;assembly=NavigationSample"
+             xmlns:modules="clr-namespace:NavigationSample.Modules.Wizard;assembly=NavigationSample"
+             mc:Ignorable="d"
+             x:Class="NavigationSample.Modules.Wizard.WizardInput1View"
+             x:DataType="{x:Type modules:WizardInput1ViewModel}"
+             BindingContext="{Binding Source={x:Static modules:WizardInput1ViewModel.DesignInstance}}"
+             sr:BindingContextResolver.Type="{x:Type modules:WizardInput1ViewModel}"
+             shell:ShellProperty.Title="WizardInput1">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0">
+            <Entry Text="{Binding Context.Value.Data1}"
+                   Placeholder="Data1">
+                <Entry.Behaviors>
+                    <si:DefaultFocusBehavior />
+                </Entry.Behaviors>
+            </Entry>
+
+        </StackLayout>
+
+        <Grid Grid.Row="1"
+              Style="{StaticResource FunctionGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    Style="{StaticResource FunctionButton}"
+                    Command="{Binding BackCommand}"
+                    Text="◀️ Cancel" />
+            <Button Grid.Column="1"
+                    Style="{StaticResource FunctionButton}"
+                    Command="{Binding NextCommand}"
+                    Text="Next ▶️" />
+        </Grid>
+
+    </Grid>
+
+</ContentView>

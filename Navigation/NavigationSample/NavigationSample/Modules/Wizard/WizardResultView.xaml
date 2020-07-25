@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:NavigationSample.Shell;assembly=NavigationSample"
+             xmlns:modules="clr-namespace:NavigationSample.Modules.Wizard;assembly=NavigationSample"
+             mc:Ignorable="d"
+             x:Class="NavigationSample.Modules.Wizard.WizardResultView"
+             x:DataType="{x:Type modules:WizardResultViewModel}"
+             BindingContext="{Binding Source={x:Static modules:WizardResultViewModel.DesignInstance}}"
+             sr:BindingContextResolver.Type="{x:Type modules:WizardResultViewModel}"
+             shell:ShellProperty.Title="WizardResult">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0">
+            <Label Style="{StaticResource DefaultLabel}"
+                   Text="{Binding Context.Value.Data1}" />
+            <Label Style="{StaticResource DefaultLabel}"
+                   Text="{Binding Context.Value.Data2}" />
+        </StackLayout>
+
+        <Grid Grid.Row="1"
+              Style="{StaticResource FunctionGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    Style="{StaticResource FunctionButton}"
+                    Command="{Binding BackCommand}"
+                    Text="◀️ Back" />
+            <Button Grid.Column="1"
+                    Style="{StaticResource FunctionButton}"
+                    Command="{Binding NextCommand}"
+                    Text="Complete ▶️" />
+        </Grid>
+
+    </Grid>
+
+</ContentView>

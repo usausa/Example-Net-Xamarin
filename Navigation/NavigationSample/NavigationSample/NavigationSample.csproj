@@ -35,4 +35,25 @@
     <PackageReference Include="XamarinFormsComponents.Resolver.Smart" Version="1.1.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Modules\Edit\EditDetailView.xaml.cs">
+      <DependentUpon>EditDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Modules\Wizard\WizardInput2View.xaml.cs">
+      <DependentUpon>WizardInput2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Modules\Wizard\WizardResultView.xaml.cs">
+      <DependentUpon>WizardResultView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Modules\Wizard\WizardInput1View.xaml.cs">
+      <DependentUpon>WizardInput1View.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Modules\Shared\SharedMain2View.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

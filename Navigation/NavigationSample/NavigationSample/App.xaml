@@ -7,5 +7,114 @@
              x:Class="NavigationSample.App">
     <Application.Resources>
 
+        <ResourceDictionary>
+
+            <!-- ================================================================================ -->
+            <!-- Color -->
+            <!-- ================================================================================ -->
+
+            <Color x:Key="MaterialBlueA200">#448AFF</Color>
+            <Color x:Key="MaterialLightBlueA200">#40C4FF</Color>
+            <Color x:Key="MaterialGreenA200">#69F0AE</Color>
+
+            <!-- ================================================================================ -->
+            <!-- Font -->
+            <!-- ================================================================================ -->
+
+            <OnPlatform x:Key="BigSize" x:TypeArguments="x:Double">
+                <On Platform="iOS" Value="20.0" />
+                <On Platform="Android" Value="24.0" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="ExtraBigSize" x:TypeArguments="x:Double">
+                <On Platform="iOS" Value="24.0" />
+                <On Platform="Android" Value="32.0" />
+            </OnPlatform>
+
+            <!-- ================================================================================ -->
+            <!-- Main -->
+            <!-- ================================================================================ -->
+
+            <Style x:Key="MainGrid" TargetType="Grid">
+                <Setter Property="CompressedLayout.IsHeadless" Value="True" />
+                <Setter Property="RowSpacing" Value="0" />
+                <Setter Property="ColumnSpacing" Value="0" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+
+            <OnPlatform x:Key="TitleHeight" x:TypeArguments="x:Double">
+                <On Platform="iOS">32.0</On>
+                <On Platform="Android">48.0</On>
+            </OnPlatform>
+
+            <Style x:Key="TitleView" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="{StaticResource MaterialBlueA200}" />
+                <Setter Property="HeightRequest" Value="{StaticResource TitleHeight}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <OnPlatform x:Key="TitleMargin" x:TypeArguments="Thickness">
+                <On Platform="iOS">2,0,2,0</On>
+                <On Platform="Android">4,0,4,0</On>
+            </OnPlatform>
+
+            <Style x:Key="TitleLabel" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource ExtraBigSize}" />
+                <Setter Property="Margin" Value="{StaticResource TitleMargin}" />
+                <Setter Property="HeightRequest" Value="{StaticResource TitleHeight}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="ContainerLayout" TargetType="AbsoluteLayout">
+                <Setter Property="CompressedLayout.IsHeadless" Value="True" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <!-- ================================================================================ -->
+            <!-- Function -->
+            <!-- ================================================================================ -->
+
+            <OnPlatform x:Key="FunctionGridHeight" x:TypeArguments="x:Double">
+                <On Platform="iOS">40.0</On>
+                <On Platform="Android">56.0</On>
+            </OnPlatform>
+
+            <Style x:Key="FunctionGrid" TargetType="Grid">
+                <Setter Property="RowSpacing" Value="0" />
+                <Setter Property="ColumnSpacing" Value="1" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="HeightRequest" Value="{StaticResource FunctionGridHeight}" />
+            </Style>
+
+            <Style x:Key="FunctionButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource MaterialLightBlueA200}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="BorderWidth" Value="0" />
+            </Style>
+
+            <!-- ================================================================================ -->
+            <!-- Basic -->
+            <!-- ================================================================================ -->
+
+            <Style x:Key="MenuButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource MaterialGreenA200}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+                <Setter Property="Margin" Value="3" />
+            </Style>
+
+            <Style x:Key="DefaultLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+            </Style>
+
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>

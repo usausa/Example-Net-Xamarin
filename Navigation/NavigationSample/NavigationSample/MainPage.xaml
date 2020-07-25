@@ -1,15 +1,44 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="NavigationSample.MainPage">
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:sn="clr-namespace:Smart.Navigation;assembly=Smart.Navigation.Forms"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:NavigationSample.Shell;assembly=NavigationSample"
+             xmlns:local="clr-namespace:NavigationSample;assembly=NavigationSample"
+             x:Class="NavigationSample.MainPage"
+             x:DataType="{x:Type local:MainPageViewModel}"
+             BindingContext="{Binding Source={x:Static local:MainPageViewModel.DesignInstance}}"
+             sr:BindingContextResolver.Type="{x:Type local:MainPageViewModel}"
+             ios:Page.UseSafeArea="true"
+             IsBusy="{Binding ApplicationState.IsBusy}"
+             Visual="Material">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!"
-               HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ContentPage.Behaviors>
+        <shell:ShellUpdateBehavior Navigator="{Binding Navigator, Mode=OneTime}" />
+    </ContentPage.Behaviors>
+
+    <Grid Style="{StaticResource MainGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="6" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- header -->
+        <BoxView Grid.Row="0"
+                 Style="{StaticResource TitleView}" />
+        <Label Grid.Row="0"
+               Style="{StaticResource TitleLabel}"
+               Text="{Binding Title.Value}" />
+
+        <!-- view container -->
+        <AbsoluteLayout Grid.Row="2"
+                        Style="{StaticResource ContainerLayout}">
+            <AbsoluteLayout.Behaviors>
+                <sn:NavigationContainerBehavior Navigator="{Binding Navigator}" />
+            </AbsoluteLayout.Behaviors>
+        </AbsoluteLayout>
+    </Grid>
 
 </ContentPage>

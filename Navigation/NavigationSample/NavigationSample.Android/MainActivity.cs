@@ -8,6 +8,8 @@
     using Android.Runtime;
     using Android.Views;
 
+    using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
+
     [Activity(
         Label = "NavigationSample",
         Icon = "@mipmap/icon",
@@ -34,6 +36,9 @@
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
             LoadApplication(new App());
+
+            Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>()
+                .UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

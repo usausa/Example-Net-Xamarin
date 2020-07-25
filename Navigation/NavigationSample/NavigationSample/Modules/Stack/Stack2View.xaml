@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sm="clr-namespace:Smart.Forms.Markup;assembly=Smart.Forms"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:NavigationSample.Shell;assembly=NavigationSample"
+             xmlns:markup="clr-namespace:NavigationSample.Markup;assembly=NavigationSample"
+             xmlns:modules="clr-namespace:NavigationSample.Modules.Stack;assembly=NavigationSample"
+             mc:Ignorable="d"
+             x:Class="NavigationSample.Modules.Stack.Stack2View"
+             x:DataType="{x:Type modules:Stack2ViewModel}"
+             BindingContext="{Binding Source={x:Static modules:Stack2ViewModel.DesignInstance}}"
+             sr:BindingContextResolver.Type="{x:Type modules:Stack2ViewModel}"
+             shell:ShellProperty.Title="Stack2">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1"
+              Style="{StaticResource FunctionGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    Style="{StaticResource FunctionButton}"
+                    Command="{Binding PopCommand}"
+                    CommandParameter="{sm:Int32 1}"
+                    Text="Pop-1" />
+            <Button Grid.Column="1"
+                    Style="{StaticResource FunctionButton}"
+                    Command="{Binding PushCommand}"
+                    CommandParameter="{markup:ViewId Stack3}"
+                    Text="Push+1" />
+        </Grid>
+
+    </Grid>
+
+</ContentView>
