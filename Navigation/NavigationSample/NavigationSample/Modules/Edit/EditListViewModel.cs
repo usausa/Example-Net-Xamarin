@@ -3,7 +3,7 @@
     using System.Collections.ObjectModel;
     using System.Threading.Tasks;
 
-    using NavigationSample.Models;
+    using NavigationSample.Models.Entity;
     using NavigationSample.Services;
 
     using Smart.Collections.Generic;
@@ -31,7 +31,7 @@
         {
             this.dataService = dataService;
 
-            BackCommand = MakeAsyncCommand(() => Navigator.ForwardAsync(ViewId.Menu));
+            BackCommand = MakeAsyncCommand(OnNotifyBackAsync);
             SelectCommand = MakeAsyncCommand<DataEntity>(x =>
                 Navigator.ForwardAsync(ViewId.EditDetailUpdate, new NavigationParameter().SetValue(x)));
             NewCommand = MakeAsyncCommand(() => Navigator.ForwardAsync(ViewId.EditDetailNew));

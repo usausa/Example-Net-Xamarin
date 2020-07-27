@@ -10,6 +10,7 @@
     using Smart.Resolver;
 
     using XamarinFormsComponents;
+    using XamarinFormsComponents.Popup;
 
     public partial class App
     {
@@ -35,6 +36,10 @@
                 System.Diagnostics.Debug.WriteLine(
                     $"Navigated: [{args.Context.FromId}]->[{args.Context.ToId}] : stacked=[{navigator.StackedCount}]");
             };
+
+            // Popup Navigator
+            var popupNavigator = resolver.Get<IPopupNavigator>();
+            popupNavigator.AutoRegister(Assembly.GetExecutingAssembly().ExportedTypes);
 
             // Show MainWindow
             MainPage = resolver.Get<MainPage>();

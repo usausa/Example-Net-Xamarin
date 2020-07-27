@@ -22,7 +22,7 @@
         {
             this.dialogs = dialogs;
 
-            BackCommand = MakeAsyncCommand(() => Navigator.ForwardAsync(ViewId.Menu));
+            BackCommand = MakeAsyncCommand(OnNotifyBackAsync);
         }
 
         public override async void OnNavigatedTo(INavigationContext context)

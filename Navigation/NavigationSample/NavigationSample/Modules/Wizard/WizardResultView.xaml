@@ -42,7 +42,6 @@
                     Command="{Binding NextCommand}"
                     Text="Complete ▶️" />
         </Grid>
-
     </Grid>
 
 </ContentView>

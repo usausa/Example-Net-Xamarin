@@ -21,7 +21,7 @@
         public WizardResultViewModel(ApplicationState applicationState)
             : base(applicationState)
         {
-            BackCommand = MakeAsyncCommand(() => Navigator.ForwardAsync(ViewId.WizardInput2));
+            BackCommand = MakeAsyncCommand(OnNotifyBackAsync);
             NextCommand = MakeAsyncCommand(() => Navigator.ForwardAsync(ViewId.Menu));
         }
 

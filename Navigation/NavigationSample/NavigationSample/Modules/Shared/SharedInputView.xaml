@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:si="clr-namespace:Smart.Forms.Interactivity;assembly=Smart.Forms"
              xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
              xmlns:shell="clr-namespace:NavigationSample.Shell;assembly=NavigationSample"
              xmlns:modules="clr-namespace:NavigationSample.Modules.Shared;assembly=NavigationSample"
@@ -13,8 +14,38 @@
              sr:BindingContextResolver.Type="{x:Type modules:SharedInputViewModel}"
              shell:ShellProperty.Title="SharedInput">
 
-    <StackLayout>
-        <Label Text="Hello Xamarin.Forms!" />
-    </StackLayout>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0">
+            <Entry Text="{Binding No.Value}"
+                   Keyboard="Numeric"
+                   Placeholder="No">
+                <Entry.Behaviors>
+                    <si:DefaultFocusBehavior />
+                </Entry.Behaviors>
+            </Entry>
+        </StackLayout>
+
+        <Grid Grid.Row="1"
+              Style="{StaticResource FunctionGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    Style="{StaticResource FunctionButton}"
+                    Command="{Binding BackCommand}"
+                    Text="◀️ Cancel" />
+            <Button Grid.Column="1"
+                    Style="{StaticResource FunctionButton}"
+                    Command="{Binding NextCommand}"
+                    Text="Next ▶️" />
+        </Grid>
+    </Grid>
 
 </ContentView>

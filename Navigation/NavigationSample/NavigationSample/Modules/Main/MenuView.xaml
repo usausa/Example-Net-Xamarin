@@ -35,24 +35,32 @@
                 Command="{Binding ForwardCommand}"
                 CommandParameter="{markup:ViewId EditList}"
                 Text="🍇 Edit" />
+
         <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                 Style="{StaticResource MenuButton}"
                 Command="{Binding ForwardCommand}"
                 CommandParameter="{markup:ViewId Stack1}"
                 Text="🍍 Stack" />
+
         <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
                 Style="{StaticResource MenuButton}"
                 Command="{Binding ForwardCommand}"
                 CommandParameter="{markup:ViewId WizardInput1}"
                 Text="🍑 Wizard" />
+
         <Button Grid.Row="3" Grid.Column="0"
                 Style="{StaticResource MenuButton}"
+                Command="{Binding SharedCommand}"
+                CommandParameter="{markup:ViewId SharedMain1}"
                 IsEnabled="False"
                 Text="🍎 Shared1" />
         <Button Grid.Row="3" Grid.Column="1"
                 Style="{StaticResource MenuButton}"
+                Command="{Binding SharedCommand}"
+                CommandParameter="{markup:ViewId SharedMain2}"
                 IsEnabled="False"
                 Text="🍏 Shared2" />
+
         <Button Grid.Row="4" Grid.Column="0"
                 Style="{StaticResource MenuButton}"
                 Command="{Binding ForwardCommand}"
@@ -63,20 +71,21 @@
                 Command="{Binding ForwardCommand}"
                 CommandParameter="{markup:ViewId NavigateCancel}"
                 Text="🍉 Cancel" />
+
         <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                 Style="{StaticResource MenuButton}"
-                Command="{Binding ForwardCommand}"
-                IsEnabled="False"
+                Command="{Binding ModalCommand}"
                 Text="🍓 Modal" />
+
         <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
                 Style="{StaticResource MenuButton}"
                 IsEnabled="False"
                 Text="" />
+
         <Button Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
                 Style="{StaticResource MenuButton}"
                 IsEnabled="False"
                 Text="" />
-
     </Grid>
 
 </ContentView>

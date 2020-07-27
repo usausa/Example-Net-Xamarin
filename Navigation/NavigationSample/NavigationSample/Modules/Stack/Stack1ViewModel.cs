@@ -16,7 +16,7 @@
         public Stack1ViewModel(ApplicationState applicationState)
             : base(applicationState)
         {
-            BackCommand = MakeAsyncCommand(() => Navigator.ForwardAsync(ViewId.Menu));
+            BackCommand = MakeAsyncCommand(OnNotifyBackAsync);
             PushCommand = MakeAsyncCommand<ViewId>(x => Navigator.PushAsync(x));
         }
 

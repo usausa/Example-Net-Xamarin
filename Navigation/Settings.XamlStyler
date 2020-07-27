@@ -55,6 +55,7 @@
     "IsVisible",
     "TextColor, BackgroundColor",
     "Text",
+    "Keyboard",
     "*",
     "*:*",
     "TrueValue",

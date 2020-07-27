@@ -7,7 +7,7 @@
              xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
              xmlns:shell="clr-namespace:NavigationSample.Shell;assembly=NavigationSample"
              xmlns:modules="clr-namespace:NavigationSample.Modules.Edit;assembly=NavigationSample"
-             xmlns:models="clr-namespace:NavigationSample.Models;assembly=NavigationSample"
+             xmlns:entity="clr-namespace:NavigationSample.Models.Entity;assembly=NavigationSample"
              mc:Ignorable="d"
              x:Class="NavigationSample.Modules.Edit.EditListView"
              x:DataType="{x:Type modules:EditListViewModel}"
@@ -26,8 +26,8 @@
                     <si:ListViewSelectedToCommandBehavior Command="{Binding SelectCommand}" />
                 </ListView.Behaviors>
                 <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="models:DataEntity">
-                        <ViewCell BindingContext="{Binding Source={x:Static models:DataEntity.DesignInstance}}">
+                    <DataTemplate x:DataType="entity:DataEntity">
+                        <ViewCell BindingContext="{Binding Source={x:Static entity:DataEntity.DesignInstance}}">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
@@ -56,13 +56,12 @@
             <Button Grid.Column="0"
                     Style="{StaticResource FunctionButton}"
                     Command="{Binding BackCommand}"
-                    Text="◀️" />
+                    Text="◀️ Back" />
             <Button Grid.Column="1"
                     Style="{StaticResource FunctionButton}"
                     Command="{Binding NewCommand}"
                     Text="➕" />
         </Grid>
-
     </Grid>
 
 

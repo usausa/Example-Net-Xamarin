@@ -29,13 +29,12 @@
             <Button Grid.Column="0"
                     Style="{StaticResource FunctionButton}"
                     Command="{Binding BackCommand}"
-                    Text="◀️" />
+                    Text="◀️ Back" />
             <Button Grid.Column="1"
                     Style="{StaticResource FunctionButton}"
                     IsEnabled="False"
                     Text="" />
         </Grid>
-
     </Grid>
 
 </ContentView>

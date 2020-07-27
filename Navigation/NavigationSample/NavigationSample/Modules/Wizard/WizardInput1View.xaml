@@ -27,7 +27,6 @@
                     <si:DefaultFocusBehavior />
                 </Entry.Behaviors>
             </Entry>
-
         </StackLayout>
 
         <Grid Grid.Row="1"
@@ -46,7 +45,6 @@
                     Command="{Binding NextCommand}"
                     Text="Next ▶️" />
         </Grid>
-
     </Grid>
 
 </ContentView>

@@ -13,8 +13,33 @@
              sr:BindingContextResolver.Type="{x:Type modules:SharedMain2ViewModel}"
              shell:ShellProperty.Title="SharedMain2">
 
-    <StackLayout>
-        <Label Text="Hello Xamarin.Forms!" />
-    </StackLayout>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0">
+            <Label Style="{StaticResource DefaultLabel}"
+                   Text="{Binding No.Value}" />
+        </StackLayout>
+
+        <Grid Grid.Row="1"
+              Style="{StaticResource FunctionGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    Style="{StaticResource FunctionButton}"
+                    Command="{Binding BackCommand}"
+                    Text="◀️ Back" />
+            <Button Grid.Column="1"
+                    Style="{StaticResource FunctionButton}"
+                    Command="{Binding CompleteCommand}"
+                    Text="✔" />
+        </Grid>
+    </Grid>
 
 </ContentView>

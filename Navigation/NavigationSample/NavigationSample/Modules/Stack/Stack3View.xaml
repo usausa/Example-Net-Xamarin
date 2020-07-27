@@ -38,7 +38,6 @@
                     CommandParameter="{sm:Int32 2}"
                     Text="Pop-2" />
         </Grid>
-
     </Grid>
 
 </ContentView>

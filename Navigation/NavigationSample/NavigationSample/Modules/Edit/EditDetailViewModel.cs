@@ -3,7 +3,7 @@
     using System;
     using System.Threading.Tasks;
 
-    using NavigationSample.Models;
+    using NavigationSample.Models.Entity;
     using NavigationSample.Services;
 
     using Smart.ComponentModel;
@@ -33,7 +33,7 @@
         {
             this.dataService = dataService;
 
-            BackCommand = MakeAsyncCommand(() => Navigator.ForwardAsync(ViewId.EditList));
+            BackCommand = MakeAsyncCommand(OnNotifyBackAsync);
             UpdateCommand = MakeAsyncCommand(ExecuteUpdate, () => !String.IsNullOrEmpty(Name.Value))
                 .Observe(Name);
         }

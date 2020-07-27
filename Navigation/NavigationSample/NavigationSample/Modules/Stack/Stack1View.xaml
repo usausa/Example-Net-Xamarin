@@ -37,7 +37,6 @@
                     CommandParameter="{markup:ViewId Stack2}"
                     Text="Push+1" />
         </Grid>
-
     </Grid>
 
 </ContentView>

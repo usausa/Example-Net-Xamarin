@@ -16,6 +16,10 @@
             <Color x:Key="MaterialBlueA200">#448AFF</Color>
             <Color x:Key="MaterialLightBlueA200">#40C4FF</Color>
             <Color x:Key="MaterialGreenA200">#69F0AE</Color>
+            <Color x:Key="MaterialOrange500">#FF9800</Color>
+            <Color x:Key="MaterialGray700">#616161</Color>
+
+            <Color x:Key="PopupBackgroundColor">White</Color>
 
             <!-- ================================================================================ -->
             <!-- Font -->
@@ -29,6 +33,11 @@
             <OnPlatform x:Key="ExtraBigSize" x:TypeArguments="x:Double">
                 <On Platform="iOS" Value="24.0" />
                 <On Platform="Android" Value="32.0" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="HugeSize" x:TypeArguments="x:Double">
+                <On Platform="iOS" Value="32.0" />
+                <On Platform="Android" Value="48.0" />
             </OnPlatform>
 
             <!-- ================================================================================ -->
@@ -97,6 +106,46 @@
                 <Setter Property="FontSize" Value="{StaticResource BigSize}" />
                 <Setter Property="CornerRadius" Value="0" />
                 <Setter Property="BorderWidth" Value="0" />
+            </Style>
+
+            <!-- ================================================================================ -->
+            <!-- Modal -->
+            <!-- ================================================================================ -->
+
+            <Style x:Key="DialogLayout" TargetType="StackLayout">
+                <Setter Property="CompressedLayout.IsHeadless" Value="True" />
+                <Setter Property="Spacing" Value="0" />
+            </Style>
+
+            <Style x:Key="InputGrid" TargetType="Grid">
+                <Setter Property="CompressedLayout.IsHeadless" Value="True" />
+                <Setter Property="Margin" Value="3" />
+                <Setter Property="RowSpacing" Value="3" />
+                <Setter Property="ColumnSpacing" Value="3" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <Style x:Key="InputLabel" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="{StaticResource MaterialGray700}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource HugeSize}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalTextAlignment" Value="End" />
+            </Style>
+
+            <Style x:Key="InputTextButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="{StaticResource HugeSize}" />
+                <Setter Property="BorderRadius" Value="3" />
+            </Style>
+
+            <Style x:Key="InputFunctionButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource MaterialOrange500}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource HugeSize}" />
+                <Setter Property="BorderRadius" Value="3" />
             </Style>
 
             <!-- ================================================================================ -->

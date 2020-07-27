@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using NavigationSample.Models;
+    using NavigationSample.Models.Entity;
 
     public class DataService
     {
