@@ -23,23 +23,23 @@
 
         <Label Text="CRUD"
                FontSize="Large" />
-        <Button Command="{Binding InsertCommand}"
+        <Button Command="{Binding InsertCommand, Mode=OneTime}"
                 Text="Insert" />
-        <Button Command="{Binding UpdateCommand}"
+        <Button Command="{Binding UpdateCommand, Mode=OneTime}"
                 Text="Update" />
-        <Button Command="{Binding DeleteCommand}"
+        <Button Command="{Binding DeleteCommand, Mode=OneTime}"
                 Text="Delete" />
-        <Button Command="{Binding QueryCommand}"
+        <Button Command="{Binding QueryCommand, Mode=OneTime}"
                 Text="Query" />
 
         <Label Text="Bulk"
                FontSize="Large" />
         <Label Text="{Binding BulkDataCount.Value, StringFormat='Count: {0}'}" />
-        <Button Command="{Binding BulkInsertCommand}"
+        <Button Command="{Binding BulkInsertCommand, Mode=OneTime}"
                 Text="BulkInsert" />
-        <Button Command="{Binding DeleteAllCommand}"
+        <Button Command="{Binding DeleteAllCommand, Mode=OneTime}"
                 Text="DeleteAll" />
-        <Button Command="{Binding QueryAllCommand}"
+        <Button Command="{Binding QueryAllCommand, Mode=OneTime}"
                 Text="QueryAll" />
 
     </StackLayout>
