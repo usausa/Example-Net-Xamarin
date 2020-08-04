@@ -38,11 +38,11 @@
 
             <Button Grid.Column="0"
                     Style="{StaticResource FunctionButton}"
-                    Command="{Binding BackCommand}"
+                    Command="{Binding BackCommand, Mode=OneTime}"
                     Text="◀️ Cancel" />
             <Button Grid.Column="1"
                     Style="{StaticResource FunctionButton}"
-                    Command="{Binding UpdateCommand}"
+                    Command="{Binding UpdateCommand, Mode=OneTime}"
                     Text="✔" />
         </Grid>
     </Grid>

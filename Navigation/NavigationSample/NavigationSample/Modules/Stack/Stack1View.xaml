@@ -29,11 +29,11 @@
 
             <Button Grid.Column="0"
                     Style="{StaticResource FunctionButton}"
-                    Command="{Binding BackCommand}"
+                    Command="{Binding BackCommand, Mode=OneTime}"
                     Text="Cancel" />
             <Button Grid.Column="1"
                     Style="{StaticResource FunctionButton}"
-                    Command="{Binding PushCommand}"
+                    Command="{Binding PushCommand, Mode=OneTime}"
                     CommandParameter="{markup:ViewId Stack2}"
                     Text="Push+1" />
         </Grid>

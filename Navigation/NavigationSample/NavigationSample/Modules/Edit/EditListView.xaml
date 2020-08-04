@@ -23,7 +23,7 @@
         <StackLayout Grid.Row="0">
             <ListView ItemsSource="{Binding Items}">
                 <ListView.Behaviors>
-                    <si:ListViewSelectedToCommandBehavior Command="{Binding SelectCommand}" />
+                    <si:ListViewSelectedToCommandBehavior Command="{Binding SelectCommand, Mode=OneTime}" />
                 </ListView.Behaviors>
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="entity:DataEntity">
@@ -55,11 +55,11 @@
 
             <Button Grid.Column="0"
                     Style="{StaticResource FunctionButton}"
-                    Command="{Binding BackCommand}"
+                    Command="{Binding BackCommand, Mode=OneTime}"
                     Text="◀️ Back" />
             <Button Grid.Column="1"
                     Style="{StaticResource FunctionButton}"
-                    Command="{Binding NewCommand}"
+                    Command="{Binding NewCommand, Mode=OneTime}"
                     Text="➕" />
         </Grid>
     </Grid>

@@ -32,49 +32,49 @@
 
         <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                 Style="{StaticResource MenuButton}"
-                Command="{Binding ForwardCommand}"
+                Command="{Binding ForwardCommand, Mode=OneTime}"
                 CommandParameter="{markup:ViewId EditList}"
                 Text="🍇 Edit" />
 
         <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                 Style="{StaticResource MenuButton}"
-                Command="{Binding ForwardCommand}"
+                Command="{Binding ForwardCommand, Mode=OneTime}"
                 CommandParameter="{markup:ViewId Stack1}"
                 Text="🍍 Stack" />
 
         <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
                 Style="{StaticResource MenuButton}"
-                Command="{Binding ForwardCommand}"
+                Command="{Binding ForwardCommand, Mode=OneTime}"
                 CommandParameter="{markup:ViewId WizardInput1}"
                 Text="🍑 Wizard" />
 
         <Button Grid.Row="3" Grid.Column="0"
                 Style="{StaticResource MenuButton}"
-                Command="{Binding SharedCommand}"
+                Command="{Binding SharedCommand, Mode=OneTime}"
                 CommandParameter="{markup:ViewId SharedMain1}"
                 IsEnabled="False"
                 Text="🍎 Shared1" />
         <Button Grid.Row="3" Grid.Column="1"
                 Style="{StaticResource MenuButton}"
-                Command="{Binding SharedCommand}"
+                Command="{Binding SharedCommand, Mode=OneTime}"
                 CommandParameter="{markup:ViewId SharedMain2}"
                 IsEnabled="False"
                 Text="🍏 Shared2" />
 
         <Button Grid.Row="4" Grid.Column="0"
                 Style="{StaticResource MenuButton}"
-                Command="{Binding ForwardCommand}"
+                Command="{Binding ForwardCommand, Mode=OneTime}"
                 CommandParameter="{markup:ViewId NavigateInitialize}"
                 Text="🍈 Initialize" />
         <Button Grid.Row="4" Grid.Column="1"
                 Style="{StaticResource MenuButton}"
-                Command="{Binding ForwardCommand}"
+                Command="{Binding ForwardCommand, Mode=OneTime}"
                 CommandParameter="{markup:ViewId NavigateCancel}"
                 Text="🍉 Cancel" />
 
         <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                 Style="{StaticResource MenuButton}"
-                Command="{Binding ModalCommand}"
+                Command="{Binding ModalCommand, Mode=OneTime}"
                 Text="🍓 Modal" />
 
         <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
