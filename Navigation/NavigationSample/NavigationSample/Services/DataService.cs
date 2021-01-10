@@ -7,7 +7,7 @@
 
     public class DataService
     {
-        private readonly List<DataEntity> samples = new List<DataEntity>
+        private readonly List<DataEntity> samples = new()
         {
             new DataEntity { Id = 1, Name = "Sample-1" },
             new DataEntity { Id = 2, Name = "Sample-2" },

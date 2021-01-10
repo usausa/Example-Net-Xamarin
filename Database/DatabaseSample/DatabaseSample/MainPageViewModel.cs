@@ -16,13 +16,13 @@
 
     public class MainPageViewModel : ViewModelBase
     {
-        public static MainPageViewModel DesignInstance { get; } = null; // For design
+        public static MainPageViewModel DesignInstance => null; // For design
 
         private readonly IDialogs dialogs;
 
         private readonly DataService dataService;
 
-        public NotificationValue<int> BulkDataCount { get; } = new NotificationValue<int>();
+        public NotificationValue<int> BulkDataCount { get; } = new();
 
         public AsyncCommand InsertCommand { get; }
         public AsyncCommand UpdateCommand { get; }

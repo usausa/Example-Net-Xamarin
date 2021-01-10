@@ -3,13 +3,14 @@
     using System.Threading.Tasks;
 
     using Smart.Forms.Input;
+    using Smart.Forms.ViewModels;
     using Smart.Navigation;
 
     using XamarinFormsComponents.Dialogs;
 
     public class NavigateCancelViewModel : AppViewModelBase
     {
-        public static NavigateCancelViewModel DesignInstance { get; } = null; // For design
+        public static NavigateCancelViewModel DesignInstance => null; // For design
 
         private readonly IDialogs dialogs;
 
@@ -29,7 +30,7 @@
         {
             if (!context.Attribute.IsRestore())
             {
-                await Navigator.PostActionAsync(() => ExecuteBusyAsync(async () =>
+                await Navigator.PostActionAsync(() => BusyState.Using(async () =>
                 {
                     if (await dialogs.Confirm("Cancel ?", acceptButton: "Yes", cancelButton: "No"))
                     {

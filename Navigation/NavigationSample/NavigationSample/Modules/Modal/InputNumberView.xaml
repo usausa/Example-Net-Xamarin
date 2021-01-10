@@ -33,64 +33,64 @@
 
             <Button Grid.Row="0" Grid.Column="0"
                     Style="{StaticResource InputTextButton}"
-                    Command="{Binding PushCommand, Mode=OneTime}"
+                    Command="{Binding PushCommand}"
                     CommandParameter="7"
                     Text="7" />
             <Button Grid.Row="0" Grid.Column="1"
                     Style="{StaticResource InputTextButton}"
-                    Command="{Binding PushCommand, Mode=OneTime}"
+                    Command="{Binding PushCommand}"
                     CommandParameter="8"
                     Text="8" />
             <Button Grid.Row="0" Grid.Column="2"
                     Style="{StaticResource InputTextButton}"
-                    Command="{Binding PushCommand, Mode=OneTime}"
+                    Command="{Binding PushCommand}"
                     CommandParameter="9"
                     Text="9" />
 
             <Button Grid.Row="1" Grid.Column="0"
                     Style="{StaticResource InputTextButton}"
-                    Command="{Binding PushCommand, Mode=OneTime}"
+                    Command="{Binding PushCommand}"
                     CommandParameter="4"
                     Text="4" />
             <Button Grid.Row="1" Grid.Column="1"
                     Style="{StaticResource InputTextButton}"
-                    Command="{Binding PushCommand, Mode=OneTime}"
+                    Command="{Binding PushCommand}"
                     CommandParameter="5"
                     Text="5" />
             <Button Grid.Row="1" Grid.Column="2"
                     Style="{StaticResource InputTextButton}"
-                    Command="{Binding PushCommand, Mode=OneTime}"
+                    Command="{Binding PushCommand}"
                     CommandParameter="6"
                     Text="6" />
 
             <Button Grid.Row="2" Grid.Column="0"
                     Style="{StaticResource InputTextButton}"
-                    Command="{Binding PushCommand, Mode=OneTime}"
+                    Command="{Binding PushCommand}"
                     CommandParameter="1"
                     Text="1" />
             <Button Grid.Row="2" Grid.Column="1"
                     Style="{StaticResource InputTextButton}"
-                    Command="{Binding PushCommand, Mode=OneTime}"
+                    Command="{Binding PushCommand}"
                     CommandParameter="2"
                     Text="2" />
             <Button Grid.Row="2" Grid.Column="2"
                     Style="{StaticResource InputTextButton}"
-                    Command="{Binding PushCommand, Mode=OneTime}"
+                    Command="{Binding PushCommand}"
                     CommandParameter="3"
                     Text="3" />
 
             <Button Grid.Row="3" Grid.Column="0"
                     Style="{StaticResource InputFunctionButton}"
-                    Command="{Binding ClearCommand, Mode=OneTime}"
+                    Command="{Binding ClearCommand}"
                     Text="AC" />
             <Button Grid.Row="3" Grid.Column="1"
                     Style="{StaticResource InputTextButton}"
-                    Command="{Binding PushCommand, Mode=OneTime}"
+                    Command="{Binding PushCommand}"
                     CommandParameter="0"
                     Text="0" />
             <Button Grid.Row="3" Grid.Column="2"
                     Style="{StaticResource InputFunctionButton}"
-                    Command="{Binding PopCommand, Mode=OneTime}"
+                    Command="{Binding PopCommand}"
                     Text="C" />
         </Grid>
 
@@ -101,11 +101,11 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0"
                     Style="{StaticResource FunctionButton}"
-                    Command="{Binding CloseCommand, Mode=OneTime}"
+                    Command="{Binding CloseCommand}"
                     Text="❌" />
             <Button Grid.Column="1"
                     Style="{StaticResource FunctionButton}"
-                    Command="{Binding CommitCommand, Mode=OneTime}"
+                    Command="{Binding CommitCommand}"
                     Text="✔" />
         </Grid>
     </StackLayout>

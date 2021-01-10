@@ -11,7 +11,7 @@
 
     public static class SqlHelper
     {
-        private static readonly Dictionary<Type, string> TypeMap = new Dictionary<Type, string>
+        private static readonly Dictionary<Type, string> TypeMap = new()
         {
             { typeof(string), "TEXT" },
             { typeof(DateTime), "INTEGER" },
@@ -34,7 +34,7 @@
             foreach (var column in table.Columns)
             {
                 sql.Append(column.Name);
-                sql.Append(" ");
+                sql.Append(' ');
 
                 var isNullable = column.Property.PropertyType.IsNullableType();
                 var propertyType = isNullable ? Nullable.GetUnderlyingType(column.Property.PropertyType) : column.Property.PropertyType;
@@ -65,14 +65,14 @@
                 }
 
                 sql.Length -= 2;
-                sql.Append(")");
+                sql.Append(')');
             }
             else
             {
                 sql.Length -= 2;
             }
 
-            sql.Append(")");
+            sql.Append(')');
 
             return sql.ToString();
         }

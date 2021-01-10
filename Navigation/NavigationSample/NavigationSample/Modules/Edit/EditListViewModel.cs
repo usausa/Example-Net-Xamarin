@@ -12,11 +12,11 @@
 
     public class EditListViewModel : AppViewModelBase
     {
-        public static EditListViewModel DesignInstance { get; } = null; // For design
+        public static EditListViewModel DesignInstance => null; // For design
 
         private readonly DataService dataService;
 
-        public ObservableCollection<DataEntity> Items { get; } = new ObservableCollection<DataEntity>();
+        public ObservableCollection<DataEntity> Items { get; } = new();
 
         public AsyncCommand<DataEntity> SelectCommand { get; }
 

@@ -8,11 +8,11 @@
 
     public class SharedInputViewModel : AppViewModelBase
     {
-        public static SharedInputViewModel DesignInstance { get; } = null; // For design
+        public static SharedInputViewModel DesignInstance => null; // For design
 
         private ViewId nextViewId;
 
-        public NotificationValue<string> No { get; } = new NotificationValue<string>();
+        public NotificationValue<string> No { get; } = new();
 
         public AsyncCommand BackCommand { get; }
 

@@ -8,9 +8,9 @@
 
     public class MainPageViewModel : ViewModelBase, IShellControl
     {
-        public static MainPageViewModel DesignInstance { get; } = null; // For design
+        public static MainPageViewModel DesignInstance => null; // For design
 
-        public NotificationValue<string> Title { get; } = new NotificationValue<string>();
+        public NotificationValue<string> Title { get; } = new();
 
         public ApplicationState ApplicationState { get; }
 

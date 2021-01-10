@@ -12,15 +12,15 @@
 
     public class EditDetailViewModel : AppViewModelBase
     {
-        public static EditDetailViewModel DesignInstance { get; } = null; // For design
+        public static EditDetailViewModel DesignInstance => null; // For design
 
         private readonly DataService dataService;
 
         private DataEntity entity;
 
-        public NotificationValue<bool> IsUpdate { get; } = new NotificationValue<bool>();
+        public NotificationValue<bool> IsUpdate { get; } = new();
 
-        public NotificationValue<string> Name { get; } = new NotificationValue<string>();
+        public NotificationValue<string> Name { get; } = new();
 
         public AsyncCommand BackCommand { get; }
 

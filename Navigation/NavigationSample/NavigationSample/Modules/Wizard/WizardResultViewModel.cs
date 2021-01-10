@@ -9,10 +9,10 @@
 
     public class WizardResultViewModel : AppViewModelBase
     {
-        public static WizardResultViewModel DesignInstance { get; } = null; // For design
+        public static WizardResultViewModel DesignInstance => null; // For design
 
         [Scope]
-        public NotificationValue<WizardContext> Context { get; } = new NotificationValue<WizardContext>();
+        public NotificationValue<WizardContext> Context { get; } = new();
 
         public AsyncCommand BackCommand { get; }
 

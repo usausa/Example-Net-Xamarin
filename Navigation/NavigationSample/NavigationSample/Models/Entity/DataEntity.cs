@@ -2,7 +2,7 @@
 {
     public class DataEntity
     {
-        public static DataEntity DesignInstance { get; } = null; // For design
+        public static DataEntity DesignInstance => null; // For design
 
         public int Id { get; set; }
 

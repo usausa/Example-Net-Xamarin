@@ -15,7 +15,7 @@
 
         public override DateTime Parse(object value)
         {
-            return new DateTime((long)value);
+            return new((long)value);
         }
     }
 }

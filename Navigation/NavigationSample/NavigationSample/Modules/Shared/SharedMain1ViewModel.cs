@@ -8,9 +8,9 @@
 
     public class SharedMain1ViewModel : AppViewModelBase
     {
-        public static SharedMain1ViewModel DesignInstance { get; } = null; // For design
+        public static SharedMain1ViewModel DesignInstance => null; // For design
 
-        public NotificationValue<string> No { get; } = new NotificationValue<string>();
+        public NotificationValue<string> No { get; } = new();
 
         public AsyncCommand BackCommand { get; }
 

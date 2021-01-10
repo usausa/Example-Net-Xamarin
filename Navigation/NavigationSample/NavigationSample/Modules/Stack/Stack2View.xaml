@@ -30,12 +30,12 @@
 
             <Button Grid.Column="0"
                     Style="{StaticResource FunctionButton}"
-                    Command="{Binding PopCommand, Mode=OneTime}"
+                    Command="{Binding PopCommand}"
                     CommandParameter="{sm:Int32 1}"
                     Text="Pop-1" />
             <Button Grid.Column="1"
                     Style="{StaticResource FunctionButton}"
-                    Command="{Binding PushCommand, Mode=OneTime}"
+                    Command="{Binding PushCommand}"
                     CommandParameter="{markup:ViewId Stack3}"
                     Text="Push+1" />
         </Grid>

@@ -28,7 +28,7 @@
 
             <Button Grid.Column="0"
                     Style="{StaticResource FunctionButton}"
-                    Command="{Binding BackCommand, Mode=OneTime}"
+                    Command="{Binding BackCommand}"
                     Text="◀️ Back" />
             <Button Grid.Column="1"
                     Style="{StaticResource FunctionButton}"

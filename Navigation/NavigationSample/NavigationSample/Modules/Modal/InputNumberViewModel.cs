@@ -9,9 +9,9 @@
 
     public class InputNumberViewModel : AppDialogViewModelBase, IPopupResult<string>, IPopupInitialize<NumberInputParameter>
     {
-        public static InputNumberViewModel DesignInstance { get; } = null; // For design
+        public static InputNumberViewModel DesignInstance => null; // For design
 
-        public NumberInputModel Input { get; } = new NumberInputModel();
+        public NumberInputModel Input { get; } = new();
 
         public string Result { get; private set; }
 

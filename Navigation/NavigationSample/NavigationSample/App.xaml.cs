@@ -30,7 +30,7 @@
                 .UseResolver(resolver)
                 .UseIdViewMapper(m => m.AutoRegister(Assembly.GetExecutingAssembly().ExportedTypes))
                 .ToNavigator();
-            navigator.Navigated += (sender, args) =>
+            navigator.Navigated += (_, args) =>
             {
                 // for debug
                 System.Diagnostics.Debug.WriteLine(
@@ -60,7 +60,7 @@
                 adapter.AddPopupNavigator();
             });
 
-            config.BindSingleton<INavigator>(kernel => navigator);
+            config.BindSingleton<INavigator>(_ => navigator);
 
             config.BindSingleton<ApplicationState>();
 
