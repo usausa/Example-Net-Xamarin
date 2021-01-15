@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Modules.Main
+namespace NavigationSample.Modules.Main
 {
     using System.Threading.Tasks;
 

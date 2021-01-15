@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Services
+namespace NavigationSample.Services
 {
     using System.Collections.Generic;
     using System.Linq;

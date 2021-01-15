@@ -1,4 +1,4 @@
-﻿namespace DatabaseSample.Models
+namespace DatabaseSample.Models
 {
     using Smart.Data.Mapper.Attributes;
 

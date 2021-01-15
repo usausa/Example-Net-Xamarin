@@ -1,4 +1,4 @@
-﻿namespace DatabaseSample.Droid
+namespace DatabaseSample.Droid
 {
     using Acr.UserDialogs;
 

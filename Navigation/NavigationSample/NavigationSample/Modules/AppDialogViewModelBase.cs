@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Modules
+namespace NavigationSample.Modules
 {
     using Smart.Forms.ViewModels;
 

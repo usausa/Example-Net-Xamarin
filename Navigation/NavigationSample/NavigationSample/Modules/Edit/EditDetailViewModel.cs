@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Modules.Edit
+namespace NavigationSample.Modules.Edit
 {
     using System;
     using System.Threading.Tasks;

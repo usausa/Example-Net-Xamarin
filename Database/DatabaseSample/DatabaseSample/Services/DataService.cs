@@ -1,4 +1,4 @@
-﻿namespace DatabaseSample.Services
+namespace DatabaseSample.Services
 {
     using System.Collections.Generic;
     using System.IO;

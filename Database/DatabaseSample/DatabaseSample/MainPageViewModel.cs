@@ -1,4 +1,4 @@
-﻿namespace DatabaseSample
+namespace DatabaseSample
 {
     using System;
     using System.Diagnostics;

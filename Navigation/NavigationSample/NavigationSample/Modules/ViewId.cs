@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Modules
+namespace NavigationSample.Modules
 {
     public enum ViewId
     {

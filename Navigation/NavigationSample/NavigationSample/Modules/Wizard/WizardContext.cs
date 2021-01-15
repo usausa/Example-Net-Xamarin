@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Modules.Wizard
+namespace NavigationSample.Modules.Wizard
 {
     using System;
 

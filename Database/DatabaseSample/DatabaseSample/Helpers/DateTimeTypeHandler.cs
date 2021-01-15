@@ -1,4 +1,4 @@
-﻿namespace DatabaseSample.Helpers
+namespace DatabaseSample.Helpers
 {
     using System;
     using System.Data;

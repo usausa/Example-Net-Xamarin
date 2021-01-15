@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Models.Entity
+namespace NavigationSample.Models.Entity
 {
     public class DataEntity
     {

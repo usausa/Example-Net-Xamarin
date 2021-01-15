@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Modules.Edit
+namespace NavigationSample.Modules.Edit
 {
     using System.Collections.ObjectModel;
     using System.Threading.Tasks;

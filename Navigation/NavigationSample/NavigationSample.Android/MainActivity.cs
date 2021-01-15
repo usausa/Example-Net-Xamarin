@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Droid
+namespace NavigationSample.Droid
 {
     using Acr.UserDialogs;
 

@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Markup
+namespace NavigationSample.Markup
 {
     using System;
 

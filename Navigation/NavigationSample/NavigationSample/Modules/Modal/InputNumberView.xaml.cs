@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Modules.Modal
+namespace NavigationSample.Modules.Modal
 {
     using XamarinFormsComponents.Popup;
 

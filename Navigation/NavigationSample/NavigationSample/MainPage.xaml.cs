@@ -1,4 +1,4 @@
-﻿namespace NavigationSample
+namespace NavigationSample
 {
     using System.ComponentModel;
 

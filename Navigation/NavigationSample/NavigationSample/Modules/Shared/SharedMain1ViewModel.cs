@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Modules.Shared
+namespace NavigationSample.Modules.Shared
 {
     using System.Threading.Tasks;
 

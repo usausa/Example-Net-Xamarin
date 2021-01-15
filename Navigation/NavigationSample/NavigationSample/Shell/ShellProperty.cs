@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Shell
+namespace NavigationSample.Shell
 {
     using Xamarin.Forms;
 

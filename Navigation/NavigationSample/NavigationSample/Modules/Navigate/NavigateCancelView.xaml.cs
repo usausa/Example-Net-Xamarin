@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Modules.Navigate
+namespace NavigationSample.Modules.Navigate
 {
     using Smart.Navigation.Attributes;
 

@@ -1,4 +1,4 @@
-﻿namespace NavigationSample.Models.Input
+namespace NavigationSample.Models.Input
 {
     public class NumberInputParameter
     {
