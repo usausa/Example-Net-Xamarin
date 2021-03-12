@@ -10,7 +10,6 @@
              mc:Ignorable="d"
              x:Class="NavigationSample.Modules.Shared.SharedInputView"
              x:DataType="{x:Type modules:SharedInputViewModel}"
-             BindingContext="{Binding Source={x:Static modules:SharedInputViewModel.DesignInstance}}"
              sr:BindingContextResolver.Type="{x:Type modules:SharedInputViewModel}"
              shell:ShellProperty.Title="SharedInput">
 

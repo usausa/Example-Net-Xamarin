@@ -12,8 +12,6 @@ namespace NavigationSample.Modules.Edit
 
     public class EditListViewModel : AppViewModelBase
     {
-        public static EditListViewModel DesignInstance => null; // For design
-
         private readonly DataService dataService;
 
         public ObservableCollection<DataEntity> Items { get; } = new();

@@ -8,8 +8,6 @@ namespace NavigationSample.Modules.Shared
 
     public class SharedInputViewModel : AppViewModelBase
     {
-        public static SharedInputViewModel DesignInstance => null; // For design
-
         private ViewId nextViewId;
 
         public NotificationValue<string> No { get; } = new();

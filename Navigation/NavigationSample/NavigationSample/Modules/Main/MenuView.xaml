@@ -10,7 +10,6 @@
              mc:Ignorable="d"
              x:Class="NavigationSample.Modules.Main.MenuView"
              x:DataType="{x:Type modules:MenuViewModel}"
-             BindingContext="{Binding Source={x:Static modules:MenuViewModel.DesignInstance}}"
              sr:BindingContextResolver.Type="{x:Type modules:MenuViewModel}"
              shell:ShellProperty.Title="Menu">
 

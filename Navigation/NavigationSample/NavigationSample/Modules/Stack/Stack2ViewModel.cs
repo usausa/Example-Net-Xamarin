@@ -7,8 +7,6 @@ namespace NavigationSample.Modules.Stack
 
     public class Stack2ViewModel : AppViewModelBase
     {
-        public static Stack2ViewModel DesignInstance => null; // For design
-
         public AsyncCommand<int> PopCommand { get; }
 
         public AsyncCommand<ViewId> PushCommand { get; }

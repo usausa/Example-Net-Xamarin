@@ -10,8 +10,6 @@ namespace NavigationSample.Modules.Main
 
     public class MenuViewModel : AppViewModelBase
     {
-        public static MenuViewModel DesignInstance => null; // For design
-
         private readonly IDialogs dialogs;
 
         private readonly IPopupNavigator popupNavigator;

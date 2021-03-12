@@ -9,7 +9,6 @@
              mc:Ignorable="d"
              x:Class="NavigationSample.Modules.Shared.SharedMain2View"
              x:DataType="{x:Type modules:SharedMain2ViewModel}"
-             BindingContext="{Binding Source={x:Static modules:SharedMain2ViewModel.DesignInstance}}"
              sr:BindingContextResolver.Type="{x:Type modules:SharedMain2ViewModel}"
              shell:ShellProperty.Title="SharedMain2">
 

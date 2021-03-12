@@ -9,7 +9,6 @@
              mc:Ignorable="d"
              x:Class="NavigationSample.Modules.Navigate.NavigateCancelView"
              x:DataType="{x:Type modules:NavigateCancelViewModel}"
-             BindingContext="{Binding Source={x:Static modules:NavigateCancelViewModel.DesignInstance}}"
              sr:BindingContextResolver.Type="{x:Type modules:NavigateCancelViewModel}"
              shell:ShellProperty.Title="NavigateCancel">
 

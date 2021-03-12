@@ -9,7 +9,6 @@
              mc:Ignorable="d"
              x:Class="NavigationSample.Modules.Modal.InputNumberView"
              x:DataType="{x:Type modules:InputNumberViewModel}"
-             BindingContext="{Binding Source={x:Static modules:InputNumberViewModel.DesignInstance}}"
              sr:BindingContextResolver.Type="{x:Type modules:InputNumberViewModel}"
              BackgroundColor="{StaticResource PopupBackgroundColor}"
              popup:PopupProperty.Thickness="24">

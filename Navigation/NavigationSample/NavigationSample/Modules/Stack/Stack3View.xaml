@@ -10,7 +10,6 @@
              mc:Ignorable="d"
              x:Class="NavigationSample.Modules.Stack.Stack3View"
              x:DataType="{x:Type modules:Stack3ViewModel}"
-             BindingContext="{Binding Source={x:Static modules:Stack3ViewModel.DesignInstance}}"
              sr:BindingContextResolver.Type="{x:Type modules:Stack3ViewModel}"
              shell:ShellProperty.Title="Stack3">
 

@@ -11,7 +11,6 @@
              mc:Ignorable="d"
              x:Class="NavigationSample.Modules.Edit.EditDetailView"
              x:DataType="{x:Type modules:EditDetailViewModel}"
-             BindingContext="{Binding Source={x:Static modules:EditDetailViewModel.DesignInstance}}"
              sr:BindingContextResolver.Type="{x:Type modules:EditDetailViewModel}"
              shell:ShellProperty.Title="{Binding IsUpdate.Value, StringFormat='EditDetail{0}', Converter={sm:BooleanToTextConverter True='Update', False='New'}}">
 

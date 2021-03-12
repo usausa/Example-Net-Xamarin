@@ -9,7 +9,6 @@
              mc:Ignorable="d"
              x:Class="NavigationSample.Modules.Navigate.NavigateInitializeView"
              x:DataType="{x:Type modules:NavigateInitializeViewModel}"
-             BindingContext="{Binding Source={x:Static modules:NavigateInitializeViewModel.DesignInstance}}"
              sr:BindingContextResolver.Type="{x:Type modules:NavigateInitializeViewModel}"
              shell:ShellProperty.Title="NavigateInitialize">
 

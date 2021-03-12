@@ -9,7 +9,6 @@
              mc:Ignorable="d"
              x:Class="NavigationSample.Modules.Wizard.WizardResultView"
              x:DataType="{x:Type modules:WizardResultViewModel}"
-             BindingContext="{Binding Source={x:Static modules:WizardResultViewModel.DesignInstance}}"
              sr:BindingContextResolver.Type="{x:Type modules:WizardResultViewModel}"
              shell:ShellProperty.Title="WizardResult">
 

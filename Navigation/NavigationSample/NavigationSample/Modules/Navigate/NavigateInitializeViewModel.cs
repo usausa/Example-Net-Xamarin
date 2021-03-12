@@ -10,8 +10,6 @@ namespace NavigationSample.Modules.Navigate
 
     public class NavigateInitializeViewModel : AppViewModelBase
     {
-        public static NavigateInitializeViewModel DesignInstance => null; // For design
-
         private readonly IDialogs dialogs;
 
         public AsyncCommand BackCommand { get; }

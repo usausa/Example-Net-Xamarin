@@ -8,8 +8,6 @@ namespace NavigationSample.Modules.Shared
 
     public class SharedMain2ViewModel : AppViewModelBase
     {
-        public static SharedMain2ViewModel DesignInstance => null; // For design
-
         public NotificationValue<string> No { get; } = new();
 
         public AsyncCommand BackCommand { get; }

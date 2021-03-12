@@ -7,8 +7,6 @@ namespace NavigationSample.Modules.Stack
 
     public class Stack1ViewModel : AppViewModelBase
     {
-        public static Stack1ViewModel DesignInstance => null; // For design
-
         public AsyncCommand BackCommand { get; }
 
         public AsyncCommand<ViewId> PushCommand { get; }

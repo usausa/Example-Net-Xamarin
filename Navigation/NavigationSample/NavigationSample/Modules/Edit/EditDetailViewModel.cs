@@ -12,8 +12,6 @@ namespace NavigationSample.Modules.Edit
 
     public class EditDetailViewModel : AppViewModelBase
     {
-        public static EditDetailViewModel DesignInstance => null; // For design
-
         private readonly DataService dataService;
 
         private DataEntity entity;

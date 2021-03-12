@@ -10,7 +10,6 @@
              mc:Ignorable="d"
              x:Class="NavigationSample.Modules.Wizard.WizardInput2View"
              x:DataType="{x:Type modules:WizardInput2ViewModel}"
-             BindingContext="{Binding Source={x:Static modules:WizardInput2ViewModel.DesignInstance}}"
              sr:BindingContextResolver.Type="{x:Type modules:WizardInput2ViewModel}"
              shell:ShellProperty.Title="WizardInput2">
 
