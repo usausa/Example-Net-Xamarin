@@ -10,7 +10,6 @@
              mc:Ignorable="d"
              x:Class="DatabaseSample.MainPage"
              x:DataType="{x:Type local:MainPageViewModel}"
-             BindingContext="{Binding Source={x:Static local:MainPageViewModel.DesignInstance}}"
              sr:BindingContextResolver.Type="{x:Type local:MainPageViewModel}"
              ios:Page.UseSafeArea="true"
              IsBusy="{Binding BusyState.IsBusy}">

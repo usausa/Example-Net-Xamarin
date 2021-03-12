@@ -16,8 +16,6 @@ namespace DatabaseSample
 
     public class MainPageViewModel : ViewModelBase
     {
-        public static MainPageViewModel DesignInstance => null; // For design
-
         private readonly IDialogs dialogs;
 
         private readonly DataService dataService;
