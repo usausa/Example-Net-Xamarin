@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sd="clr-namespace:Smart.Forms.Data;assembly=Smart.Forms"
+             xmlns:resources="clr-namespace:KeySample.FormsApp.Resources;assembly=KeySample.FormsApp"
+             xmlns:effects="clr-namespace:KeySample.FormsApp.Effects;assembly=KeySample.FormsApp"
+             x:Class="KeySample.FormsApp.App">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <!-- ================================================================================ -->
+            <!-- Import -->
+            <!-- ================================================================================ -->
+
+            <ResourceDictionary.MergedDictionaries>
+                <resources:MaterialColors />
+                <resources:MetroColors />
+                <resources:FontSize />
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- ================================================================================ -->
+            <!-- Value -->
+            <!-- ================================================================================ -->
+
+            <!-- Boolean -->
+
+            <x:Boolean x:Key="True">True</x:Boolean>
+            <x:Boolean x:Key="False">False</x:Boolean>
+
+            <!-- Color -->
+
+            <Color x:Key="DisabledColor">#B8B5B2</Color>
+
+            <Color x:Key="NoErrorColor">Transparent</Color>
+            <Color x:Key="ErrorColor">#EE1111</Color>
+
+            <Color x:Key="BorderColor">DarkGray</Color>
+            <Color x:Key="LineColor">Black</Color>
+
+            <Color x:Key="PopupBackgroundColor">White</Color>
+
+            <!-- ================================================================================ -->
+            <!-- Converter -->
+            <!-- ================================================================================ -->
+
+            <!-- Basic -->
+
+            <sd:ReverseConverter x:Key="ReverseConverter" />
+
+            <!-- ================================================================================ -->
+            <!-- Main -->
+            <!-- ================================================================================ -->
+
+            <Style x:Key="MainGrid" TargetType="Grid">
+                <Setter Property="CompressedLayout.IsHeadless" Value="True" />
+                <Setter Property="RowSpacing" Value="0" />
+                <Setter Property="ColumnSpacing" Value="0" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+
+            <OnPlatform x:Key="TitleHeight" x:TypeArguments="x:Double">
+                <On Platform="iOS">32.0</On>
+                <On Platform="Android">48.0</On>
+            </OnPlatform>
+
+            <Style x:Key="TitleView" TargetType="BoxView">
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroBlueDark}" />
+                <Setter Property="HeightRequest" Value="{StaticResource TitleHeight}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <OnPlatform x:Key="TitleMargin" x:TypeArguments="Thickness">
+                <On Platform="iOS">2,0,2,0</On>
+                <On Platform="Android">4,0,4,0</On>
+            </OnPlatform>
+
+            <Style x:Key="TitleLabel" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource ExtraBigSize}" />
+                <Setter Property="Margin" Value="{StaticResource TitleMargin}" />
+                <Setter Property="HeightRequest" Value="{StaticResource TitleHeight}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="ContainerLayout" TargetType="AbsoluteLayout">
+                <Setter Property="CompressedLayout.IsHeadless" Value="True" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <!-- ================================================================================ -->
+            <!-- Function -->
+            <!-- ================================================================================ -->
+
+            <OnPlatform x:Key="FunctionGridHeight" x:TypeArguments="x:Double">
+                <On Platform="iOS">40.0</On>
+                <On Platform="Android">56.0</On>
+            </OnPlatform>
+
+            <Style x:Key="FunctionGrid" TargetType="Grid">
+                <Setter Property="RowSpacing" Value="0" />
+                <Setter Property="ColumnSpacing" Value="1" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="HeightRequest" Value="{StaticResource FunctionGridHeight}" />
+            </Style>
+
+            <Style x:Key="FunctionButton" TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource MetroBlue}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Focused">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource MetroBlueDarker}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DisabledColor}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+                <!--
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroBlue}" />
+                <Style.Triggers>
+                    <Trigger TargetType="Button" Property="IsFocused" Value="True">
+                        <Setter Property="BackgroundColor" Value="{StaticResource MetroBlueDarker}" />
+                    </Trigger>
+                    <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                        <Setter Property="BackgroundColor" Value="{StaticResource MetroLighten}" />
+                    </Trigger>
+                </Style.Triggers>
+                -->
+            </Style>
+
+            <!-- ================================================================================ -->
+            <!-- Layout -->
+            <!-- ================================================================================ -->
+
+            <Style x:Key="FillGrid" TargetType="Grid">
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="RowSpacing" Value="0" />
+                <Setter Property="ColumnSpacing" Value="0" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <Style x:Key="FillLayout" TargetType="StackLayout">
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+
+            <Style x:Key="PaddingLayout" TargetType="StackLayout">
+                <Setter Property="Padding" Value="3" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+
+            <!-- ================================================================================ -->
+            <!-- Dialog -->
+            <!-- ================================================================================ -->
+
+            <Style x:Key="DialogTitleLabel" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroBlueDark}" />
+                <Setter Property="HeightRequest" Value="{StaticResource TitleHeight}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource ExtraBigSize}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <Style x:Key="InputGrid" TargetType="Grid">
+                <Setter Property="CompressedLayout.IsHeadless" Value="True" />
+                <Setter Property="Margin" Value="3" />
+                <Setter Property="RowSpacing" Value="3" />
+                <Setter Property="ColumnSpacing" Value="3" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <Style x:Key="InputLabelBase" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroGrayDark}" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource HugeSize}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <Style x:Key="LeftInputLabel"
+                   BasedOn="{StaticResource InputLabelBase}"
+                   TargetType="Label">
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+            </Style>
+
+            <Style x:Key="InputTextButton" TargetType="Button">
+                <Setter Property="FontSize" Value="{StaticResource ExtraBigSize}" />
+                <Setter Property="BorderRadius" Value="3" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource MetroLighten}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Focused">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource MetroLightenDarker}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DisabledColor}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <Style x:Key="InputFunctionButton" TargetType="Button">
+                <Setter Property="FontSize" Value="{StaticResource ExtraBigSize}" />
+                <Setter Property="BorderRadius" Value="3" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource MetroOrange}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Focused">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource MetroOrangeDarker}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DisabledColor}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <!-- ================================================================================ -->
+            <!-- Basic -->
+            <!-- ================================================================================ -->
+
+            <Style x:Key="MenuButton" TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="Margin" Value="3" />
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+                                    <Setter Property="BackgroundColor" Value="{StaticResource MetroTeal}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Focused">
+                                <VisualState.Setters>
+                                    <Setter Property="FontSize" Value="{StaticResource ExtraBigSize}" />
+                                    <Setter Property="BackgroundColor" Value="{StaticResource MetroTealDarker}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DisabledColor}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+                <!--
+                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroTeal}" />
+                <Style.Triggers>
+                    <Trigger TargetType="Button" Property="IsFocused" Value="True">
+                        <Setter Property="BackgroundColor" Value="{StaticResource MetroTealDarker}" />
+                    </Trigger>
+                    <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                        <Setter Property="BackgroundColor" Value="{StaticResource MetroLighten}" />
+                    </Trigger>
+                </Style.Triggers>
+                -->
+            </Style>
+
+            <Style x:Key="DefaultButton" TargetType="Button">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+                <Setter Property="Margin" Value="3" />
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource MetroBlue}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Focused">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource MetroBlueDarker}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource DisabledColor}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+                <!--
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroBlue}" />
+                <Style.Triggers>
+                    <Trigger TargetType="Button" Property="IsFocused" Value="True">
+                        <Setter Property="BackgroundColor" Value="{StaticResource MetroBlueDarker}" />
+                    </Trigger>
+                    <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                        <Setter Property="BackgroundColor" Value="{StaticResource MetroLighten}" />
+                    </Trigger>
+                </Style.Triggers>
+                -->
+            </Style>
+
+            <Style x:Key="DefaultCheckBox" TargetType="CheckBox" />
+
+            <Style x:Key="DefaultLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+            </Style>
+
+            <Style x:Key="DefaultEntry" TargetType="Entry">
+                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+            </Style>
+
+            <Style x:Key="InputFrame" TargetType="Frame">
+                <Setter Property="Padding" Value="3,0,3,0" />
+                <Setter Property="CornerRadius" Value="12" />
+                <Setter Property="HasShadow" Value="False" />
+                <Setter Property="BackgroundColor" Value="{StaticResource MetroLightenBrighter}" />
+                <Setter Property="BorderColor" Value="{StaticResource MetroLightenDarker}" />
+            </Style>
+
+            <Style x:Key="NoBorderEntry" TargetType="Entry">
+                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+                <Setter Property="effects:RemoveBorder.On" Value="True" />
+            </Style>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

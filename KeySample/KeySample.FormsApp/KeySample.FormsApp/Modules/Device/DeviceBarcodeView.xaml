@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:KeySample.FormsApp.Shell;assembly=KeySample.FormsApp"
+             xmlns:barcode="clr-namespace:KeySample.FormsApp.Components.Barcode;assembly=KeySample.FormsApp"
+             xmlns:behaviors="clr-namespace:KeySample.FormsApp.Behaviors;assembly=KeySample.FormsApp"
+             xmlns:modules="clr-namespace:KeySample.FormsApp.Modules.Device;assembly=KeySample.FormsApp"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Class="KeySample.FormsApp.Modules.Device.DeviceBarcodeView"
+             x:DataType="{x:Type modules:DeviceBarcodeViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:DeviceBarcodeViewModel}"
+             shell:ShellProperty.Title="Device"
+             shell:ShellProperty.Function1Text="Back"
+             shell:ShellProperty.Function1Enabled="True">
+
+    <Grid Style="{StaticResource FillGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Entry Grid.Row="0"
+               Style="{StaticResource DefaultEntry}"
+               behaviors:BarcodeEntry.Reader="{Binding BarcodeReader}"
+               behaviors:EntryBind.Model="{Binding Input1}" />
+        <Entry Grid.Row="1"
+               Style="{StaticResource DefaultEntry}"
+               behaviors:BarcodeEntry.Reader="{Binding BarcodeReader}"
+               behaviors:EntryBind.Model="{Binding Input2}" />
+        <Entry Grid.Row="2"
+               Style="{StaticResource DefaultEntry}"
+               behaviors:BarcodeEntry.Reader="{Binding BarcodeReader}"
+               behaviors:EntryBind.Model="{Binding Input3}" />
+
+        <zxing:ZXingScannerView Grid.Row="3"
+                                IsAnalyzing="False" IsScanning="True">
+            <zxing:ZXingScannerView.Behaviors>
+                <barcode:ZXingBarcodeAttachBehavior Connect="{Binding BarcodeReader}" />
+            </zxing:ZXingScannerView.Behaviors>
+        </zxing:ZXingScannerView>
+        <zxing:ZXingDefaultOverlay Grid.Row="3" />
+    </Grid>
+
+</ContentView>

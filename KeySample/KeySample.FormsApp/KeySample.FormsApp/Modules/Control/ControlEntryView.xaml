@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:KeySample.FormsApp.Shell;assembly=KeySample.FormsApp"
+             xmlns:behaviors="clr-namespace:KeySample.FormsApp.Behaviors;assembly=KeySample.FormsApp"
+             xmlns:modules="clr-namespace:KeySample.FormsApp.Modules.Control;assembly=KeySample.FormsApp"
+             x:Class="KeySample.FormsApp.Modules.Control.ControlEntryView"
+             x:DataType="{x:Type modules:ControlEntryViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:ControlEntryViewModel}"
+             shell:ShellProperty.Title="Entry"
+             shell:ShellProperty.Function1Text="Back"
+             shell:ShellProperty.Function1Enabled="True">
+
+    <StackLayout Style="{StaticResource FillLayout}">
+        <Frame Style="{StaticResource InputFrame}">
+            <Entry Style="{StaticResource NoBorderEntry}"
+                   behaviors:EntryBind.Model="{Binding Input1}" />
+        </Frame>
+        <Frame Style="{StaticResource InputFrame}">
+            <Entry Style="{StaticResource NoBorderEntry}"
+                   behaviors:EntryBind.Model="{Binding Input2}" />
+        </Frame>
+        <Frame Style="{StaticResource InputFrame}">
+            <Entry Style="{StaticResource NoBorderEntry}"
+                   behaviors:EntryBind.Model="{Binding Input3}" />
+        </Frame>
+
+        <Button Style="{StaticResource DefaultButton}"
+                Command="{Binding SwitchCommand}"
+                Text="Switch" />
+        <Button Style="{StaticResource DefaultButton}"
+                Command="{Binding SetCommand}"
+                Text="Set" />
+    </StackLayout>
+
+</ContentView>

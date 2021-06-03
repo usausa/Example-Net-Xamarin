@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "dotnet-counters": {
+      "version": "5.0.217401",
+      "commands": [
+        "dotnet-counters"
+      ]
+    },
+    "dotnet-dump": {
+      "version": "5.0.217401",
+      "commands": [
+        "dotnet-dump"
+      ]
+    },
+    "dotnet-format": {
+      "version": "5.0.211103",
+      "commands": [
+        "dotnet-format"
+      ]
+    },
+    "dotnet-gcdump": {
+      "version": "5.0.217401",
+      "commands": [
+        "dotnet-gcdump"
+      ]
+    },
+    "dotnet-pstacks": {
+      "version": "1.3.2",
+      "commands": [
+        "dotnet-pstacks"
+      ]
+    },
+    "dotnet-sos": {
+      "version": "5.0.217401",
+      "commands": [
+        "dotnet-sos"
+      ]
+    },
+    "dotnet-trace": {
+      "version": "5.0.217401",
+      "commands": [
+        "dotnet-trace"
+      ]
+    },
+    "jetbrains.resharper.globaltools": {
+      "version": "2020.3.4",
+      "commands": [
+        "jb"
+      ]
+    },
+    "dotnet-symbol": {
+      "version": "1.0.212301",
+      "commands": [
+        "dotnet-symbol"
+      ]
+    }
+  }
+}

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:si="clr-namespace:Smart.Forms.Interactivity;assembly=Smart.Forms"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:KeySample.FormsApp.Shell;assembly=KeySample.FormsApp"
+             xmlns:modules="clr-namespace:KeySample.FormsApp.Modules.Control;assembly=KeySample.FormsApp"
+             xmlns:entity="clr-namespace:KeySample.FormsApp.Models.Entity;assembly=KeySample.FormsApp"
+             x:Class="KeySample.FormsApp.Modules.Control.ControlListView"
+             x:DataType="{x:Type modules:ControlListViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:ControlListViewModel}"
+             shell:ShellProperty.Title="List"
+             shell:ShellProperty.Function1Text="Back"
+             shell:ShellProperty.Function1Enabled="True">
+
+    <Grid Style="{StaticResource FillGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Entry Grid.Row="0"
+               Style="{StaticResource DefaultEntry}" />
+        <Entry Grid.Row="1"
+               Style="{StaticResource DefaultEntry}" />
+
+        <ListView Grid.Row="2"
+                  ItemsSource="{Binding Items}">
+            <ListView.Behaviors>
+                <si:ListViewSelectedToCommandBehavior Command="{Binding SelectCommand}" />
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="entity:DataEntity">
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                                   Style="{StaticResource DefaultLabel}"
+                                   Text="{Binding Id}" />
+                            <Label Grid.Column="1"
+                                   Style="{StaticResource DefaultLabel}"
+                                   Text="{Binding Name}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label Grid.Row="3"
+               Style="{StaticResource DefaultLabel}"
+               Text="{Binding Selected.Value}" />
+
+        <Button Grid.Row="4"
+                Style="{StaticResource DefaultButton}"
+                Text="button" />
+        <Button Grid.Row="5"
+                Style="{StaticResource DefaultButton}"
+                Text="button" />
+    </Grid>
+
+</ContentView>

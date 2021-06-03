@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:input="clr-namespace:KeySample.FormsApp.Input;assembly=KeySample.FormsApp"
+             xmlns:shell="clr-namespace:KeySample.FormsApp.Shell;assembly=KeySample.FormsApp"
+             xmlns:modules="clr-namespace:KeySample.FormsApp.Modules.Dialog;assembly=KeySample.FormsApp"
+             x:Class="KeySample.FormsApp.Modules.Dialog.DialogMenuView"
+             x:DataType="{x:Type modules:DialogMenuViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:DialogMenuViewModel}"
+             shell:ShellProperty.Title="Dialog"
+             shell:ShellProperty.Function1Text="Back"
+             shell:ShellProperty.Function1Enabled="True">
+
+    <Grid Style="{StaticResource FillGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding InformationCommand}"
+                input:Shortcut.Key="Num1"
+                Text="1. Information" />
+        <Button Grid.Row="1"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ConfirmCommand}"
+                input:Shortcut.Key="Num2"
+                Text="2. Confirm" />
+        <Button Grid.Row="2"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding SelectCommand}"
+                input:Shortcut.Key="Num3"
+                Text="3. Select" />
+    </Grid>
+
+</ContentView>

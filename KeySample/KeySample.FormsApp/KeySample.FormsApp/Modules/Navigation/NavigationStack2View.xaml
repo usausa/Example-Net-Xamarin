@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:KeySample.FormsApp.Shell;assembly=KeySample.FormsApp"
+             xmlns:modules="clr-namespace:KeySample.FormsApp.Modules.Navigation;assembly=KeySample.FormsApp"
+             x:Class="KeySample.FormsApp.Modules.Navigation.NavigationStack2View"
+             x:DataType="{x:Type modules:NavigationStack2ViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:NavigationStack2ViewModel}"
+             shell:ShellProperty.Title="Navigation"
+             shell:ShellProperty.Function1Text="Back"
+             shell:ShellProperty.Function1Enabled="True">
+
+    <Grid Style="{StaticResource FillGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+    </Grid>
+
+</ContentView>

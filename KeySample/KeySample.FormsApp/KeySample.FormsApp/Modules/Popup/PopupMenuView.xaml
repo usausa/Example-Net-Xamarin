@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:input="clr-namespace:KeySample.FormsApp.Input;assembly=KeySample.FormsApp"
+             xmlns:shell="clr-namespace:KeySample.FormsApp.Shell;assembly=KeySample.FormsApp"
+             xmlns:modules="clr-namespace:KeySample.FormsApp.Modules.Popup;assembly=KeySample.FormsApp"
+             x:Class="KeySample.FormsApp.Modules.Popup.PopupMenuView"
+             x:DataType="{x:Type modules:PopupMenuViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:PopupMenuViewModel}"
+             shell:ShellProperty.Title="Popup"
+             shell:ShellProperty.Function1Text="Back"
+             shell:ShellProperty.Function1Enabled="True">
+
+    <Grid Style="{StaticResource FillGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding Popup1Command}"
+                input:Shortcut.Key="Num1"
+                Text="1. Type 1" />
+    </Grid>
+
+</ContentView>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:KeySample.FormsApp.Shell;assembly=KeySample.FormsApp"
+             xmlns:modules="clr-namespace:KeySample.FormsApp.Modules.Control;assembly=KeySample.FormsApp"
+             x:Class="KeySample.FormsApp.Modules.Control.ControlMiscView"
+             x:DataType="{x:Type modules:ControlMiscViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:ControlMiscViewModel}"
+             shell:ShellProperty.Title="Misc"
+             shell:ShellProperty.Function1Text="Back"
+             shell:ShellProperty.Function1Enabled="True">
+
+    <StackLayout Style="{StaticResource FillLayout}">
+        <Entry Style="{StaticResource DefaultEntry}" />
+        <Button Style="{StaticResource DefaultButton}"
+                Text="button" />
+        <Button Style="{StaticResource DefaultButton}"
+                Text="button" />
+
+        <Entry Style="{StaticResource DefaultEntry}" />
+
+        <CheckBox Style="{StaticResource DefaultCheckBox}" />
+
+        <Entry Style="{StaticResource DefaultEntry}" />
+
+        <Grid Style="{StaticResource FillGrid}"
+              IsEnabled="False"
+              BackgroundColor="LightGray">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Entry Grid.Row="0" Grid.Column="0"
+                   Style="{StaticResource DefaultEntry}" />
+            <Entry Grid.Row="0" Grid.Column="1"
+                   Style="{StaticResource DefaultEntry}" />
+            <Entry Grid.Row="1" Grid.Column="0"
+                   Style="{StaticResource DefaultEntry}" />
+            <Entry Grid.Row="1" Grid.Column="1"
+                   Style="{StaticResource DefaultEntry}" />
+        </Grid>
+
+        <Grid Style="{StaticResource FillGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"
+                    Style="{StaticResource DefaultButton}"
+                    Text="b1" />
+            <Button Grid.Column="1"
+                    Style="{StaticResource DefaultButton}"
+                    Text="b2" />
+            <Button Grid.Column="2"
+                    Style="{StaticResource DefaultButton}"
+                    Text="b3" />
+            <Button Grid.Column="3"
+                    Style="{StaticResource DefaultButton}"
+                    Text="b4" />
+        </Grid>
+
+        <Grid Style="{StaticResource FillGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Entry Grid.Row="0" Grid.Column="0"
+                   Style="{StaticResource DefaultEntry}" />
+            <Entry Grid.Row="0" Grid.Column="1"
+                   Style="{StaticResource DefaultEntry}" />
+            <Entry Grid.Row="1" Grid.Column="0"
+                   Style="{StaticResource DefaultEntry}" />
+            <Entry Grid.Row="1" Grid.Column="1"
+                   Style="{StaticResource DefaultEntry}" />
+        </Grid>
+    </StackLayout>
+
+</ContentView>

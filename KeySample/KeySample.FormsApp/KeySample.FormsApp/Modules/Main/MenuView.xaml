@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:input="clr-namespace:KeySample.FormsApp.Input;assembly=KeySample.FormsApp"
+             xmlns:shell="clr-namespace:KeySample.FormsApp.Shell;assembly=KeySample.FormsApp"
+             xmlns:markup="clr-namespace:KeySample.FormsApp.Markup;assembly=KeySample.FormsApp"
+             xmlns:modules="clr-namespace:KeySample.FormsApp.Modules.Main;assembly=KeySample.FormsApp"
+             x:Class="KeySample.FormsApp.Modules.Main.MenuView"
+             x:DataType="{x:Type modules:MenuViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:MenuViewModel}"
+             shell:ShellProperty.Title="Menu"
+             shell:ShellProperty.FunctionVisible="False">
+
+    <Grid Style="{StaticResource FillGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId ControlMenu}"
+                input:Shortcut.Key="Num1"
+                Text="1. Control" />
+        <Button Grid.Row="1"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId DialogMenu}"
+                input:Shortcut.Key="Num2"
+                Text="2. Dialog" />
+        <Button Grid.Row="2"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId PopupMenu}"
+                input:Shortcut.Key="Num3"
+                Text="3. Popup" />
+        <Button Grid.Row="3"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId NavigationStack1}"
+                input:Shortcut.Key="Num4"
+                Text="4. Stack" />
+        <Button Grid.Row="4"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding ForwardCommand}"
+                CommandParameter="{markup:ViewId DeviceBarcode}"
+                input:Shortcut.Key="Num5"
+                Text="5. Barcode" />
+    </Grid>
+
+</ContentView>

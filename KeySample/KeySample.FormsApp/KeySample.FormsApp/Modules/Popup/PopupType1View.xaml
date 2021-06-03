@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:popup="clr-namespace:XamarinFormsComponents.Popup;assembly=XamarinFormsComponents.Popup"
+             xmlns:input="clr-namespace:KeySample.FormsApp.Input;assembly=KeySample.FormsApp"
+             xmlns:behaviors="clr-namespace:KeySample.FormsApp.Behaviors;assembly=KeySample.FormsApp"
+             xmlns:modules="clr-namespace:KeySample.FormsApp.Modules.Popup;assembly=KeySample.FormsApp"
+             x:Class="KeySample.FormsApp.Modules.Popup.PopupType1View"
+             x:DataType="{x:Type modules:PopupType1ViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:PopupType1ViewModel}"
+             BackgroundColor="{StaticResource PopupBackgroundColor}"
+             popup:PopupProperty.Thickness="9">
+
+    <StackLayout Style="{StaticResource FillLayout}">
+        <!-- title -->
+        <Label Style="{StaticResource DialogTitleLabel}"
+               Text="{Binding Title.Value}" />
+
+        <!-- display -->
+        <Label Style="{StaticResource LeftInputLabel}"
+               Text="{Binding Input.Text}" />
+
+        <!-- pad -->
+        <Grid Style="{StaticResource InputGrid}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0"
+                    Style="{StaticResource InputTextButton}"
+                    Command="{Binding PushCommand}"
+                    CommandParameter="1"
+                    input:Shortcut.Key="Num1"
+                    Text="1" />
+            <Button Grid.Row="0" Grid.Column="1"
+                    Style="{StaticResource InputTextButton}"
+                    Command="{Binding PushCommand}"
+                    CommandParameter="2"
+                    input:Shortcut.Key="Num2"
+                    Text="2" />
+            <Button Grid.Row="0" Grid.Column="2"
+                    Style="{StaticResource InputTextButton}"
+                    Command="{Binding PushCommand}"
+                    CommandParameter="3"
+                    input:Shortcut.Key="Num3"
+                    Text="3" />
+
+            <Button Grid.Row="1" Grid.Column="0"
+                    Style="{StaticResource InputTextButton}"
+                    Command="{Binding PushCommand}"
+                    CommandParameter="4"
+                    input:Shortcut.Key="Num4"
+                    Text="4" />
+            <Button Grid.Row="1" Grid.Column="1"
+                    Style="{StaticResource InputTextButton}"
+                    Command="{Binding PushCommand}"
+                    CommandParameter="5"
+                    input:Shortcut.Key="Num5"
+                    Text="5" />
+            <Button Grid.Row="1" Grid.Column="2"
+                    Style="{StaticResource InputTextButton}"
+                    Command="{Binding PushCommand}"
+                    CommandParameter="6"
+                    input:Shortcut.Key="Num6"
+                    Text="6" />
+
+            <Button Grid.Row="2" Grid.Column="0"
+                    Style="{StaticResource InputTextButton}"
+                    Command="{Binding PushCommand}"
+                    CommandParameter="7"
+                    input:Shortcut.Key="Num7"
+                    Text="7" />
+            <Button Grid.Row="2" Grid.Column="1"
+                    Style="{StaticResource InputTextButton}"
+                    Command="{Binding PushCommand}"
+                    CommandParameter="8"
+                    input:Shortcut.Key="Num8"
+                    Text="8" />
+            <Button Grid.Row="2" Grid.Column="2"
+                    Style="{StaticResource InputTextButton}"
+                    Command="{Binding PushCommand}"
+                    CommandParameter="9"
+                    input:Shortcut.Key="Num9"
+                    Text="9" />
+
+            <Button Grid.Row="3" Grid.Column="0"
+                    Style="{StaticResource InputFunctionButton}"
+                    Command="{Binding ClearCommand}"
+                    input:Shortcut.Key="Del"
+                    Text="AC" />
+            <Button Grid.Row="3" Grid.Column="1"
+                    Style="{StaticResource InputTextButton}"
+                    Command="{Binding PushCommand}"
+                    CommandParameter="0"
+                    input:Shortcut.Key="Num0"
+                    Text="0" />
+            <Button Grid.Row="3" Grid.Column="2"
+                    Style="{StaticResource InputFunctionButton}"
+                    Command="{Binding PopCommand}"
+                    Text="C" />
+        </Grid>
+
+        <!-- function -->
+        <Grid Style="{StaticResource FunctionGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"
+                    Style="{StaticResource FunctionButton}"
+                    Command="{Binding CloseCommand}"
+                    input:Shortcut.Key="Function1"
+                    Text="Back" />
+            <Button Grid.Column="1"
+                    Style="{StaticResource FunctionButton}"
+                    Command="{Binding CommitCommand}"
+                    behaviors:Focus.Default="True"
+                    input:Shortcut.Key="Function4"
+                    Text="Commit" />
+        </Grid>
+    </StackLayout>
+
+</ContentView>
