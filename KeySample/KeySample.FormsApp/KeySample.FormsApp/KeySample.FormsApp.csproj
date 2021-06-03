@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -10,18 +10,6 @@
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Controls\**" />
-    <Compile Remove="Converters\**" />
-    <Compile Remove="Messaging\**" />
-    <EmbeddedResource Remove="Controls\**" />
-    <EmbeddedResource Remove="Converters\**" />
-    <EmbeddedResource Remove="Messaging\**" />
-    <None Remove="Controls\**" />
-    <None Remove="Converters\**" />
-    <None Remove="Messaging\**" />
-  </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Font Awesome 5 Free-Regular-400.otf" />
@@ -58,15 +46,6 @@
     <PackageReference Include="XamarinFormsComponents.Settings" Version="2.0.2" />
     <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Modules\Popup\PopupType1View.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Modules\Popup\PopupType2View.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
