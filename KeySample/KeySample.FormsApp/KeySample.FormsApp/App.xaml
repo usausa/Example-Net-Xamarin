@@ -133,17 +133,6 @@
                         </VisualStateGroup>
                     </VisualStateGroupList>
                 </Setter>
-                <!--
-                <Setter Property="BackgroundColor" Value="{StaticResource MetroBlue}" />
-                <Style.Triggers>
-                    <Trigger TargetType="Button" Property="IsFocused" Value="True">
-                        <Setter Property="BackgroundColor" Value="{StaticResource MetroBlueDarker}" />
-                    </Trigger>
-                    <Trigger TargetType="Button" Property="IsEnabled" Value="False">
-                        <Setter Property="BackgroundColor" Value="{StaticResource MetroLighten}" />
-                    </Trigger>
-                </Style.Triggers>
-                -->
             </Style>
 
             <!-- ================================================================================ -->
@@ -289,18 +278,6 @@
                         </VisualStateGroup>
                     </VisualStateGroupList>
                 </Setter>
-                <!--
-                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
-                <Setter Property="BackgroundColor" Value="{StaticResource MetroTeal}" />
-                <Style.Triggers>
-                    <Trigger TargetType="Button" Property="IsFocused" Value="True">
-                        <Setter Property="BackgroundColor" Value="{StaticResource MetroTealDarker}" />
-                    </Trigger>
-                    <Trigger TargetType="Button" Property="IsEnabled" Value="False">
-                        <Setter Property="BackgroundColor" Value="{StaticResource MetroLighten}" />
-                    </Trigger>
-                </Style.Triggers>
-                -->
             </Style>
 
             <Style x:Key="DefaultButton" TargetType="Button">
@@ -328,17 +305,6 @@
                         </VisualStateGroup>
                     </VisualStateGroupList>
                 </Setter>
-                <!--
-                <Setter Property="BackgroundColor" Value="{StaticResource MetroBlue}" />
-                <Style.Triggers>
-                    <Trigger TargetType="Button" Property="IsFocused" Value="True">
-                        <Setter Property="BackgroundColor" Value="{StaticResource MetroBlueDarker}" />
-                    </Trigger>
-                    <Trigger TargetType="Button" Property="IsEnabled" Value="False">
-                        <Setter Property="BackgroundColor" Value="{StaticResource MetroLighten}" />
-                    </Trigger>
-                </Style.Triggers>
-                -->
             </Style>
 
             <Style x:Key="DefaultCheckBox" TargetType="CheckBox" />
