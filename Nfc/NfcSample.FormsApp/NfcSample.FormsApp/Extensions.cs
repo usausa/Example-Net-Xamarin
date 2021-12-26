@@ -1,6 +1,7 @@
 namespace NfcSample.FormsApp;
 
 using System;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 using Smart.Navigation;
@@ -52,4 +53,12 @@ public static class Extensions
             await task();
         }
     }
+
+    //--------------------------------------------------------------------------------
+    // LINQ
+    //--------------------------------------------------------------------------------
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T?> source)
+        where T : class => source.Where(x => x != null)!;
 }

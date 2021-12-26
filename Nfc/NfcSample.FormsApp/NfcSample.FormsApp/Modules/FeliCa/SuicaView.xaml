@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:NfcSample.FormsApp.Shell;assembly=NfcSample.FormsApp"
+             xmlns:modules="clr-namespace:NfcSample.FormsApp.Modules.FeliCa;assembly=NfcSample.FormsApp"
+             x:Class="NfcSample.FormsApp.Modules.FeliCa.SuicaView"
+             x:DataType="{x:Type modules:SuicaViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:SuicaViewModel}"
+             shell:ShellProperty.Title="Suica"
+             shell:ShellProperty.Function1Text="Back"
+             shell:ShellProperty.Function1Enabled="True">
+
+    <StackLayout Style="{StaticResource FillLayout}">
+        <Label Style="{StaticResource NameLabel}"
+               Text="IDm" />
+        <Label Style="{StaticResource LeftValueLabel}"
+               Text="{Binding Idm.Value}" />
+        <Label Style="{StaticResource NameLabel}"
+               Text="Balance" />
+        <Label Style="{StaticResource LeftValueLabel}"
+               Text="{Binding Access.Value.Balance, StringFormat='{0:#,0}'}" />
+    </StackLayout>
+
+</ContentView>

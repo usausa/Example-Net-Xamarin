@@ -6,7 +6,6 @@ using Smart.Forms.Resolver;
 using Smart.Navigation;
 using Smart.Resolver;
 
-using NfcSample.FormsApp.Components.Dialog;
 using NfcSample.FormsApp.Helpers;
 using NfcSample.FormsApp.Modules;
 using NfcSample.FormsApp.State;
@@ -16,8 +15,6 @@ using XamarinFormsComponents.Popup;
 
 public partial class App
 {
-    private readonly SmartResolver resolver;
-
     private readonly Navigator navigator;
 
     public App(IComponentProvider provider)
@@ -25,7 +22,7 @@ public partial class App
         InitializeComponent();
 
         // Config Resolver
-        resolver = CreateResolver(provider);
+        var resolver = CreateResolver(provider);
         ResolveProvider.Default.UseSmartResolver(resolver);
 
         // Config Navigator
@@ -80,21 +77,8 @@ public partial class App
 
     protected override async void OnStart()
     {
-        var dialogs = resolver.Get<IApplicationDialog>();
-
         // Crash report
         await CrashReportHelper.ShowReport();
-
-        // Permission
-        while (await Permissions.IsPermissionRequired())
-        {
-            await Permissions.RequestPermissions();
-
-            if (await Permissions.IsPermissionRequired())
-            {
-                await dialogs.Information("Permission required.");
-            }
-        }
 
         // Navigate
         await navigator.ForwardAsync(ViewId.Menu);

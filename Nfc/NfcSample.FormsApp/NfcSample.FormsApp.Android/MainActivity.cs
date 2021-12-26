@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Acr.UserDialogs;
 
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
@@ -16,10 +17,10 @@ using Android.Views;
 using Smart.Forms.Resolver;
 using Smart.Resolver;
 
-using NfcSample.FormsApp.Components.Device;
 using NfcSample.FormsApp.Components.Dialog;
-using NfcSample.FormsApp.Droid.Components.Device;
+using NfcSample.FormsApp.Components.Nfc;
 using NfcSample.FormsApp.Droid.Components.Dialog;
+using NfcSample.FormsApp.Droid.Components.Nfc;
 using NfcSample.FormsApp.Helpers;
 
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
@@ -37,7 +38,7 @@ using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 {
     [AllowNull]
-    private DeviceManager deviceManager;
+    private AndroidNfcReader nfcReader;
 
     protected override void OnCreate(Bundle savedInstanceState)
     {
@@ -50,7 +51,7 @@ public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivit
         AndroidEnvironment.UnhandledExceptionRaiser += (_, args) => CrashReport(args.Exception);
 
         // Service
-        deviceManager = new DeviceManager(this);
+        nfcReader = new AndroidNfcReader(this);
 
         // Components
         UserDialogs.Init(this);
@@ -73,6 +74,27 @@ public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivit
         base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+    protected override void OnPause()
+    {
+        nfcReader.Pause();
+
+        base.OnPause();
+    }
+
+    protected override void OnResume()
+    {
+        base.OnResume();
+
+        nfcReader.Resume();
+    }
+
+    protected override void OnNewIntent(Intent intent)
+    {
+        base.OnNewIntent(intent);
+
+        nfcReader.OnNewIntent(intent);
+    }
+
     private static void CrashReport(Exception ex)
     {
         Log.Error("CrashReport", ex.ToString());
@@ -93,7 +115,7 @@ public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivit
             config.Bind<Activity>().ToConstant(activity).InSingletonScope();
 
             config.Bind<IApplicationDialog>().To<ApplicationDialog>().InSingletonScope();
-            config.Bind<IDeviceManager>().ToConstant(activity.deviceManager).InSingletonScope();
+            config.Bind<INfcReader>().ToConstant(activity.nfcReader).InSingletonScope();
         }
     }
 }
