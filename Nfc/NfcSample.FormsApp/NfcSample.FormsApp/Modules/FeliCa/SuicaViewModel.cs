@@ -28,27 +28,27 @@ public class SuicaViewModel : AppViewModelBase
     {
         this.nfcReader = nfcReader;
 
-        Disposables.Add(nfcReader.TechDiscovered
+        Disposables.Add(nfcReader.Discovered
             .ObserveOn(SynchronizationContext.Current)
-            .Subscribe(OnTechDiscovered));
-    }
-
-    public override void OnNavigatingFrom(INavigationContext context)
-    {
-        nfcReader.NfcType = NfcType.TypeF;
-        nfcReader.Enable = false;
+            .Subscribe(OnDiscovered));
     }
 
     public override void OnNavigatingTo(INavigationContext context)
     {
+        nfcReader.NfcType = NfcType.Suica;
         nfcReader.Enable = true;
+    }
+
+    public override void OnNavigatingFrom(INavigationContext context)
+    {
+        nfcReader.Enable = false;
     }
 
     protected override Task OnNotifyBackAsync() => Navigator.ForwardAsync(ViewId.Menu);
 
     protected override Task OnNotifyFunction1() => OnNotifyBackAsync();
 
-    private void OnTechDiscovered(INfc nfc)
+    private void OnDiscovered(INfc nfc)
     {
         Idm.Value = string.Empty;
         Access.Value = null;

@@ -6,6 +6,6 @@ namespace NfcSample.FormsApp.Components.Nfc
 
         public bool Enable { get; set; }
 
-        IObservable<INfc> TechDiscovered { get; }
+        IObservable<INfc> Discovered { get; }
     }
 }

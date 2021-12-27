@@ -9,8 +9,6 @@ using NfcSample.FormsApp.Components.Nfc;
 
 public sealed class AndroidNfcF : INfc
 {
-    public NfcType NfcType => NfcType.TypeF;
-
     private readonly NfcF nfc;
 
     public byte[] Id { get; }

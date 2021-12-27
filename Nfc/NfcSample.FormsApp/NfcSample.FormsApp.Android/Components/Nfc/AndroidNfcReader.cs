@@ -2,6 +2,7 @@ namespace NfcSample.FormsApp.Droid.Components.Nfc;
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reactive.Subjects;
 
@@ -22,7 +23,7 @@ public sealed class AndroidNfcReader : INfcReader
 
     private bool enabled;
 
-    public IObservable<INfc> TechDiscovered => subject;
+    public IObservable<INfc> Discovered => subject;
 
     public NfcType NfcType { get; set; }
 
@@ -74,10 +75,7 @@ public sealed class AndroidNfcReader : INfcReader
         var techLists = new List<string[]>();
         switch (NfcType)
         {
-            case NfcType.TypeA:
-                techLists.Add(new[] { "android.nfc.tech.NfcA" });
-                break;
-            case NfcType.TypeF:
+            case NfcType.Suica:
                 techLists.Add(new[] { "android.nfc.tech.NfcF" });
                 break;
         }
@@ -86,7 +84,7 @@ public sealed class AndroidNfcReader : INfcReader
         nfcAdapter.EnableForegroundDispatch(
             activity,
             PendingIntent.GetActivity(activity, 0, intent, PendingIntentFlags.Mutable),
-            new[] { new IntentFilter(NfcAdapter.ActionTechDiscovered) },
+            new[] { new IntentFilter(NfcAdapter.ActionNdefDiscovered) },
             techLists.ToArray());
     }
 
@@ -97,6 +95,7 @@ public sealed class AndroidNfcReader : INfcReader
 
     public void OnNewIntent(Intent intent)
     {
+        Debug.WriteLine(intent.Action);
         if (intent.Action == NfcAdapter.ActionTechDiscovered)
         {
             try
@@ -105,17 +104,9 @@ public sealed class AndroidNfcReader : INfcReader
                 var tag = (Tag)intent.GetParcelableExtra(NfcAdapter.ExtraTag)!;
 
                 var list = tag.GetTechList()!;
-                if (list.Any(x => x == "android.nfc.tech.NfcA"))
-                {
-                    var nfc = NfcA.Get(tag)!;
-
-                    nfc.Connect();
-                    subject.OnNext(new AndroidNfcA(idm, nfc));
-                }
-                if (list.Any(x => x == "android.nfc.tech.NfcF"))
+                if ((NfcType == NfcType.Suica) && list.Any(x => x == "android.nfc.tech.NfcF"))
                 {
                     var nfc = NfcF.Get(tag)!;
-
                     nfc.Connect();
                     subject.OnNext(new AndroidNfcF(idm, nfc));
                 }
