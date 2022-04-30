@@ -7,6 +7,10 @@ namespace KeySample.FormsApp.Input
         Up = 0x26,
         Down = 0x28,
 
+        Minus = 0x2D,
+
+        Period = 0x2E,
+
         Num0 = 0x30,
         Num1,
         Num2,

@@ -31,6 +31,18 @@ namespace KeySample.FormsApp.Input
                 return false;
             }
 
+            var focused = FindFocused();
+            if (focused is not null)
+            {
+                foreach (var behavior in focused.Behaviors.OfType<IShortcutBehavior>())
+                {
+                    if (behavior.Handle(key))
+                    {
+                        return true;
+                    }
+                }
+            }
+
             if (key == KeyCode.Up)
             {
                 ElementHelper.MoveFocus(AssociatedObject, false);
@@ -43,12 +55,12 @@ namespace KeySample.FormsApp.Input
                 return true;
             }
 
-            if (((key >= KeyCode.Num0) && (key <= KeyCode.Num9)) ||
-                ((key >= KeyCode.Function1) && (key <= KeyCode.Function4)))
+            var button = (Button?)ElementHelper.EnumerateActive(AssociatedObject)
+                .FirstOrDefault(x => x is Button b && Shortcut.GetKey(b) == key);
+            if (button is not null)
             {
-                var button = (Button?)ElementHelper.EnumerateActive(AssociatedObject)
-                    .FirstOrDefault(x => x is Button b && Shortcut.GetKey(b) == key);
-                button?.SendClicked();
+                button.SendClicked();
+                return true;
             }
 
             return false;

@@ -10,14 +10,8 @@ namespace KeySample.FormsApp.Input
             typeof(Shortcut),
             null);
 
-        public static KeyCode GetKey(BindableObject view)
-        {
-            return (KeyCode)view.GetValue(KeyProperty);
-        }
+        public static KeyCode GetKey(BindableObject bindable) => (KeyCode)bindable.GetValue(KeyProperty);
 
-        public static void SetKey(BindableObject view, KeyCode value)
-        {
-            view.SetValue(KeyProperty, value);
-        }
+        public static void SetKey(BindableObject bindable, KeyCode value) => bindable.SetValue(KeyProperty, value);
     }
 }

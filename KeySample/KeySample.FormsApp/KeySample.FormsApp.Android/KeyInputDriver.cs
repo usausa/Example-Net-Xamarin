@@ -6,13 +6,27 @@ namespace KeySample.FormsApp.Droid
 
     using KeySample.FormsApp.Input;
 
+    using Xamarin.Forms;
+    using Xamarin.Forms.Platform.Android;
+
+    using ListView = Android.Widget.ListView;
+
     public class KeyInputDriver
     {
+        private static readonly ConvertEntry[] OtherEntries =
+        {
+            new(Keycode.Del, KeyCode.Del),
+            new(Keycode.Minus, KeyCode.Minus),
+            new(Keycode.Period, KeyCode.Period)
+        };
+
         private readonly Activity activity;
 
         public KeyInputDriver(Activity activity)
         {
             this.activity = activity;
+
+            DependencyService.Register<IInputService, InputService>();
         }
 
         public bool Process(KeyEvent e)
@@ -113,23 +127,48 @@ namespace KeySample.FormsApp.Droid
                 return true;
             }
 
-            // DEL
-            if (e.KeyCode == Keycode.Del)
+            // Others
+            foreach (var entry in OtherEntries)
             {
-                if (activity.CurrentFocus is EditText)
+                if (e.KeyCode == entry.AndroidKeycode)
                 {
-                    return false;
-                }
+                    if (activity.CurrentFocus is EditText)
+                    {
+                        return false;
+                    }
 
-                if (e.Action == KeyEventActions.Up)
-                {
-                    InputManager.Default.Process(KeyCode.Del);
-                }
+                    if (e.Action == KeyEventActions.Up)
+                    {
+                        InputManager.Default.Process(entry.InputKeyCode);
+                    }
 
-                return true;
+                    return true;
+                }
             }
 
             return false;
+        }
+
+        private class ConvertEntry
+        {
+            public Keycode AndroidKeycode { get; }
+
+            public KeyCode InputKeyCode { get; }
+
+            public ConvertEntry(Keycode androidKeycode, KeyCode inputKeyCode)
+            {
+                AndroidKeycode = androidKeycode;
+                InputKeyCode = inputKeyCode;
+            }
+        }
+
+        private class InputService : IInputService
+        {
+            public int ResolveSelectedPosition(Xamarin.Forms.ListView element)
+            {
+                var renderer = Platform.GetRenderer(element) as ListViewRenderer;
+                return renderer?.Control.SelectedItemPosition - 1 ?? -1;
+            }
         }
     }
 }

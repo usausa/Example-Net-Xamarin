@@ -1,6 +1,5 @@
 namespace KeySample.FormsApp.Modules
 {
-    using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;
 
     using KeySample.FormsApp.Shell;
@@ -10,8 +9,7 @@ namespace KeySample.FormsApp.Modules
 
     public class AppViewModelBase : ViewModelBase, INavigatorAware, INavigationEventSupport, INotifySupportAsync<ShellEvent>
     {
-        [AllowNull]
-        public INavigator Navigator { get; set; }
+        public INavigator Navigator { get; set; } = default!;
 
         public ApplicationState ApplicationState { get; }
 

@@ -1,6 +1,5 @@
 namespace KeySample.FormsApp.Droid.Components.Dialog
 {
-    using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;
 
     using Android.App;
@@ -46,8 +45,7 @@ namespace KeySample.FormsApp.Droid.Components.Dialog
 
             private readonly Activity activity;
 
-            [AllowNull]
-            private AlertDialog alertDialog;
+            private AlertDialog alertDialog = default!;
 
             public InformationDialog(Activity activity)
             {
@@ -95,8 +93,7 @@ namespace KeySample.FormsApp.Droid.Components.Dialog
 
             private readonly Activity activity;
 
-            [AllowNull]
-            private AlertDialog alertDialog;
+            private AlertDialog alertDialog = default!;
 
             private bool positive;
 
@@ -149,8 +146,7 @@ namespace KeySample.FormsApp.Droid.Components.Dialog
 
             private readonly Activity activity;
 
-            [AllowNull]
-            private AlertDialog alertDialog;
+            private AlertDialog alertDialog = default!;
 
             public SelectDialog(Activity activity)
             {

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:si="clr-namespace:Smart.Forms.Interactivity;assembly=Smart.Forms"
              xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:input="clr-namespace:KeySample.FormsApp.Input;assembly=KeySample.FormsApp"
              xmlns:shell="clr-namespace:KeySample.FormsApp.Shell;assembly=KeySample.FormsApp"
              xmlns:modules="clr-namespace:KeySample.FormsApp.Modules.Control;assembly=KeySample.FormsApp"
              xmlns:entity="clr-namespace:KeySample.FormsApp.Models.Entity;assembly=KeySample.FormsApp"
@@ -32,6 +33,8 @@
                   ItemsSource="{Binding Items}">
             <ListView.Behaviors>
                 <si:ListViewSelectedToCommandBehavior Command="{Binding SelectCommand}" />
+                <input:ListViewShortcutBehavior Command="{Binding DeleteCommand}"
+                                                KeyCode="Del" />
             </ListView.Behaviors>
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="entity:DataEntity">

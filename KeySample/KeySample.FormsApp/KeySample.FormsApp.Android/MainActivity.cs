@@ -1,7 +1,5 @@
 namespace KeySample.FormsApp.Droid
 {
-    using System.Diagnostics.CodeAnalysis;
-
     using Acr.UserDialogs;
 
     using Android.App;
@@ -28,8 +26,7 @@ namespace KeySample.FormsApp.Droid
         WindowSoftInputMode = SoftInput.AdjustResize)]
     public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        [AllowNull]
-        private KeyInputDriver keyInputDriver;
+        private KeyInputDriver keyInputDriver = default!;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {

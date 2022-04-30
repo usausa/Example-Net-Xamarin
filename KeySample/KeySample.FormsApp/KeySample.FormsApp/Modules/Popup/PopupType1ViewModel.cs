@@ -1,6 +1,5 @@
 namespace KeySample.FormsApp.Modules.Popup
 {
-    using System.Diagnostics.CodeAnalysis;
     using System.Threading.Tasks;
     using System.Windows.Input;
 
@@ -16,8 +15,7 @@ namespace KeySample.FormsApp.Modules.Popup
     {
         private readonly IApplicationDialog dialogs;
 
-        [AllowNull]
-        private string currentText;
+        private string currentText = default!;
 
         public NotificationValue<string> Title { get; } = new();
 
