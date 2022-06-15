@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <CodeAnalysisRuleSet>..\..\BluetoothSample.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Converters\**" />
+    <EmbeddedResource Remove="Converters\**" />
+    <None Remove="Converters\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Font Awesome 5 Free-Regular-400.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.2.0.564" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.6" />
+    <PackageReference Include="System.Interactive" Version="6.0.1" />
+    <PackageReference Include="System.Linq.Async" Version="6.0.1" />
+    <PackageReference Include="System.Reactive" Version="5.0.0" />
+    <PackageReference Include="System.Text.Json" Version="6.0.5" />
+    <PackageReference Include="Usa.Smart.Core" Version="2.1.0" />
+    <PackageReference Include="Usa.Smart.Forms" Version="2.4.0" />
+    <PackageReference Include="Usa.Smart.Forms.Reactive" Version="2.4.0" />
+    <PackageReference Include="Usa.Smart.Forms.Resolver" Version="2.4.0" />
+    <PackageReference Include="Usa.Smart.Navigation" Version="2.3.0" />
+    <PackageReference Include="Usa.Smart.Navigation.Forms" Version="2.3.0" />
+    <PackageReference Include="Usa.Smart.Navigation.Resolver" Version="2.3.0" />
+    <PackageReference Include="Usa.Smart.Reactive" Version="2.1.0" />
+    <PackageReference Include="Usa.Smart.Resolver" Version="2.1.0" />
+    <PackageReference Include="Usa.Smart.Resolver.Xamarin" Version="2.1.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2478" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="XamarinFormsComponents.Core" Version="2.1.0" />
+    <PackageReference Include="XamarinFormsComponents.Dialogs" Version="2.1.0" />
+    <PackageReference Include="XamarinFormsComponents.Resolver.Smart" Version="2.1.0" />
+  </ItemGroup>
+
+</Project>

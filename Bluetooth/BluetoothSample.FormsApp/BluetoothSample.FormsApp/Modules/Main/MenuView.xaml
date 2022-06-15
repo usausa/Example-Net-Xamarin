@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:BluetoothSample.FormsApp.Shell;assembly=BluetoothSample.FormsApp"
+             xmlns:modules="clr-namespace:BluetoothSample.FormsApp.Modules.Main;assembly=BluetoothSample.FormsApp"
+             x:Class="BluetoothSample.FormsApp.Modules.Main.MenuView"
+             x:DataType="{x:Type modules:MenuViewModel}"
+             sr:BindingContextResolver.Type="{x:Type modules:MenuViewModel}"
+             shell:ShellProperty.Title="Menu"
+             shell:ShellProperty.FunctionVisible="False">
+
+    <Grid Style="{StaticResource FillGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0"
+                Style="{StaticResource MenuButton}"
+                Command="{Binding PrintCommand}"
+                Text="Print" />
+    </Grid>
+
+</ContentView>

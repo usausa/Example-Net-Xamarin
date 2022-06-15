@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:sn="clr-namespace:Smart.Navigation;assembly=Smart.Navigation.Forms"
+             xmlns:sr="clr-namespace:Smart.Forms.Resolver;assembly=Smart.Forms"
+             xmlns:shell="clr-namespace:BluetoothSample.FormsApp.Shell;assembly=BluetoothSample.FormsApp"
+             xmlns:local="clr-namespace:BluetoothSample.FormsApp;assembly=BluetoothSample.FormsApp"
+             x:Class="BluetoothSample.FormsApp.MainPage"
+             x:DataType="{x:Type local:MainPageViewModel}"
+             sr:BindingContextResolver.Type="{x:Type local:MainPageViewModel}"
+             ios:Page.UseSafeArea="true"
+             IsEnabled="{Binding ApplicationState.IsBusy, Converter={StaticResource ReverseConverter}}"
+             IsBusy="{Binding ApplicationState.IsBusy}"
+             Visual="Material">
+
+    <ContentPage.Behaviors>
+        <shell:ShellUpdateBehavior Navigator="{Binding Navigator, Mode=OneTime}" />
+    </ContentPage.Behaviors>
+
+    <Grid Style="{StaticResource MainGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- header -->
+        <BoxView Grid.Row="0"
+                 Style="{StaticResource TitleView}" />
+        <Label Grid.Row="0"
+               Style="{StaticResource TitleLabel}"
+               Text="{Binding Title.Value}" />
+
+        <!-- view container -->
+        <AbsoluteLayout Grid.Row="1"
+                        Style="{StaticResource ContainerLayout}">
+            <AbsoluteLayout.Behaviors>
+                <sn:NavigationContainerBehavior Navigator="{Binding Navigator}" />
+            </AbsoluteLayout.Behaviors>
+        </AbsoluteLayout>
+
+        <!-- function -->
+        <Grid Grid.Row="2"
+              Style="{StaticResource FunctionGrid}"
+              IsVisible="{Binding FunctionVisible.Value}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"
+                    Style="{StaticResource FunctionButton1}"
+                    Command="{Binding Function1Command}"
+                    Text="{Binding Function1Text.Value}" />
+            <Button Grid.Column="1"
+                    Style="{StaticResource FunctionButton2}"
+                    Command="{Binding Function4Command}"
+                    Text="{Binding Function4Text.Value}" />
+            <Button Grid.Column="2"
+                    Style="{StaticResource FunctionButton3}"
+                    Command="{Binding Function4Command}"
+                    Text="{Binding Function4Text.Value}" />
+            <Button Grid.Column="3"
+                    Style="{StaticResource FunctionButton4}"
+                    Command="{Binding Function4Command}"
+                    Text="{Binding Function4Text.Value}" />
+        </Grid>
+    </Grid>
+
+</ContentPage>
