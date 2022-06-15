@@ -12,27 +12,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.481" />
-    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.10" />
-    <PackageReference Include="System.Interactive" Version="5.0.0" />
-    <PackageReference Include="System.Linq.Async" Version="5.0.0" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.2.0.564" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
+    <PackageReference Include="System.Interactive" Version="6.0.1" />
+    <PackageReference Include="System.Linq.Async" Version="6.0.1" />
     <PackageReference Include="System.Reactive" Version="5.0.0" />
-    <PackageReference Include="Usa.Smart.Core" Version="1.8.8" />
-    <PackageReference Include="Usa.Smart.Forms" Version="1.6.12" />
-    <PackageReference Include="Usa.Smart.Forms.Reactive" Version="1.6.12" />
-    <PackageReference Include="Usa.Smart.Forms.Resolver" Version="1.6.12" />
-    <PackageReference Include="Usa.Smart.Navigation" Version="1.4.3" />
-    <PackageReference Include="Usa.Smart.Navigation.Forms" Version="1.4.3" />
-    <PackageReference Include="Usa.Smart.Navigation.Resolver" Version="1.4.3" />
-    <PackageReference Include="Usa.Smart.Reactive" Version="1.5.1" />
-    <PackageReference Include="Usa.Smart.Resolver" Version="1.10.1" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
-    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="5.0.0.2012" />
-    <PackageReference Include="XamarinFormsComponents.Core" Version="1.1.2" />
-    <PackageReference Include="XamarinFormsComponents.Dialogs" Version="1.1.2" />
-    <PackageReference Include="XamarinFormsComponents.Popup" Version="1.1.2" />
-    <PackageReference Include="XamarinFormsComponents.Resolver.Smart" Version="1.1.2" />
+    <PackageReference Include="Usa.Smart.Core" Version="2.1.0" />
+    <PackageReference Include="Usa.Smart.Forms" Version="2.4.0" />
+    <PackageReference Include="Usa.Smart.Forms.Reactive" Version="2.4.0" />
+    <PackageReference Include="Usa.Smart.Forms.Resolver" Version="2.4.0" />
+    <PackageReference Include="Usa.Smart.Navigation" Version="2.3.0" />
+    <PackageReference Include="Usa.Smart.Navigation.Forms" Version="2.3.0" />
+    <PackageReference Include="Usa.Smart.Navigation.Resolver" Version="2.3.0" />
+    <PackageReference Include="Usa.Smart.Reactive" Version="2.1.0" />
+    <PackageReference Include="Usa.Smart.Resolver" Version="2.1.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2478" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="5.0.0.2478" />
+    <PackageReference Include="XamarinFormsComponents.Core" Version="2.1.0" />
+    <PackageReference Include="XamarinFormsComponents.Dialogs" Version="2.1.0" />
+    <PackageReference Include="XamarinFormsComponents.Popup" Version="2.1.0" />
+    <PackageReference Include="XamarinFormsComponents.Resolver.Smart" Version="2.1.0" />
   </ItemGroup>
 
 </Project>
