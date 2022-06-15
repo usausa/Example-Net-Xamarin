@@ -1,7 +1,6 @@
 namespace NfcSample.FormsApp.Droid;
 
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
 using Acr.UserDialogs;
@@ -37,8 +36,7 @@ using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
     WindowSoftInputMode = SoftInput.AdjustResize)]
 public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 {
-    [AllowNull]
-    private AndroidNfcReader nfcReader;
+    private AndroidNfcReader nfcReader = default!;
 
     protected override void OnCreate(Bundle savedInstanceState)
     {

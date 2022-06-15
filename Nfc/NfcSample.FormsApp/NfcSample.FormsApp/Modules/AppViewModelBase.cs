@@ -1,6 +1,5 @@
 namespace NfcSample.FormsApp.Modules;
 
-using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
 using Smart.Forms.ViewModels;
@@ -10,8 +9,7 @@ using NfcSample.FormsApp.Shell;
 
 public class AppViewModelBase : ViewModelBase, INavigatorAware, INavigationEventSupport, INotifySupportAsync<ShellEvent>
 {
-    [AllowNull]
-    public INavigator Navigator { get; set; }
+    public INavigator Navigator { get; set; } = default!;
 
     public ApplicationState ApplicationState { get; }
 
